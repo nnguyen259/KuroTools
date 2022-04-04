@@ -1,0 +1,8 @@
+{
+	"headers" : [
+		"SkillParam",
+		"SkillGetParam",
+		"SkillChangeParam",
+		"SkillGrendelParam"
+	]
+}

@@ -1,0 +1,34 @@
+{
+	"id": "ushort",
+	"character_restriction": "int",
+	"short": "short",
+	"flag": "toffset",
+	"category": "ubyte",
+	"element": "ubyte",
+	"empty": "data6",
+	"flag2": "toffset",
+	"targeting_data": "data4",
+	"float1": "float",
+	"float2": "float",
+	"float3": "float",
+	"effects" : {
+		"size": 5,
+		"schema": {
+			"id": "uint",
+			"value1": "uint",
+			"value2": "uint",
+			"value3": "uint"
+		}
+	},
+	"float4": "float",
+	"cast_delay": "ushort",
+	"recovery_delay": "ushort",
+	"cost": "ushort",
+	"level_learn": "short",
+	"sort_id": "ushort",
+	"data": "data2",
+	"animation": "toffset",
+	"name": "toffset",
+	"description_1": "toffset",
+	"description_2": "toffset"
+}

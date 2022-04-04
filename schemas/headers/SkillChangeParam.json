@@ -1,0 +1,6 @@
+{
+	"character_id": "ushort",
+	"data": "data2",
+	"skill_id_1": "ushort",
+	"skill_id_2": "ushort"
+}
