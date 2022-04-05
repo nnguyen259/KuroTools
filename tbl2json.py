@@ -34,7 +34,7 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
             entry_count = readint(tbl_file, 4)
             header = {
                 "name": header_name,
-                "unknown": unknown,
+                "hash": unknown,
                 "start": start_offset,
                 "length": entry_length,
                 "count": entry_count,
@@ -87,4 +87,4 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
 
 
 if __name__ == "__main__":
-    parse("tbl_files/t_skill.tbl")
+    parse("tbl_files/t_text.tbl")
