@@ -13,7 +13,7 @@ def readint(
 
 
 def readfloat(stream: BufferedReader) -> float:
-    return struct.unpack("f", stream.read(4))[0]
+    return struct.unpack("<f", stream.read(4))[0]
 
 
 def readtext(
@@ -55,7 +55,7 @@ def process_data(
     processed = 0
     if isinstance(datatype, dict):
         data = []
-        for _ in range(int(datatype["size"])):
+        for _ in range(datatype["size"]):
             inner_data = {}
             for key, value in datatype["schema"].items():
                 inner_value, data_processed = process_data(
