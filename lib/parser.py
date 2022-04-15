@@ -1,6 +1,7 @@
 from io import BufferedReader
 import struct
 from typing import Any, Literal, Tuple, Union
+from ctypes import c_int32
 
 def readint(
     stream: BufferedReader,
