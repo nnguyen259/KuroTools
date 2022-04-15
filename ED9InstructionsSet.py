@@ -368,6 +368,23 @@ def init_command_names_dicts():
         (8, 0x01)  : "Cmd_movies_01",
         (8, 0x02)  : "Cmd_movies_02",
         (9, 0x00)  : "Cmd_unknown_3_00",
+        (10, 0x00)  : "Cmd_unknown_4_00",
+        (10, 0x01)  : "Cmd_unknown_4_01",
+        (10, 0x02)  : "Cmd_unknown_4_02",
+        (10, 0x03)  : "Cmd_unknown_4_03",
+        (10, 0x04)  : "Cmd_unknown_4_04",
+        (10, 0x05)  : "Cmd_unknown_4_05",
+        (10, 0x06)  : "Cmd_unknown_4_06",
+        (10, 0x07)  : "Cmd_unknown_4_07",
+        (10, 0x08)  : "Cmd_unknown_4_08",
+        (10, 0x09)  : "Cmd_unknown_4_09",
+        (10, 0x0A)  : "Cmd_unknown_4_0A",
+        (10, 0x0B)  : "Cmd_unknown_4_0B",
+        (10, 0x0C)  : "Cmd_unknown_4_0C",
+        (10, 0x0D)  : "Cmd_unknown_4_0D",
+        (10, 0x0E)  : "Cmd_unknown_4_0E",
+        (10, 0x0F)  : "Cmd_unknown_4_0F",
+        (10, 0x10)  : "Cmd_unknown_4_10",
     (0xB, 0x00)  : "Cmd_map_00",
     (0xB, 0x01)  : "Cmd_map_01",
     (0xB, 0x02)  : "Cmd_map_02",
@@ -790,13 +807,13 @@ def OP_0(instr, stream):
         
         type = identifytype(value)
         if (type == "undefined"):
-            instr.name = "PushUndefined"
+            instr.name = "PUSHUNDEFINED"
         elif (type == "integer"):
-            instr.name = "PushInteger"
+            instr.name = "PUSHINTEGER"
         elif (type == "float"):
-            instr.name = "PushFloat"
+            instr.name = "PUSHFLOAT"
         elif (type == "string"):
-            instr.name = "PushString"
+            instr.name = "PUSHSTRING"
             actual_value = remove2MSB(value)
             if smallest_data_ptr > actual_value:
                 smallest_data_ptr = actual_value
@@ -806,70 +823,70 @@ def OP_0(instr, stream):
 def OP_1(instr, stream):
     
     size = readint(stream, 1)
-    instr.name = "Pop"
+    instr.name = "POP"
     instr.operands.append(operand(size, False))
 
 def OP_2(instr, stream):
     
     index = readint(stream, 4, signed=True)
 
-    instr.name = "RetrieveElementAtIndex"
+    instr.name = "RETRIEVEELEMENTATINDEX"
     instr.operands.append(operand(index, False))
 
 def OP_3(instr, stream):
     
     index = readint(stream, 4, signed=True)
 
-    instr.name = "RetrieveElementAtIndex2"
+    instr.name = "RETRIEVEELEMENTATINDEX2"
     instr.operands.append(operand(index, False))
 
 def OP_4(instr, stream):
     
     index = readint(stream, 4, signed=True)
 
-    instr.name = "RetrieveElementAtIndexInteger"
+    instr.name = "PUSHCONVERTINTEGER"
     instr.operands.append(operand(index, False))
 
 def OP_5(instr, stream):
     
     index = readint(stream, 4, signed=True)
 
-    instr.name = "PutBackAtIndex"
+    instr.name = "PUTBACKATINDEX"
     instr.operands.append(operand(index, False))
 
 def OP_6(instr, stream):
     
     index = readint(stream, 4, signed=True)
 
-    instr.name = "PutBack"
+    instr.name = "PUTBACK"
     instr.operands.append(operand(index, False))
 
 def OP_7(instr, stream):
     
     index = readint(stream, 4, signed=True)
 
-    instr.name = "Load32"
+    instr.name = "LOAD32"
     instr.operands.append(operand(index, False))
 
 def OP_8(instr, stream):
     
     index = readint(stream, 4, signed=True)
 
-    instr.name = "Store32"
+    instr.name = "STORE32"
     instr.operands.append(operand(index, False))
 
 def OP_9(instr, stream):
     
     index = readint(stream, 1)
 
-    instr.name = "Load8"
+    instr.name = "LOADRESULT"
     instr.operands.append(operand(index, False))
 
 def OP_A(instr, stream):
     
     index = readint(stream, 1)
 
-    instr.name = "Store8"
+    instr.name = "SAVERESULT"
     instr.operands.append(operand(index, False))
 
 def OP_B(instr, stream):
@@ -878,7 +895,7 @@ def OP_B(instr, stream):
 
     addr = readint(stream, 4)
 
-    instr.name = "JumpTo"
+    instr.name = "JUMP"
     if addr in locations_dict: #A jump exists already to this location
         label = locations_dict[addr]
     else:
@@ -892,19 +909,19 @@ def OP_C(instr, stream):
     
     function_index = readint(stream, 2)
 
-    instr.name = "Call"
+    instr.name = "CALL"
 
     instr.operands.append(operand(function_index, False))
 
 def OP_D(instr, stream):
     
-    instr.name = "Exit"
+    instr.name = "EXIT"
 
 def OP_E(instr, stream):
     global location_counter
     global locations_dict
 
-    instr.name = "JumpIfFalse"
+    instr.name = "JUMPIFFALSE"
     addr = readint(stream, 4)
     if addr in locations_dict:
         label = locations_dict[addr]
@@ -919,7 +936,7 @@ def OP_F(instr, stream):
     global location_counter
     global locations_dict
 
-    instr.name = "JumpIfTrue"
+    instr.name = "JUMPIFTRUE"
     addr = readint(stream, 4)
     if addr in locations_dict:
         label = locations_dict[addr]
@@ -932,58 +949,58 @@ def OP_F(instr, stream):
 
 def OP_10(instr, stream):
 
-    instr.name = "Add"
+    instr.name = "ADD"
 def OP_11(instr, stream):
 
-    instr.name = "Subtract"
+    instr.name = "SUBTRACT"
 def OP_12(instr, stream):
 
-    instr.name = "Multiply"
+    instr.name = "MULTIPLY"
 def OP_13(instr, stream):
 
-    instr.name = "Divide"
+    instr.name = "DIVIDE"
 def OP_14(instr, stream):
 
-    instr.name = "Modulo"
+    instr.name = "MODULO"
 def OP_15(instr, stream):
 
-    instr.name = "Equal"
+    instr.name = "EQUAL"
 def OP_16(instr, stream):
 
-    instr.name = "NonEqual"
+    instr.name = "NONEQUAL"
 def OP_17(instr, stream):
 
-    instr.name = "GreaterThan"
+    instr.name = "GREATERTHAN"
 def OP_18(instr, stream):
 
-    instr.name = "GreaterOrEq"
+    instr.name = "GREATEROREQ"
 def OP_19(instr, stream):
 
-    instr.name = "GreaterOrEq"
+    instr.name = "LOWERTHAN"
 def OP_1A(instr, stream):
 
-    instr.name = "LowerThan"
+    instr.name = "LOWEROREQ"
 def OP_1B(instr, stream):
 
-    instr.name = "And"
+    instr.name = "AND_"
 def OP_1C(instr, stream):
 
-    instr.name = "Or"
+    instr.name = "OR1"
 def OP_1D(instr, stream):
 
-    instr.name = "Or2"
+    instr.name = "OR2"
 def OP_1E(instr, stream):
 
-    instr.name = "Or3"
+    instr.name = "OR3"
 def OP_1F(instr, stream):
 
-    instr.name = "Negative"
+    instr.name = "NEGATIVE"
 def OP_20(instr, stream):
 
-    instr.name = "IsTrue"
+    instr.name = "ISTRUE"
 def OP_21(instr, stream):
 
-    instr.name = "Xor"
+    instr.name = "XOR1"
 def OP_22(instr, stream):
     global smallest_data_ptr
 
@@ -1000,7 +1017,7 @@ def OP_22(instr, stream):
         smallest_data_ptr = actual_value
     nb_args = readint(stream, 1)
     instr.operands.append(operand(nb_args, False))
-    instr.name = "CallFromAnotherScript"
+    instr.name = "CALLFROMANOTHERSCRIPT"
 def OP_23(instr, stream):
     global smallest_data_ptr
 
@@ -1015,9 +1032,9 @@ def OP_23(instr, stream):
     actual_value = remove2MSB(value)
     if smallest_data_ptr > actual_value:
         smallest_data_ptr = actual_value
+    nb_args = readint(stream, 1)
     instr.operands.append(operand(nb_args, False))
-    instr.operands.append(nb_args)
-    instr.name = "CallFromAnotherScript2"
+    instr.name = "CALLFROMANOTHERSCRIPT2"
 def OP_24(instr, stream):
     global command_dicts
     structID = readint(stream, 1)
@@ -1025,7 +1042,7 @@ def OP_24(instr, stream):
     nb_args = readint(stream, 1)
     
 
-    instr.name = "RunCommand"
+    instr.name = "RUNCMD"
     
     instr.operands.append(operand(nb_args, False)) 
     instr.operands.append(operand(commands_dict[(structID,command_op_code)], False)) #The user needs the number of arguments since it's not really apparent for the moment
@@ -1034,31 +1051,31 @@ def OP_25(instr, stream): #Not sure if it's a jump here, but it's pointing to so
     global location_counter
     global locations_dict
     addr = readint(stream, 4)
-    if addr in locations_dict:
-        label = locations_dict[addr]
-    else:
-        label = "Loc_"+ str(location_counter)
-        locations_dict[addr] = label
-        location_counter = location_counter + 1
+    #if addr in locations_dict:
+    #    label = locations_dict[addr]
+    #else:
+    #    label = "Loc_"+ str(location_counter)
+    #    locations_dict[addr] = label
+    #    location_counter = location_counter + 1
 
-    instr.operands.append(operand(label, False))
-    instr.name = "Instr_0x25"
+    instr.operands.append(operand(addr, False))
+    instr.name = "PUSHRETURNADDRESSFROMANOTHERSCRIPT"
 
 def OP_26(instr, stream):
     value = readint(stream, 2)
     instr.operands.append(operand(value, False))
-    instr.name = "AddLineMarker"
+    instr.name = "ADDLINEMARKER"
 
     
 def OP_27(instr, stream):
     value = readint(stream, 1)
     instr.operands.append(operand(value, False))
-    instr.name = "Pop2"
+    instr.name = "POP2"
 
 def OP_28(instr, stream):
     value = readint(stream, 4)
     instr.operands.append(operand(vakye, False))
-    instr.name = "DebugLogInt"
+    instr.name = "DEBUG"
 
 instruction_set = {0 : OP_0,
                    1 : OP_1,
