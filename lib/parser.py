@@ -2,7 +2,6 @@ from io import BufferedReader
 import struct
 from typing import Any, Literal, Tuple, Union
 
-
 def readint(
     stream: BufferedReader,
     size: int,
@@ -11,6 +10,19 @@ def readint(
 ) -> int:
     return int.from_bytes(stream.read(size), byteorder=endian, signed=signed)
 
+
+def readintoffset(
+    stream: BufferedReader, 
+    size: int,
+    offset: int,
+    endian: Literal["little", "big"] = "little",
+    signed: bool = False,
+) -> int:
+    return_offset = stream.tell()
+    stream.seek(offset)
+    output = readint(stream, size, signed=signed)
+    stream.seek(return_offset)
+    return output
 
 def readfloat(stream: BufferedReader) -> float:
     return struct.unpack("<f", stream.read(4))[0]
@@ -88,3 +100,38 @@ def process_data(
         raise Exception(f"Unknown data type {datatype}")
 
     return (data, processed)
+
+def remove2MSB(value: int)->int:
+    shl = value << 2 #I thought it would get rid of the 2 MSB, but it is working on a 64bits register!!!
+    sar = c_int32(shl).value >> 2
+    return sar #The fact that the last shift is arithmetic is important!! Otherwise wrong value for float and signed integer
+
+def identifytype(value: int)->str:
+    removeLSB = value & 0xC0000000
+    MSB = removeLSB >> 0x1E
+
+    if (MSB == 0):
+        return "undefined"
+    elif (MSB == 1):
+        return "integer"
+    elif (MSB == 2):
+        return "float"
+    elif (MSB == 3):
+        return "string"
+
+
+def get_actual_value_str(stream: BufferedReader, value: int)->str:
+    removeLSB = value & 0xC0000000
+    actual_value = remove2MSB(value)
+    MSB = removeLSB >> 0x1E
+    if (MSB == 3):
+        return "\"" + readtextoffset(stream, actual_value) + "\""
+    elif (MSB == 2):
+        actual_value = actual_value << 2 #No right shift for the floats
+        bytes = struct.pack("<i",actual_value)
+        return str(struct.unpack("<f", bytes)[0])
+    elif (MSB == 1):
+        return str((int(actual_value)))
+    else:
+        return str(hex(int(actual_value)))
+

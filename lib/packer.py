@@ -78,3 +78,10 @@ def pack_data(
         writeint(stream, extra_data_idx, 8)
         extra_data_idx += writetextoffset(stream, data, extra_data_idx)
     return extra_data_idx
+
+def write_dword_in_byte_array(format, bytearray, addr, value ):
+    bs = struct.pack(format, value)
+    bytearray[addr + 0] = bs[0]
+    bytearray[addr + 1] = bs[1]
+    bytearray[addr + 2] = bs[2]
+    bytearray[addr + 3] = bs[3]
