@@ -217,7 +217,11 @@ def init_command_names_dicts():
     (1, 0xB0)  : "Cmd_characters_B0",
     (1, 0xB1)  : "Cmd_characters_B1",
     (1, 0xB2)  : "Cmd_characters_B2",
-    
+    (1, 0xB3)  : "Cmd_characters_B3",
+    (1, 0xB4)  : "Cmd_characters_B4",
+	(1, 0xB5)  : "Cmd_characters_B5",
+    (1, 0xB6)  : "Cmd_characters_B6",
+	(1, 0xB7)  : "Cmd_characters_B7",
     (2, 0x00)  : "Cmd_camera_00",
     (2, 0x01)  : "Cmd_camera_01",
     (2, 0x02)  : "Cmd_camera_02",
@@ -466,6 +470,11 @@ def init_command_names_dicts():
     (0xB, 0x4E)  : "Cmd_map_4E",
     (0xB, 0x4F)  : "Cmd_map_4F",
     (0xB, 0x50)  : "Cmd_map_50",
+	(0xB, 0x51)  : "Cmd_map_51",
+	(0xB, 0x52)  : "Cmd_map_52",
+	(0xB, 0x53)  : "Cmd_map_53",
+	(0xB, 0x54)  : "Cmd_map_54",
+	(0xB, 0x55)  : "Cmd_map_55",
     (0xC, 0x00) : "Cmd_party_00",
     (0xC, 0x01) : "Cmd_party_01",
     (0xC, 0x02) : "Cmd_party_02",
@@ -764,6 +773,7 @@ def init_command_names_dicts():
     (0x19, 0x1E) : "Cmd_battlestatus_1E",
     (0x19, 0x1F) : "Cmd_battlestatus_1F",
     (0x19, 0x20) : "Cmd_battlestatus_20",
+	(0x19, 0x21) : "Cmd_battlestatus_21",
     (0x1A, 0x00) : "Cmd_shop_00",
     (0x1A, 0x01) : "Cmd_shop_01",
     (0x1A, 0x02) : "Cmd_shop_02",
@@ -776,6 +786,7 @@ def init_command_names_dicts():
     (0x1C, 0x01) : "Cmd_achievements_01",
     (0x1C, 0x02) : "Cmd_achievements_02",
     (0x1C, 0x03) : "Cmd_achievements_03",
+	(0x1C, 0x04) : "Cmd_achievements_04",
     }
     
     reverse_commands_dict =  {v: k for k, v in commands_dict.items()}
