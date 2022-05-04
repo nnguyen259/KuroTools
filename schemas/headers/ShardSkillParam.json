@@ -13,7 +13,7 @@
 	"sclm_activation_chance": "ubyte",
 	"sboost_activation_chance": "ubyte",
 	"sboost_sclm_activation_chance": "ubyte",
-    "full_boost_activation_chance": "ubyte",
+	"full_boost_activation_chance": "ubyte",
 	"empty": "ubyte",
 	"byte3": "ubyte",
 	"upgrade_id": "ushort",
@@ -36,7 +36,7 @@
 			"value3": "uint"
 		}
 	},
-	"int2": "uint",
+	"int2 ": "uint",
 	"animation": "toffset",
 	"id_for_something": "ulong",
 	"name": "toffset",
