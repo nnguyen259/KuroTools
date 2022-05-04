@@ -18,7 +18,7 @@
 	"byte3": "ubyte",
 	"upgrade_id": "ushort",
 	"empty2": "uint",
-	"flag": "toffset",
+	"flag": "data8",
 	"vengeful_one": "ulong",
 	"flag2": "toffset",
 	"activation_condition_1": "uint",
