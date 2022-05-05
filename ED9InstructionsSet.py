@@ -39,6 +39,9 @@ def init_command_names_dicts():
     (0, 0x1A) : "Cmd_system_1A",
     (0, 0x1B) : "Cmd_system_1B",
     (0, 0x1C) : "Cmd_system_1C",
+    (0, 0x1D) : "Cmd_system_1D",
+    (0, 0x1E) : "Cmd_system_1E",
+    (0, 0x1F) : "Cmd_system_1F",
     (1, 0x00)  : "Cmd_characters_00",
     (1, 0x01)  : "Cmd_characters_01",
     (1, 0x02)  : "Cmd_characters_02",
@@ -304,7 +307,7 @@ def init_command_names_dicts():
     (3, 0x28) : "Cmd_event_28",
     (3, 0x29) : "Cmd_event_29",
     (3, 0x2A) : "Cmd_event_2A",
-
+    (3, 0x2B) : "Cmd_event_2B",
     (4, 0x00)  : "Cmd_unknown_1_00",
     (4, 0x01)  : "Cmd_unknown_1_event_01",
     (4, 0x02)  : "Cmd_unknown_1_event_02",
@@ -490,6 +493,7 @@ def init_command_names_dicts():
     (0xC, 0x09) : "Cmd_party_09",
     (0xC, 0x0A) : "Cmd_party_0A",
     (0xC, 0x0B) : "Cmd_party_0B",
+    (0xC, 0x0C) : "Cmd_party_0C",
     (0xD, 0x00) : "Cmd_btl_00",
     (0xD, 0x01) : "Cmd_btl_01",
     (0xD, 0x02) : "Cmd_btl_02",
@@ -783,6 +787,7 @@ def init_command_names_dicts():
     (0x1A, 0x03) : "Cmd_shop_03",
     (0x1A, 0x04) : "Cmd_shop_04",
     (0x1A, 0x05) : "Cmd_shop_05",
+    (0x1A, 0x06) : "Cmd_shop_06",
     (0x1B, 0x00) : "Cmd_unknown_11_00",
     (0x1B, 0x01) : "Cmd_unknown_11_01",
     (0x1C, 0x00) : "Cmd_achievements_00",
@@ -790,6 +795,7 @@ def init_command_names_dicts():
     (0x1C, 0x02) : "Cmd_achievements_02",
     (0x1C, 0x03) : "Cmd_achievements_03",
 	(0x1C, 0x04) : "Cmd_achievements_04",
+    (0x1C, 0x05) : "Cmd_achievements_05",
     }
     
     reverse_commands_dict =  {v: k for k, v in commands_dict.items()}

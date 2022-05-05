@@ -4,13 +4,12 @@ from pathlib import Path
 from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str
 from script import script
 import ED9InstructionsSet 
-
+import traceback
 
 class ED9Disassembler(object):
-    def __init__(self, markers, decomp, debug):
+    def __init__(self, markers, decomp):
         self.markers = markers
         self.decomp = decomp
-        self.debug = debug
         self.smallest_data_ptr = -1
         self.dict_stacks = {}
         self.instruction_stacks = {}
@@ -845,13 +844,13 @@ class ED9Disassembler(object):
                instruction.operands[0] = ED9InstructionsSet.operand(label, False)
                #The previous instruction is likely where the call really starts, it pushes a small unsigned integer (maybe some kind of stack size allocated for the called function?)
             if (update_stack_needed):
-                if (self.debug):
-                    try:
-                        self.update_stack(instruction, stack, instruction_id)
-                    except (IndexError):
-                        pass
-                else:
+                
+                try:
                     self.update_stack(instruction, stack, instruction_id)
+                except Exception as err:
+                    print("You can ignore the following issue, which is most likely due to a wrong file construction in the first place:")
+                    print(err, traceback.format_exc())
+                
                 
                 instruction_id = instruction_id + 1
 

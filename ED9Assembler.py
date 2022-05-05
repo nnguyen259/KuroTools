@@ -5,7 +5,7 @@ import script
 import function
 from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str
 from lib.packer import write_dword_in_byte_array
-
+import traceback
 
 current_stack = []
 dict_stacks = {}#Key: Label, Value: State of the stack at the jump
@@ -375,8 +375,14 @@ def POP(value):
     global current_stack
 
     popped_els = int(value/4)
-    for i in range(popped_els):
-        current_stack.pop()
+    try:
+        for i in range(popped_els):
+            current_stack.pop()
+    except Exception as err:
+        print("You can ignore the following issue, which is most likely due to a wrong file construction in the first place:")
+        print(err)
+        traceback.print_stack()
+    
     b_arg = bytearray(struct.pack("<B", value)) 
     result = bytearray([1]) + b_arg
     bin_code_section = bin_code_section + result
