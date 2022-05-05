@@ -1,0 +1,21 @@
+{
+	"id": "uint",
+	"int1": "uint",
+	"state_name": "toffset",
+	"int2": "uint",
+	"int3": "uint",
+	"int4": "uint",
+		"effects" : {
+		"size": 3,
+		"schema": {
+			"value1": "int",
+			"value2": "int",
+			"value3": "int",
+			"value4": "int"
+		}
+	},
+	"float1": "float",
+	"long1": "ulong",
+	"long2": "ulong",
+	"flag": "toffset"
+}
