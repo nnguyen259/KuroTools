@@ -39,6 +39,16 @@ def writetextoffset(
     stream.seek(return_offset)
     return written_length
 
+def writenullterminatedarrayoffset(
+    stream: BufferedReader, data: str, offset: int
+) -> int:
+    return_offset = stream.tell()
+    stream.seek(offset)
+    for x in data:
+        stream.write(struct.pack("B", x))
+    stream.write(b'0')
+    stream.seek(return_offset)
+    return len(data) + 1
 
 def writehex(stream: BufferedReader, hexstring: str) -> int:
     return stream.write(bytes.fromhex(hexstring))
@@ -77,4 +87,7 @@ def pack_data(
     elif datatype == "toffset":
         writeint(stream, extra_data_idx, 8)
         extra_data_idx += writetextoffset(stream, data, extra_data_idx)
+    elif datatype == "null_terminated_byte_array_offset":
+        writeint(stream, extra_data_idx, 8)
+        extra_data_idx += writenullterminatedarrayoffset(stream, data, extra_data_idx)
     return extra_data_idx

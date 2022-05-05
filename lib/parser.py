@@ -38,6 +38,17 @@ def readtextoffset(stream: BufferedReader, offset: int, encoding: str = "utf-8")
     stream.seek(return_offset)
     return output.decode(encoding)
 
+def readnullterminatedbytearray(stream: BufferedReader, offset: int) -> list:
+    return_offset = stream.tell()
+    stream.seek(offset)
+    output = []
+    char = readint(stream, 1)
+    while (char != 0):
+        output.append(char)
+        char = readint(stream, 1)
+
+    stream.seek(return_offset)
+    return output
 
 def process_number(
     stream: BufferedReader, datatype: str, signed: bool = False
@@ -83,6 +94,9 @@ def process_data(
         processed += data_processed
     elif datatype == "toffset":
         data = readtextoffset(stream, readint(stream, 8))
+        processed += 8
+    elif datatype == "null_terminated_byte_array_offset":
+        data = readnullterminatedbytearray(stream, readint(stream, 8))
         processed += 8
     else:
         raise Exception(f"Unknown data type {datatype}")
