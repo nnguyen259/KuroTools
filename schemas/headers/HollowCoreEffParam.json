@@ -1,0 +1,7 @@
+{
+	"id": "uint",
+	"id_reference": "uint",
+	"state_name": "toffset",
+	"long1": "ulong",
+	"effect_name": "toffset"
+}

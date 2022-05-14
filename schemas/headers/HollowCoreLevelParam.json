@@ -1,0 +1,20 @@
+{
+	"item_id": "uint",
+	"level": "uint",
+	"int1": "int",
+	"mat": "uint",
+	"ep": "uint",
+	"effects" : {
+		"size": 7,
+		"schema": {
+			"id": "uint",
+			"value1": "uint",
+			"value2": "uint",
+			"value3": "uint",
+			"value4": "uint",
+			"value5": "uint",
+			"value6": "uint"
+		}
+	},
+	"description": "toffset"
+}
