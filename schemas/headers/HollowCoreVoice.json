@@ -1,6 +1,7 @@
 {
 	"id": "short",
-	"long1": "ulong",
-	"unknown": "toffset",
+	"int": "uint",
+	"empty": "ushort",
+	"unknown": "data8",
 	"long2": "ulong"
 }
