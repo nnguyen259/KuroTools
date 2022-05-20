@@ -106,84 +106,90 @@ class ED9Disassembler(object):
         return result
 
     def update_stack(self, instruction, stack, instruction_id):
-        functions = self.script.functions
-
-        if instruction.op_code == 0x26: 
-            pass  
-        else: 
-            
-            op_code = instruction.op_code
-            #print(str(hex(op_code)), " ", str(stack), " ", str(hex(instruction.addr)))
-            if (op_code == 1): 
-
-                popped_els = int(instruction.operands[0].value/4)
-                for i in range(popped_els):
-                    stack.pop()
-
-            elif (op_code == 0) or (op_code == 4):
+        try:
+               
                 
-                stack.append(instruction_id)
-            elif (op_code == 2) or (op_code == 3):
-                stack.append(instruction_id)
-            elif (op_code == 5): 
-                stack.pop()
-            elif (op_code == 6):  #We pop
-                index1 = int(len(stack) + instruction.operands[0].value/4)
-                index2 = stack[index1]
-                stack[index2] = instruction_id
-                stack.pop()
-            elif (op_code == 7): 
-                stack.append(instruction_id)
-            elif (op_code == 8): 
-                stack.pop()
-            elif (op_code == 9): 
-                stack.append(instruction_id)
-            elif (op_code == 0x0A): 
-                stack.pop()
-            elif (op_code == 0x0B):
-                pass
-            elif (op_code == 0x0D):
-                pass 
-            elif (op_code == 0x0C): 
-                index_fun = instruction.operands[0].value
-                called_fun = functions[index_fun]
-                varin = len(called_fun.input_args)
-                for i in range(varin + 2): 
-                    stack.pop()
-            elif (op_code == 0x0E): 
-                stack.pop()
-            elif (op_code == 0x0F):
-                stack.pop()
-            elif ((op_code >= 0x10) and(op_code <= 0x1E)):
-                stack.pop() 
-                stack.pop()
-                stack.append(instruction_id)
-            elif ((op_code >= 0x1F) and (op_code <= 0x21)): 
-                stack.pop()
-                stack.append(instruction_id)
-            elif (op_code == 0x22):
-                varin = instruction.operands[2].value
-                for i in range(varin + 5): 
-                    stack.pop()
-            elif (op_code == 0x23):
-                varin = instruction.operands[2].value
-                for i in range(varin): 
-                    stack.pop()
-                
-            elif (op_code == 0x24):
-                varin = instruction.operands[0].value
-                
-            elif (op_code == 0x25):
-                  stack.append(instruction_id)
-                  stack.append(instruction_id)
-                  stack.append(instruction_id)
-                  stack.append(instruction_id)
-                  stack.append(instruction_id)
-            elif (op_code == 0x27):
-                count = instruction.operands[0].value
-                for i in range(count):
-                    stack.pop()
+            functions = self.script.functions
 
+            if instruction.op_code == 0x26: 
+                pass  
+            else: 
+                
+                op_code = instruction.op_code
+                #print(str(hex(op_code)), " ", str(stack), " ", str(hex(instruction.addr)))
+                if (op_code == 1): 
+
+                    popped_els = int(instruction.operands[0].value/4)
+                    for i in range(popped_els):
+                        stack.pop()
+
+                elif (op_code == 0) or (op_code == 4):
+                    
+                    stack.append(instruction_id)
+                elif (op_code == 2) or (op_code == 3):
+                    stack.append(instruction_id)
+                elif (op_code == 5): 
+                    stack.pop()
+                elif (op_code == 6):  #We pop
+                    index1 = int(len(stack) + instruction.operands[0].value/4)
+                    index2 = stack[index1]
+                    stack[index2] = instruction_id
+                    stack.pop()
+                elif (op_code == 7): 
+                    stack.append(instruction_id)
+                elif (op_code == 8): 
+                    stack.pop()
+                elif (op_code == 9): 
+                    stack.append(instruction_id)
+                elif (op_code == 0x0A): 
+                    stack.pop()
+                elif (op_code == 0x0B):
+                    pass
+                elif (op_code == 0x0D):
+                    pass 
+                elif (op_code == 0x0C): 
+                    index_fun = instruction.operands[0].value
+                    called_fun = functions[index_fun]
+                    varin = len(called_fun.input_args)
+                    for i in range(varin + 2): 
+                        stack.pop()
+                elif (op_code == 0x0E): 
+                    stack.pop()
+                elif (op_code == 0x0F):
+                    stack.pop()
+                elif ((op_code >= 0x10) and(op_code <= 0x1E)):
+                    stack.pop() 
+                    stack.pop()
+                    stack.append(instruction_id)
+                elif ((op_code >= 0x1F) and (op_code <= 0x21)): 
+                    stack.pop()
+                    stack.append(instruction_id)
+                elif (op_code == 0x22):
+                    varin = instruction.operands[2].value
+                    for i in range(varin + 5): 
+                        stack.pop()
+                elif (op_code == 0x23):
+                    varin = instruction.operands[2].value
+                    for i in range(varin): 
+                        stack.pop()
+                    
+                elif (op_code == 0x24):
+                    varin = instruction.operands[0].value
+                    
+                elif (op_code == 0x25):
+                      stack.append(instruction_id)
+                      stack.append(instruction_id)
+                      stack.append(instruction_id)
+                      stack.append(instruction_id)
+                      stack.append(instruction_id)
+                elif (op_code == 0x27):
+                    count = instruction.operands[0].value
+                    for i in range(count):
+                        stack.pop()
+        except Exception as err:
+            print("You can ignore the following issue, which is most likely due to a wrong file construction in the first place:")
+            print(err, traceback.format_exc())
+                
     def add_var_to_stack(self, instruction, stack)->str:
         result = ""
         if len(stack)-1 not in self.variables_names:
@@ -313,8 +319,8 @@ class ED9Disassembler(object):
             if counter_exp == 1:
                 checkpoint = i
                 checkpoint_str = len(parameters_str) - 1
-
-            self.update_stack(instruction, copy_stack, i) 
+            
+            self.update_stack(instruction, copy_stack, i)
             i = i + 1
     
         for j in range(checkpoint_str, len(parameters_str) - 1):
@@ -561,6 +567,7 @@ class ED9Disassembler(object):
                     for i in range(1, nb_instr+1):
                         self.instructions_stacks.append(stack.copy())
                         string_list.append("")
+                       
                         self.update_stack(function.instructions[instruction_id], stack, instruction_id)
                         instruction_id = instruction_id + 1
                 else:   
@@ -614,10 +621,19 @@ class ED9Disassembler(object):
                         additional_parameters = ""
                         for param_id in params_id:
                             additional_parameters = additional_parameters + "TopVar(\"" + self.variables_names[param_id] + "\"),"
-                        if remaining_params == varin:
-                            additional_parameters = additional_parameters[:-1]
-                        decompiled_str = decompiled_str + additional_parameters + params + "]"
-
+                        additional_parameters = additional_parameters[:-1]
+                            
+                        all_params = ""
+                        if (len(additional_parameters)>0):  
+                            all_params = additional_parameters
+                        if (len(params)>0):
+                            if (len(all_params)>0):
+                                all_params = all_params + ", " + params
+                            else: 
+                                all_params = params
+                        else:
+                            all_params = all_params[:-1]
+                        decompiled_str = decompiled_str + all_params + "]"
                         for i in range(index_start, index_end + 1): 
                             string_list[i] = ""
                         #removing return address and function index too
@@ -687,9 +703,19 @@ class ED9Disassembler(object):
                         additional_parameters = ""
                         for param_id in params_id:
                             additional_parameters = additional_parameters + "TopVar(\"" + self.variables_names[param_id] + "\"),"
-                        if remaining_params == varin:
-                            additional_parameters = additional_parameters[:-1]
-                        decompiled_str = decompiled_str + additional_parameters + params + "]"
+                        additional_parameters = additional_parameters[:-1]
+                        all_params = ""
+                        if (len(additional_parameters)>0):  
+                            all_params = additional_parameters
+                            
+                        if (len(params)>0):
+                            if (len(all_params)>0):
+                                all_params = all_params + ", " + params
+                            else: 
+                                all_params = params
+                        else:
+                            all_params = all_params[:-1]
+                        decompiled_str = decompiled_str + all_params + "]"
                         
                         for i in range(index_start, index_end + 1): 
                             string_list[i] = ""
@@ -726,9 +752,20 @@ class ED9Disassembler(object):
                         additional_parameters = ""
                         for param_id in params_id:
                             additional_parameters = additional_parameters + "TopVar(\"" + self.variables_names[param_id] + "\"),"
-                        if remaining_params == varin:
-                            additional_parameters = additional_parameters[:-1]
-                        decompiled_str = decompiled_str + additional_parameters + params + "])"
+                        additional_parameters = additional_parameters[:-1]
+                        all_params = ""
+                        if (len(additional_parameters)>0):  
+                            all_params = additional_parameters
+                            
+                        if (len(params)>0):
+                            if (len(all_params)>0):
+                                all_params = all_params + ", " + params
+                            else: 
+                                all_params = params
+                        else:
+                            all_params = all_params[:-1]
+                        decompiled_str = decompiled_str + all_params + "])"
+                        
                         for i in range(index_start, index_end + 1): 
                             string_list[i] = ""
                     
@@ -844,14 +881,7 @@ class ED9Disassembler(object):
                instruction.operands[0] = ED9InstructionsSet.operand(label, False)
                #The previous instruction is likely where the call really starts, it pushes a small unsigned integer (maybe some kind of stack size allocated for the called function?)
             if (update_stack_needed):
-                
-                try:
-                    self.update_stack(instruction, stack, instruction_id)
-                except Exception as err:
-                    print("You can ignore the following issue, which is most likely due to a wrong file construction in the first place:")
-                    print(err, traceback.format_exc())
-                
-                
+                self.update_stack(instruction, stack, instruction_id)
                 instruction_id = instruction_id + 1
 
     def wrap_conversion(self, value: int)->str:
