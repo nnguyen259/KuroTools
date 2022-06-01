@@ -1,0 +1,14 @@
+{
+	"id": "uint",
+	"int1": "int",
+	"toffset1": "toffset",
+	"empty1": "long",
+	"toffset2": "toffset",
+	"long1": "long",
+	"the_actual_text": "toffset",
+	"int2": "int",
+	"int3": "int",
+	"long2": "long",
+	"copy_of_the_actual_text?": "toffset",
+	"empty2": "long"
+}
