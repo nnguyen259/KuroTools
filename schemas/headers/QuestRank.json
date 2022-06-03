@@ -1,0 +1,12 @@
+{
+	"id": "ushort",
+	"empty": "short",
+	"int1": "int",
+	"int2": "int",
+	"int3": "int",
+	"short1": "short",
+	"short2": "short",
+	"short3": "ushort",
+	"short4": "ushort"
+	"long2": "long",
+}
