@@ -3,10 +3,6 @@
 		"QuestRank",
 		"QuestChapterRank",
 		"QuestTitle",
-		"QuestText",
-		"QuestReportMessage",
-		"QuestCheckMessage",
-		"RecruitmentMember",
-		"QuestReportBackTexture"
+		"QuestText"
 	]
 }
