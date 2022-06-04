@@ -1,12 +1,6 @@
 {
-	"id": "ushort",
-	"empty": "short",
+	"id": "ulong",
+	"rank_name": "toffset",
 	"int1": "int",
-	"int2": "int",
-	"int3": "int",
-	"short1": "short",
-	"short2": "short",
-	"short3": "ushort",
-	"short4": "ushort"
-	"long2": "long",
+	"int2": "int"
 }

@@ -1,0 +1,12 @@
+{
+	"quest_id": "ushort",
+	"int1": "int",
+	"empty1": "short",
+	"quest_description": "toffset",
+	"notebook_text": "toffset",
+	"empty2": "long",
+	"objective_description_1": "data8",
+	"encoding_value": "long",
+	"objective_description_2": "data8",
+	"long2": "long"
+}
