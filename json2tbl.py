@@ -11,7 +11,7 @@ def pack(name: Union[str, bytes, os.PathLike]) -> None:
     with open(name, "r", encoding="utf-8") as inputfile:
         data = json.load(inputfile)
 
-    with open(f"{filename}.tbl", "wb") as outputfile:
+    with open(f"{filename}.tbl", "w+b") as outputfile:
         outputfile.write(b"#TBL")
         writeint(outputfile, len(data["headers"]), 4)
         for header in data["headers"]:
@@ -34,11 +34,26 @@ def pack(name: Union[str, bytes, os.PathLike]) -> None:
             all_header_data = data["data"][i]["data"]
             for header_data in all_header_data:
                 header_data: dict
+                offsets = {}
                 for key, datatype in schema.items():
+                    offsets[key] = outputfile.tell()
+                    compare = False
                     key_data = header_data[key]
-                    extra_data_idx = pack_data(
-                        outputfile, datatype, key_data, extra_data_idx
-                    )
+                    if datatype.startswith("comp:"):
+                        other_key = datatype[5:]
+                        if key_data == header_data[other_key]:
+                            compare = True
+                        else:
+                            datatype = schema[other_key]
+                    if compare:
+                        outputfile.seek(offsets[other_key])
+                        copy_data = outputfile.read(8)
+                        outputfile.seek(offsets[key])
+                        outputfile.write(copy_data)
+                    else:
+                        extra_data_idx = pack_data(
+                            outputfile, datatype, key_data, extra_data_idx
+                        )
 
         if "data_dump" in data:
             writehex(outputfile, data["data_dump"])

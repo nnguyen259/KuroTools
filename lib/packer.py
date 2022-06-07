@@ -70,11 +70,14 @@ def pack_data(
                 )
     elif datatype.startswith("data"):
         writehex(stream, data)
-    elif datatype.startswith("u"):
-        pack_number(stream, datatype[1:], data, True)
-    elif datatype in ["byte", "short", "int", "long", "float"]:
-        pack_number(stream, datatype, data, False)
-    elif datatype == "toffset":
+    elif datatype.endswith(("byte", "short", "int", "long", "float")):
+        pack_number(stream, datatype[1:], data, datatype.startswith("u"))
+    elif datatype.startswith("toffset"):
         writeint(stream, extra_data_idx, 8)
-        extra_data_idx += writetextoffset(stream, data, extra_data_idx)
+        if datatype == "toffset":
+            extra_data_idx += writetextoffset(stream, data, extra_data_idx)
+        else:
+            extra_data_idx += writetextoffset(
+                stream, data, extra_data_idx, encoding=datatype[8:]
+            )
     return extra_data_idx
