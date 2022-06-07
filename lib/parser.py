@@ -75,14 +75,16 @@ def process_data(
             hex_text[j : j + 2] for j in range(0, len(hex_text), 2)
         ).upper()
         data = hex_text
-    elif datatype.startswith("u"):
-        data, data_processed = process_number(stream, datatype[1:], True)
+    elif datatype.endswith(("byte", "short", "int", "long", "float")):
+        data, data_processed = process_number(
+            stream, datatype[1:], datatype.startswith("u")
+        )
         processed += data_processed
-    elif datatype in ["byte", "short", "int", "long", "float"]:
-        data, data_processed = process_number(stream, datatype, False)
-        processed += data_processed
-    elif datatype == "toffset":
-        data = readtextoffset(stream, readint(stream, 8))
+    elif datatype.startswith("toffset"):
+        if datatype == "toffset":
+            data = readtextoffset(stream, readint(stream, 8))
+        else:
+            data = readtextoffset(stream, readint(stream, 8), encoding=datatype[8:])
         processed += 8
     else:
         raise Exception(f"Unknown data type {datatype}")

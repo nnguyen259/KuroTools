@@ -57,6 +57,8 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
                     processed = 0
                     data = {}
                     for key, datatype in schema.items():
+                        if datatype.startswith("comp:"):
+                            datatype = schema[datatype[5:]]
                         value, processed_data = process_data(
                             tbl_file, datatype, header["length"] - processed
                         )
@@ -87,4 +89,4 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
 
 
 if __name__ == "__main__":
-    parse("tbl_files/t_text.tbl")
+    parse("tbl_files/t_place.tbl")
