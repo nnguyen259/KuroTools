@@ -1,0 +1,13 @@
+{
+    "id": "ulong",
+    "text": "toffset",
+    "text2": "toffset",
+    "text3": "toffset:latin-1",
+    "int1": "uint",
+    "float1": "float",
+    "text4": "comp:text3",
+    "int2": "uint",
+    "float2": "float",
+    "text5": "comp:text3",
+    "text6": "toffset"
+}
