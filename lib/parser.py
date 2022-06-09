@@ -76,9 +76,10 @@ def process_data(
         ).upper()
         data = hex_text
     elif datatype.endswith(("byte", "short", "int", "long", "float")):
-        data, data_processed = process_number(
-            stream, datatype[1:], datatype.startswith("u")
-        )
+        if datatype.startswith("u"):
+            data, data_processed = process_number(stream, datatype[1:], True)
+        else:
+            data, data_processed = process_number(stream, datatype, False)
         processed += data_processed
     elif datatype.startswith("toffset"):
         if datatype == "toffset":
