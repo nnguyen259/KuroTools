@@ -101,13 +101,16 @@ def process_data(
         else:
             data = readtextoffset(stream, readint(stream, 8), encoding=datatype[7:])
         processed += 8
-    elif datatype == "u16array":
+    elif datatype.endswith("array"):
         offset = readint(stream, 8)
         count = readint(stream, 4)
-        data = []
-        for i_u16 in range(0, count):
+        
+        number_of_scena_flags_packed_together = int(datatype[0:-5])
+        data = [] 
+        for i_pack_u16 in range(0, count):
             print(hex(stream.tell()))
-            data.append(readintoffset(stream, offset + i_u16 * 2, 2))
+            for i_u16 in range(0, number_of_scena_flags_packed_together):
+                data.append(readintoffset(stream, offset + i_pack_u16 * number_of_scena_flags_packed_together * 2 + i_u16 * 2, 2))
         processed += (8 + 4)
     else:
         raise Exception(f"Unknown data type {datatype}")

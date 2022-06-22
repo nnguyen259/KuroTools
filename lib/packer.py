@@ -96,13 +96,17 @@ def pack_data(
             extra_data_idx += writetextoffset(
                 stream, data, extra_data_idx, encoding=datatype[7:]
             )
-    elif datatype == "u16array":
-        writeint(stream, extra_data_idx, 8)
+            
+    elif datatype.endswith("array"):
         
-        writeint(stream, len(data), 4)
+        number_of_scena_flags_packed_together = int(datatype[0:-5])
+        
+        writeint(stream, extra_data_idx, 8)
+        writeint(stream, int(len(data)/number_of_scena_flags_packed_together), 4)
         for i_u16 in range(0, len(data)):
             writeintoffset(stream, extra_data_idx + 2 * i_u16, data[i_u16], 2)
+                
         extra_data_idx = extra_data_idx + 2 * len(data)
-    
+        
         
     return extra_data_idx

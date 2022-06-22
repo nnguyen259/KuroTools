@@ -2,9 +2,9 @@
     "id": "ulong",
     "text": "toffset",
     "text2": "toffset",
-    "scena_flag_array1": "u16array",
+    "scena_flag_array1": "1array",
 	"float1": "float",
-    "scena_flag_array2": "u16array",
+    "scena_flag_array2": "1array",
     "float2": "float",
     "bytesseq": "toffsetlatin-1",
 	"utf8text": "toffset"
