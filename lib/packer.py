@@ -75,7 +75,7 @@ def pack_data(
     data: int | str | float,
     extra_data_idx: int,
 ):
-
+    
     if isinstance(datatype, dict):
         schema: dict = datatype["schema"]
         for i in range(datatype["size"]):
@@ -87,7 +87,10 @@ def pack_data(
     elif datatype.startswith("data"):
         writehex(stream, data)
     elif datatype.endswith(("byte", "short", "int", "long", "float")):
-        pack_number(stream, datatype[1:], data, datatype.startswith("u"))
+        if datatype.startswith("u"):
+            pack_number(stream, datatype[1:], data, True)
+        else:
+            pack_number(stream, datatype, data, False)
     elif datatype.startswith("toffset"):
         writeint(stream, extra_data_idx, 8)
         if datatype == "toffset":
@@ -108,5 +111,5 @@ def pack_data(
                 
         extra_data_idx = extra_data_idx + 2 * len(data)
         
-        
+    
     return extra_data_idx
