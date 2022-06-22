@@ -76,12 +76,6 @@ def pack_data(
     extra_data_idx: int,
 ):
 
-	#I realized later that there was no padding in t_place, but I keep it as it might be useful (you can also remove it if you want)
-    to_be_aligned = False
-    if datatype.startswith("aligned_"):
-        to_be_aligned = True
-        datatype = datatype[8:]
-        
     if isinstance(datatype, dict):
         schema: dict = datatype["schema"]
         for i in range(datatype["size"]):
@@ -109,11 +103,6 @@ def pack_data(
         for i_u16 in range(0, len(data)):
             writeintoffset(stream, extra_data_idx + 2 * i_u16, data[i_u16], 2)
         extra_data_idx = extra_data_idx + 2 * len(data)
-        
-    #padding zeros to match the original file (essentially as safety measure)    
-    if (to_be_aligned):
-        to_be_padded = math.ceil(extra_data_idx / 4) * 4 - extra_data_idx 
-        writeintoffset(stream, extra_data_idx, 0, to_be_padded)
-        extra_data_idx = extra_data_idx + to_be_padded
+    
         
     return extra_data_idx

@@ -66,11 +66,7 @@ def process_data(
     stream: BufferedReader, datatype: str | dict, max_length: int
 ) -> Tuple[Any, int]:
     processed = 0
-    
-    #the parser doesn't need to know if it's aligned to something or not, so we strip that part
-    if datatype.startswith("aligned_"):
-        datatype = datatype[8:]
-        
+     
     if isinstance(datatype, dict):
         data = []
         for _ in range(datatype["size"]):
