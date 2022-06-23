@@ -5,10 +5,9 @@
 	"empty1": "long",
 	"toffset2": "toffset",
 	"long1": "long",
-	"the_actual_text": "toffset",
+	"scena_flag_array": "1array",
 	"int2": "int",
-	"int3": "int",
 	"long2": "long",
-	"copy_of_the_actual_text?": "toffset",
+	"voice_subtitle": "toffset",
 	"empty2": "long"
 }

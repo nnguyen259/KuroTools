@@ -2,5 +2,5 @@
 	"id": "uint",
 	"id_reference": "uint",
 	"long1": "ulong",
-	"effect_name": "data8"
+	"effect_name": "toffset"
 }

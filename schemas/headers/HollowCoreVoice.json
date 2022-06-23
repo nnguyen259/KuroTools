@@ -2,6 +2,6 @@
 	"id": "short",
 	"int": "uint",
 	"empty": "ushort",
-	"unknown": "data8",
-	"long2": "ulong"
+	"unknown": "1array",
+	"int2": "uint"
 }

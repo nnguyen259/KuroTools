@@ -5,8 +5,8 @@
 	"quest_description": "toffset",
 	"notebook_text": "toffset",
 	"empty2": "long",
-	"objective_description_1": "data8",
-	"encoding_value": "long",
-	"objective_description_2": "data8",
-	"long2": "long"
+	"array_flag1": "1array",
+	"empty3": "int",
+	"array_flag2": "1array",
+	"empty4": "int"
 }
