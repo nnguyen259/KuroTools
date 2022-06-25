@@ -1,0 +1,11 @@
+{
+	"headers": [
+		"HollowCoreBaseParam",
+		"HollowCoreLevelParam",
+		"HollowCoreEffParam",
+		"HollowCoreEffText",
+		"HollowCoreConvertLevelParam",
+		"HollowCoreCalcLevelParam",
+		"HollowCoreVoice"
+	]
+}

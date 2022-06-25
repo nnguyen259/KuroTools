@@ -1,0 +1,7 @@
+{
+	"id": "short",
+	"int": "uint",
+	"empty": "ushort",
+	"unknown": "u16array",
+	"int2": "uint"
+}

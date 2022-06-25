@@ -11,6 +11,19 @@ def readint(
 ) -> int:
     return int.from_bytes(stream.read(size), byteorder=endian, signed=signed)
 
+def readintoffset(
+    stream: BufferedReader,
+    offset: int,
+    size: int,
+    endian: Literal["little", "big"] = "little",
+    signed: bool = False,
+) -> int:
+    return_offset = stream.tell()
+    stream.seek(offset)
+    output = readint(stream, size, endian, signed)
+    stream.seek(return_offset)
+    return output
+
 
 def readfloat(stream: BufferedReader) -> float:
     return struct.unpack("<f", stream.read(4))[0]
@@ -53,6 +66,7 @@ def process_data(
     stream: BufferedReader, datatype: str | dict, max_length: int
 ) -> Tuple[Any, int]:
     processed = 0
+     
     if isinstance(datatype, dict):
         data = []
         for _ in range(datatype["size"]):
@@ -85,8 +99,15 @@ def process_data(
         if datatype == "toffset":
             data = readtextoffset(stream, readint(stream, 8))
         else:
-            data = readtextoffset(stream, readint(stream, 8), encoding=datatype[8:])
+            data = readtextoffset(stream, readint(stream, 8), encoding=datatype[7:])
         processed += 8
+    elif datatype == "u16array":
+        offset = readint(stream, 8)
+        count = readint(stream, 4)
+        data = [] 
+        for i_u16 in range(0, count):
+            data.append(readintoffset(stream, offset + i_u16 * 2, 2))
+        processed += (8 + 4)
     else:
         raise Exception(f"Unknown data type {datatype}")
 

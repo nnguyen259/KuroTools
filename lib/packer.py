@@ -1,7 +1,7 @@
 from io import BufferedReader
 import struct
 from typing import Literal, Tuple, Union
-
+import math
 
 def writeint(
     stream: BufferedReader,
@@ -12,6 +12,21 @@ def writeint(
 ) -> int:
     return stream.write(value.to_bytes(size, endian, signed=signed))
 
+def writeintoffset(
+    stream: BufferedReader,
+    offset: int,
+    value: int,
+    size: int,
+    endian: Literal["little", "big"] = "little",
+    signed: bool = False,
+) -> int:
+    return_offset = stream.tell()
+    stream.seek(offset)
+    written_length = writeint(stream, value, size, endian, signed)
+    stream.seek(return_offset)
+    return written_length
+
+    
 
 def writefloat(stream: BufferedReader, value: float) -> int:
     return stream.write(struct.pack("<f", value))
@@ -60,6 +75,7 @@ def pack_data(
     data: int | str | float,
     extra_data_idx: int,
 ):
+    
     if isinstance(datatype, dict):
         schema: dict = datatype["schema"]
         for i in range(datatype["size"]):
@@ -71,13 +87,26 @@ def pack_data(
     elif datatype.startswith("data"):
         writehex(stream, data)
     elif datatype.endswith(("byte", "short", "int", "long", "float")):
-        pack_number(stream, datatype[1:], data, datatype.startswith("u"))
+        if datatype.startswith("u"):
+            pack_number(stream, datatype[1:], data, True)
+        else:
+            pack_number(stream, datatype, data, False)
     elif datatype.startswith("toffset"):
         writeint(stream, extra_data_idx, 8)
         if datatype == "toffset":
             extra_data_idx += writetextoffset(stream, data, extra_data_idx)
         else:
             extra_data_idx += writetextoffset(
-                stream, data, extra_data_idx, encoding=datatype[8:]
+                stream, data, extra_data_idx, encoding=datatype[7:]
             )
+            
+    elif datatype == "u16array":
+        writeint(stream, extra_data_idx, 8)
+        writeint(stream, len(data), 4)
+        for i_u16 in range(0, len(data)):
+            writeintoffset(stream, extra_data_idx + 2 * i_u16, data[i_u16], 2)
+                
+        extra_data_idx = extra_data_idx + 2 * len(data)
+        
+    
     return extra_data_idx

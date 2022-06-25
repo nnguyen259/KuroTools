@@ -1,0 +1,22 @@
+{
+	"id": "ushort",
+	"int1": "int",
+	"empty1": "short",
+	"quest_description": "toffset",
+	"quest_giver": "toffset",
+	"short1": "short",
+	"int2": "int",
+	"empty2": "short",
+	"file_name": "toffset",
+	"int3": "int",
+	"int4": "int",
+	"short2": "ushort",
+	"short3": "ushort",
+	"short4": "ushort",
+	"empty3": "ushort",
+	"int5": "int",
+	"byte1": "ubyte",
+	"byte2": "ubyte",
+	"short5": "ushort",
+	"long1": "long"
+}
