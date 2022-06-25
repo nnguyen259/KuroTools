@@ -5,7 +5,7 @@
 	"empty1": "long",
 	"toffset2": "toffset",
 	"long1": "long",
-	"scena_flag_array": "1array",
+	"scena_flag_array": "u16array",
 	"int2": "int",
 	"long2": "long",
 	"voice_subtitle": "toffset",

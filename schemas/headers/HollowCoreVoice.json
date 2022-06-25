@@ -2,6 +2,6 @@
 	"id": "short",
 	"int": "uint",
 	"empty": "ushort",
-	"unknown": "1array",
+	"unknown": "u16array",
 	"int2": "uint"
 }
