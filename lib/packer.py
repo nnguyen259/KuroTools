@@ -110,3 +110,10 @@ def pack_data(
         
     
     return extra_data_idx
+
+def write_dword_in_byte_array(format, bytearray, addr, value ):
+    bs = struct.pack(format, value)
+    bytearray[addr + 0] = bs[0]
+    bytearray[addr + 1] = bs[1]
+    bytearray[addr + 2] = bs[2]
+    bytearray[addr + 3] = bs[3]
