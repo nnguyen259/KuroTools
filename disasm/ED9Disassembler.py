@@ -2,8 +2,8 @@ import struct
 import os
 from pathlib import Path
 from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str
-from script import script
-import ED9InstructionsSet 
+from disasm.script import script
+import disasm.ED9InstructionsSet as ED9InstructionsSet
 import traceback
 
 class ED9Disassembler(object):
@@ -28,7 +28,7 @@ class ED9Disassembler(object):
 
     def write_script(self):
         python_file = open(self.script.name + ".py", "wt",encoding='utf8')
-        python_file.write("from ED9Assembler import *\n\n")
+        python_file.write("from disasm.ED9Assembler import *\n\n")
         python_file.write("def script():\n")
         python_file.write("\n    create_script_header(\n")
         python_file.write("\tname= \"" + self.script.name+"\",\n")

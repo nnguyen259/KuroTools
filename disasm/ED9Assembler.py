@@ -1,8 +1,8 @@
 
 import struct
-import ED9InstructionsSet
-import script
-import function
+import disasm.ED9InstructionsSet as ED9InstructionsSet
+import disasm.script as script
+import disasm.function as function
 from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str
 from lib.packer import write_dword_in_byte_array
 import traceback

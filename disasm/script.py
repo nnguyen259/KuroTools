@@ -1,8 +1,8 @@
 
 import os
 from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str
-import ED9InstructionsSet 
-import function
+import disasm.ED9InstructionsSet as  ED9InstructionsSet
+import disasm.function as function
 
 class script:
 

@@ -2,7 +2,7 @@
 
 import sys
 import argparse
-import ED9Disassembler
+import disasm.ED9Disassembler as ED9Disassembler
 
 def init_argparse() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(

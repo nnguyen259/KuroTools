@@ -24,9 +24,9 @@ class function:
             in_ptr = readint(stream, 4)
 
             for id_out in range(varout):
-                self.output_args.append(readintoffset(stream, 4, out_ptr + id_out * 4))
+                self.output_args.append(readintoffset(stream, out_ptr + id_out * 4, 4))
             for id_in in range(varin):
-                self.input_args.append(readintoffset(stream, 4, in_ptr + id_in * 4))
+                self.input_args.append(readintoffset(stream, in_ptr + id_in * 4, 4))
             
 
             
@@ -34,17 +34,17 @@ class function:
             structs_ptr = readint(stream, 4)
 
             for id_st in range(nb_structs):
-                id_chr = readintoffset(stream, 4, structs_ptr + id_st * 0xC + 0, signed = True)
-                nb_sth1 = readintoffset(stream, 2, structs_ptr + id_st * 0xC + 4)
-                nb_sth2 = readintoffset(stream, 2, structs_ptr + id_st * 0xC + 6) 
-                ptr_sth = readintoffset(stream, 4, structs_ptr + id_st * 0xC + 8)
+                id_chr = readintoffset(stream, structs_ptr + id_st * 0xC + 0, 4, signed = True)
+                nb_sth1 = readintoffset(stream, structs_ptr + id_st * 0xC + 4, 2)
+                nb_sth2 = readintoffset(stream, structs_ptr + id_st * 0xC + 6, 2) 
+                ptr_sth = readintoffset(stream, structs_ptr + id_st * 0xC + 8, 4)
                 
                 mysterious_array2 = []
 
 
                 for id_arr in range(nb_sth2):
-                    mysterious_array2.append(readintoffset(stream, 4, ptr_sth + id_arr * 8 + 0))
-                    mysterious_array2.append(readintoffset(stream, 4, ptr_sth + id_arr * 8 + 4))
+                    mysterious_array2.append(readintoffset(stream, ptr_sth + id_arr * 8 + 0, 4))
+                    mysterious_array2.append(readintoffset(stream, ptr_sth + id_arr * 8 + 4, 4))
 
                 mysterious_struct = { #Related to characters? Characters in the scene or something?
                 "id": id_chr,
