@@ -1,7 +1,10 @@
 # KuroTools
 Tools for working with Kuro no Kiseki .dat and .tbl files
 
-# ED9Disassembler
+# TBL editing tool (tbl2json/json2tbl)
+-
+
+# ED9Disassembler (dat2py)
 ED9Disassembler is an experimental tool to disassemble and reassemble the script files (.dat) from The Legend of Heroes: Kuro no Kiseki. The tool translates the binary content of each script into a series of instructions written in a stack-based language.
 
 The main purpose of this tool is only for research as the game is not ready to be modded right now (being on PS4 only).
@@ -13,7 +16,7 @@ Using Python, call the dat2py.py script like this:
 
 <PYTHON_PATH> dat2py.py <Path to the dat file to be disassembled> --markers <True/False> --decompile <True/False>
   
-A few explainations on each option: 
+A few explanations on each option: 
 - markers set to True means that the disassembler will also disassemble the instructions adding Line Markers, which should only be useful for debug purpose (It is not certain but that is my guess).
 Keeping them is important if you want to compare the original script with yours, but otherwise I don't think they are important at all
 - decompile set to False means the script will be disassembled into raw instructions, which is often very hard to make sense of as there is a invisible stack evolving in the background.
@@ -31,6 +34,4 @@ As of today, the tool is able to disassemble and reassemble all the scena files 
   sys_event
   
 They all have some weird stuff going on (although the difference is very minor and might not actually be important at all)
-  
-If there is a need to edit those specific files, just contact me and I'll help.
  
