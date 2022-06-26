@@ -37,27 +37,14 @@ def pack(name: Union[str, bytes, os.PathLike]) -> None:
                 offsets = {}
                 for key, datatype in schema.items():
                     offsets[key] = outputfile.tell()
-                    compare = False
                     key_data = header_data[key]
-                    if datatype.startswith("comp:"):
-                        other_key = datatype[5:]
-                        if key_data == header_data[other_key]:
-                            compare = True
-                        else:
-                            datatype = schema[other_key]
-                    if compare:
-                        outputfile.seek(offsets[other_key])
-                        copy_data = outputfile.read(8)
-                        outputfile.seek(offsets[key])
-                        outputfile.write(copy_data)
-                    else:
-                        extra_data_idx = pack_data(
-                            outputfile, datatype, key_data, extra_data_idx
-                        )
+                    extra_data_idx = pack_data(
+                        outputfile, datatype, key_data, extra_data_idx
+                    )
 
         if "data_dump" in data:
             writehex(outputfile, data["data_dump"])
 
 
 if __name__ == "__main__":
-    pack("t_place.json")
+    pack("t_skill.json")
