@@ -5,6 +5,10 @@ Tools for working with Kuro no Kiseki .dat and .tbl files
 -
 
 # ED9Disassembler (dat2py)
+
+Demo (in french):
+https://www.youtube.com/watch?v=siPvwii_7YM
+
 ED9Disassembler is an experimental tool to disassemble and reassemble the script files (.dat) from The Legend of Heroes: Kuro no Kiseki. The tool translates the binary content of each script into a series of instructions written in a stack-based language.
 
 The main purpose of this tool is only for research as the game is not ready to be modded right now (being on PS4 only).
