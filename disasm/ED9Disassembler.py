@@ -5,6 +5,7 @@ from lib.parser import process_data, readint, readintoffset, readtextoffset, rem
 from disasm.script import script
 import disasm.ED9InstructionsSet as ED9InstructionsSet
 import traceback
+from processcle import processCLE
 
 class ED9Disassembler(object):
     def __init__(self, markers, decomp):
@@ -21,6 +22,17 @@ class ED9Disassembler(object):
         filesize = os.path.getsize(path)
 
         self.stream = open(path, "rb")
+        magic = self.stream.read(4)
+        if magic != b"#scp":
+            with open(path, mode='rb') as encrypted_file: 
+                fileContent = encrypted_file.read()
+            decrypted_file = processCLE(fileContent)
+            with open(path, "w+b") as outputfile:
+                outputfile.write(decrypted_file)
+            filesize = os.path.getsize(path)
+            self.stream = open(path, "rb")
+            
+        self.stream.seek(0)
         self.smallest_data_ptr = filesize
         self.script = script(self.stream, filename)
         self.write_script()
