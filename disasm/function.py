@@ -1,5 +1,5 @@
-
 from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str
+import disasm.ED9InstructionsSet as ED9InstructionsSet
 class function:
     def __init__(self, stream = None, id = 0):
         self.id = id
@@ -17,8 +17,6 @@ class function:
             self.b0 = readint(stream, 1)
             self.b1 = readint(stream, 1)
             varout = readint(stream, 1)
-
-            
 
             out_ptr = readint(stream, 4)
             in_ptr = readint(stream, 4)
@@ -55,8 +53,7 @@ class function:
 
             self.hash = readint(stream, 4)
             ptr_fun_name = remove2MSB(readint(stream, 4))
+            if (ptr_fun_name < ED9InstructionsSet.smallest_data_ptr):
+                ED9InstructionsSet.smallest_data_ptr = ptr_fun_name
             self.name = readtextoffset(stream, ptr_fun_name)
             self.instructions = []
-
-    
-    

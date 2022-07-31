@@ -199,8 +199,8 @@ class ED9Disassembler(object):
                     for i in range(count):
                         stack.pop()
         except Exception as err:
-            print("You can ignore the following issue, which is most likely due to a wrong file construction in the first place:")
-            print(err, traceback.format_exc())
+            print("WARNING: Likely a jump right after a return. Just ignore this unless you know what you're doing. Output file should be fine.")
+            #print(err, traceback.format_exc())
                 
     def add_var_to_stack(self, instruction, stack)->str:
         result = ""

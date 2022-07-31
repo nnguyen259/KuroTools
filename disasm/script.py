@@ -1,7 +1,7 @@
 
 import os
-from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str
-import disasm.ED9InstructionsSet as  ED9InstructionsSet
+from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str, identifytype
+import disasm.ED9InstructionsSet as ED9InstructionsSet
 import disasm.function as function
 
 class script:
@@ -24,12 +24,22 @@ class script:
             for id_var in range(script_variables_in_count):
                 vars = []
                 for id_field in range(2):
-                    vars.append(readintoffset(dat_file, 4, script_variables_ptr + id_var * 8 + id_field * 4))
+                    var = readintoffset(dat_file, 4, script_variables_ptr + id_var * 8 + id_field * 4)
+                    if (identifytype(var) == "string"):
+                        actual_ptr = remove2MSB(var)
+                        if actual_ptr < ED9InstructionsSet.smallest_data_ptr:
+                            ED9InstructionsSet.smallest_data_ptr = actual_ptr
+                    vars.append(var)
                 script_variables_in.append(vars)
             for id_var in range(script_variables_out_count):
                 vars = []
                 for id_field in range(2):
-                    vars.append(readintoffset(dat_file, 4, script_variables_ptr + len(script_variables_in) * 8 + id_var * 8 + id_field * 4))
+                    var = readintoffset(dat_file, 4, script_variables_ptr + len(script_variables_in) * 8 + id_var * 8 + id_field * 4)
+                    if (identifytype(var) == "string"):
+                        actual_ptr = remove2MSB(var)
+                        if actual_ptr < ED9InstructionsSet.smallest_data_ptr:
+                            ED9InstructionsSet.smallest_data_ptr = actual_ptr
+                    vars.append(var)
                 script_variables_out.append(vars)
             #Parsing functions headers 
             for id_fun in range(functions_count):
