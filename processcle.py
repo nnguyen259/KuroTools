@@ -1,7 +1,12 @@
 import lib.blowfish as blowfish
 import struct
 import operator
-import zstandard
+try:
+    import zstandard
+except ImportError:
+    import pip
+    pip.main(['install', '--user', 'zstandard'])
+    import zstandard
 
 key = b"\x16\x4B\x7D\x0F\x4F\xA7\x4C\xAC\xD3\x7A\x06\xD9\xF8\x6D\x20\x94"
 IV = b"\x9D\x8F\x9D\xA1\x49\x60\xCC\x4C"
