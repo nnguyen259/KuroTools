@@ -1,0 +1,9 @@
+{
+	"headers": [
+		"ATBonusSet",
+		"BattleLevelField",
+		"BattleLevelTurn",
+		"BattleLevelMonsterParam",
+		"TacticalBonus"
+	]
+}

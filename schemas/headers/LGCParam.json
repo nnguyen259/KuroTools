@@ -1,0 +1,11 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"byte1": "byte",
+			"byte2": "byte",
+			"byte3": "byte",
+			"byte4": "byte"
+		}
+	}
+}

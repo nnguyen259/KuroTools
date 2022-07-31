@@ -1,4 +1,9 @@
 {
-	"character_id": "ushort",
-	"grendel_character_id": "ushort"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"character_id": "ushort",
+			"grendel_character_id": "ushort"
+		}
+	}
 }

@@ -1,11 +1,16 @@
 {
-	"id": "uint",
-	"int1": "int",
-	"recruitment": "toffset",
-	"char_name": "toffset",
-	"age": "toffset",
-	"home": "toffset",
-	"occupation": "toffset",
-	"int2": "uint",
-	"int3": "uint"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"int1": "int",
+			"recruitment": "toffset",
+			"char_name": "toffset",
+			"age": "toffset",
+			"home": "toffset",
+			"occupation": "toffset",
+			"int2": "uint",
+			"int3": "uint"
+		}
+	}
 }

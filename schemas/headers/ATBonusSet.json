@@ -1,0 +1,32 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"player_or_foe_value": "ubyte",
+			"general_at_bonus_chance": "ubyte",
+			"hp_heal_s_bonus_chance": "ubyte",
+			"ep_heal_s_bonus_chance": "ubyte",
+			"cp_heal_s_bonus_chance": "ubyte",
+			"hp_heal_l_bonus_chance": "ubyte",
+			"ep_heal_l_bonus_chance": "ubyte",
+			"cp_heal_l_bonus_chance": "ubyte",
+			"critical_bonus_chance": "ubyte",
+			"unknown_bonus_chance_1": "ubyte",
+			"unknown_bonus_chance_2": "ubyte",
+			"unknown_bonus_chance_3": "ubyte",
+			"mystery_bonus_chance": "ubyte",
+			"unused_byte_1": "ubyte",
+			"unused_byte_2": "ubyte",
+			"unused_byte_3": "ubyte",
+			"unused_byte_4": "ubyte",
+			"unused_byte_5": "ubyte",
+			"unused_byte_6": "ubyte",
+			"unused_byte_7": "ubyte",
+			"unused_byte_8": "ubyte",
+			"unused_byte_9": "ubyte",
+			"unused_byte_10": "ubyte",
+			"unused_byte_11": "ubyte"
+		}
+	}
+}

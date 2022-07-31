@@ -1,0 +1,17 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"int1": "int",
+			"long1": "long",
+			"connect_name": "toffset",
+			"connect_description": "toffset",
+			"long2": "long",
+			"scena_array1": "u16array",
+			"empty1": "int",
+			"scena_array2": "u16array",
+			"int2": "int"
+		}
+	}
+}

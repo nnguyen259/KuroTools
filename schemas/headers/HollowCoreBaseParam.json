@@ -1,20 +1,25 @@
 {
-	"item_id": "uint",
-	"int1": "uint",
-	"int2": "uint",
-	"byte1": "byte",
-	"byte2": "byte",
-	"empty1": "short",
-	"flag": "toffset",
-	"long1": "ulong",
-	"title": "toffset",
-	"int3": "uint",
-	"float1": "float",
-	"float2": "float",
-	"float3": "float",
-	"empty2": "uint",
-	"float4": "float",
-	"name": "toffset",
-	"long2": "ulong",
-	"name2": "toffset"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"item_id": "uint",
+			"int1": "uint",
+			"int2": "uint",
+			"byte1": "byte",
+			"byte2": "byte",
+			"empty1": "short",
+			"flag": "toffset",
+			"long1": "ulong",
+			"title": "toffset",
+			"int3": "uint",
+			"float1": "float",
+			"float2": "float",
+			"float3": "float",
+			"empty2": "uint",
+			"float4": "float",
+			"name": "toffset",
+			"long2": "ulong",
+			"name2": "toffset"
+		}
+	}
 }

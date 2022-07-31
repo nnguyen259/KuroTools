@@ -1,4 +1,9 @@
 {
-	"id": "long",
-	"value": "toffset"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "long",
+			"value": "toffset"
+		}
+	}
 }

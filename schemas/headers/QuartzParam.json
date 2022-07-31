@@ -1,4 +1,24 @@
 {
-	"item_id": "ushort",
-	"data": "data"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"quartz_id": "ushort",
+			"earth_sepith_cost": "ushort",
+			"water_sepith_cost": "ushort",
+			"fire_sepith_cost": "ushort",
+			"wind_sepith_cost": "ushort",
+			"time_sepith_cost": "ushort",
+			"space_sepith_cost": "ushort",
+			"mirage_sepith_cost": "ushort",
+			"earth_elemental_amount": "ubyte",
+			"water_elemental_amount": "ubyte",
+			"fire_elemental_amount": "ubyte",
+			"wind_elemental_amount": "ubyte",
+			"time_elemental_amount": "ubyte",
+			"space_elemental_amount": "ubyte",
+			"mirage_elemental_amount": "ubyte",
+			"byte1": "byte",
+			"int1": "int"
+		}
+	}
 }

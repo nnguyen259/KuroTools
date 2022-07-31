@@ -1,13 +1,18 @@
 {
-	"id": "uint",
-	"int1": "int",
-	"toffset1": "toffset",
-	"empty1": "long",
-	"toffset2": "toffset",
-	"long1": "long",
-	"scena_flag_array": "u16array",
-	"int2": "int",
-	"long2": "long",
-	"voice_subtitle": "toffset",
-	"empty2": "long"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"int1": "int",
+			"toffset1": "toffset",
+			"empty1": "long",
+			"toffset2": "toffset",
+			"long1": "long",
+			"scena_flag_array": "u16array",
+			"int2": "int",
+			"long2": "long",
+			"voice_subtitle": "toffset",
+			"empty2": "long"
+		}
+	}
 }

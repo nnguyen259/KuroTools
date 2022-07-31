@@ -1,0 +1,18 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "ulong",
+			"place_name": "toffset",
+			"place_name_highlight": "toffset",
+			"scena_file": "toffset",
+			"int1": "uint",
+			"float1": "float",
+			"float2": "float",
+			"empty1": "int",
+			"place": "toffset",
+			"jump_file": "toffset",
+			"description": "toffset"
+		}
+	}
+}

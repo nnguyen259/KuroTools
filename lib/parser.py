@@ -127,6 +127,44 @@ def process_data(
 
     return (data, processed)
 
+def get_size_from_schema(
+    schema : dict
+) -> int:
+    total_size = 0
+    for key, value in schema["schema"].items():
+        sz =  get_datatype_size(value)
+        total_size += sz
+    return total_size  
+
+def get_datatype_size(
+    datatype: str | dict
+) -> int:
+    sz = 0
+    if isinstance(datatype, dict):
+        for _ in range(datatype["size"]):
+            for key, value in datatype["schema"].items():
+                sz_processed =  get_datatype_size(value)
+                sz += sz_processed
+    elif datatype.startswith("data"):
+        if len(datatype) <= 4:
+            raise Exception("No size was defined for this datatype.")
+        else:
+            length = int(datatype[4:])
+            sz += length
+    elif datatype.endswith(("byte", "short", "int", "long", "float")):
+        if datatype.startswith("u"):
+            datatype = datatype[1:]
+        sizes = {"byte": 1, "short": 2, "int": 4, "float": 4,  "long": 8}
+        sz += sizes[datatype]
+    elif datatype.startswith("toffset"):
+        sz += 8
+    elif datatype == "u16array":
+        sz += (8 + 4)
+    else:
+        raise Exception(f"Unknown data type {datatype}")
+
+    return sz
+
 def remove2MSB(value: int)->int:
     shl = value << 2 #I thought it would get rid of the 2 MSB, but it is working on a 64bits register!!!
     sar = c_int32(shl).value >> 2

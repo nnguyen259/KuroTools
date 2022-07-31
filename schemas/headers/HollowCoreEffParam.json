@@ -1,6 +1,11 @@
 {
-	"id": "uint",
-	"id_reference": "uint",
-	"long1": "ulong",
-	"effect_name": "toffset"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"id_reference": "uint",
+			"long1": "ulong",
+			"effect_name": "toffset"
+		}
+	}
 }

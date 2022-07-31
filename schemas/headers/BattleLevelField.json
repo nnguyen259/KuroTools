@@ -1,0 +1,11 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"difficulty_id": "uint",
+			"player_damage_multiplier": "uint",
+			"enemmy_damage_muultiplier": "uint",
+			"player_stun_damage_multiplier": "float"
+		}
+	}
+}

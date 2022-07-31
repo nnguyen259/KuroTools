@@ -1,12 +1,39 @@
 {
-	"quest_id": "ushort",
-	"int1": "int",
-	"empty1": "short",
-	"quest_description": "toffset",
-	"notebook_text": "toffset",
-	"empty2": "long",
-	"array_flag1": "u16array",
-	"empty3": "int",
-	"array_flag2": "u16array",
-	"empty4": "int"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"quest_id": "ushort",
+			"int1": "int",
+			"empty1": "short",
+			"quest_description": "toffset",
+			"notebook_text": "toffset",
+			"empty2": "long",
+			"array_flag1": "u16array",
+			"empty3": "int",
+			"array_flag2": "u16array",
+			"empty4": "int"
+		}
+	},
+	"CLE_PC" :{
+		"game": "Kuro1",
+		"schema": {
+			"quest_id": "ushort",
+			"int1": "int",
+			"empty1": "short",
+			"quest_description": "toffset",
+			"notebook_text": "toffset",
+			"empty2": "long",
+			"array_flag1": "u16array",
+			"empty3": "int",
+			"array_flag2": "u16array",
+			"shrt": "short",
+			"shrt1": "short",
+			"text3": "toffset",
+			"arr1": "u16array",
+			"int4": "int",
+			"arr2": "u16array",
+			"int5": "int"
+		}
+	}
+
 }

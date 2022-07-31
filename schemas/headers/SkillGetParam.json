@@ -1,5 +1,10 @@
 {
-	"character_id": "ushort",
-	"skill_id_1": "ushort",
-	"skill_id_2": "ushort"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"character_id": "ushort",
+			"skill_id_1": "ushort",
+			"skill_id_2": "ushort"
+		}
+	}
 }

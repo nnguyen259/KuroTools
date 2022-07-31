@@ -1,0 +1,11 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"book_id": "short",
+			"line_id": "int",
+			"empty1": "short",
+			"book_text": "toffset"
+		}
+	}
+}

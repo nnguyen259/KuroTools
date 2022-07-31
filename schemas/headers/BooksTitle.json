@@ -1,0 +1,13 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "short",
+			"int1": "int",
+			"empty1": "short",
+			"title": "toffset",
+			"file_name": "toffset",
+			"long2": "long"
+		}
+	}
+}

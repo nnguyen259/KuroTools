@@ -1,0 +1,7 @@
+{
+	"headers": [
+		"MapJumpRegionData",
+		"MapJumpAreaData",
+		"MapJumpSpotData"
+	]
+}

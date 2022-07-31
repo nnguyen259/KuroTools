@@ -1,6 +1,11 @@
 {
-	"id": "ulong",
-	"rank_name": "toffset",
-	"int1": "int",
-	"int2": "int"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "ulong",
+			"rank_name": "toffset",
+			"int1": "int",
+			"int2": "int"
+		}
+	}
 }

@@ -1,13 +1,18 @@
 {
-	"character_id": "ulong",
-	"name": "toffset",
-	"texture": "toffset",
-	"face": "toffset",
-	"model": "toffset",
-	"long1": "ulong",
-	"text1": "toffset",
-	"text2": "toffset",
-	"long2": "ulong",
-	"text3": "toffset",
-	"text4": "toffset"
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"character_id": "ulong",
+			"name": "toffset",
+			"texture": "toffset",
+			"face": "toffset",
+			"model": "toffset",
+			"long1": "ulong",
+			"text1": "toffset",
+			"text2": "toffset",
+			"long2": "ulong",
+			"text3": "toffset",
+			"text4": "toffset"
+		}
+	}
 }

@@ -1,0 +1,10 @@
+{
+	"headers": [
+		"ConnectChrParam",
+		"ConnectBonusParam",
+		"ConnectTopicData",
+		"ConnectEventData",
+		"ConnectItemData",
+		"LGCParam"
+	]
+}
