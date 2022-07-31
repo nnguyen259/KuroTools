@@ -1,6 +1,10 @@
 # KuroTools
 Tools for working with Kuro no Kiseki .dat and .tbl files
 
+# Requirements
+- Python 3.10+
+- zstandard package (pip install zstandard)
+
 # TBL editing tool (tbl2json/json2tbl)
 -
 
