@@ -100,13 +100,14 @@ def pack_data(
                 stream, data, extra_data_idx, encoding=datatype[7:]
             )
             
-    elif datatype == "u16array":
+    elif (datatype.startswith("u") and  datatype.endswith("array")):
+        length = int(int(datatype[1:len(datatype)-5])/8)
         writeint(stream, extra_data_idx, 8)
         writeint(stream, len(data), 4)
-        for i_u16 in range(0, len(data)):
-            writeintoffset(stream, extra_data_idx + 2 * i_u16, data[i_u16], 2)
+        for i_usz in range(0, len(data)):
+            writeintoffset(stream, extra_data_idx + 2 * i_usz, data[i_usz], length)
                 
-        extra_data_idx = extra_data_idx + 2 * len(data)
+        extra_data_idx = extra_data_idx + length * len(data)
         
     
     return extra_data_idx

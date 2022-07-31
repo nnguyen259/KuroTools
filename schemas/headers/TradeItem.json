@@ -1,0 +1,15 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"offered_item_id": "uint",
+			"effects" : {
+				"size": 6,
+				"schema": {
+					"trade_material_item_id": "uint",
+					"amount_reequired": "uint"
+				}
+			}
+		}
+	}
+}

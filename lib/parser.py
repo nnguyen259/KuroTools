@@ -115,12 +115,13 @@ def process_data(
         else:
             data = readtextoffset(stream, readint(stream, 8), encoding=datatype[7:])
         processed += 8
-    elif datatype == "u16array":
+    elif (datatype.startswith("u") and  datatype.endswith("array")):
+        length = int(int(datatype[1:len(datatype)-5])/8)
         offset = readint(stream, 8)
         count = readint(stream, 4)
         data = [] 
-        for i_u16 in range(0, count):
-            data.append(readintoffset(stream, offset + i_u16 * 2, 2))
+        for i_usz in range(0, count):
+            data.append(readintoffset(stream, offset + i_usz * length, length))
         processed += (8 + 4)
     else:
         raise Exception(f"Unknown data type {datatype}")
@@ -158,7 +159,7 @@ def get_datatype_size(
         sz += sizes[datatype]
     elif datatype.startswith("toffset"):
         sz += 8
-    elif datatype == "u16array":
+    elif (datatype.startswith("u") and  datatype.endswith("array")):
         sz += (8 + 4)
     else:
         raise Exception(f"Unknown data type {datatype}")

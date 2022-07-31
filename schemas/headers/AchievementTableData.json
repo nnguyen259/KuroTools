@@ -1,0 +1,20 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"achievement_category": "uint",
+			"achievement_id": "uint",
+			"achievement_objective_1": "uint",
+			"achievement_objective_param_1": "uint",
+			"arr1": "u32array",
+			"short1": "short",
+			"short2": "short",
+			"int1": "int",
+			"int2": "int",
+			"long1": "long",
+			"flag": "toffset",
+			"achievement_name": "toffset",
+			"achievement_description": "toffset"
+		}
+	}
+}
