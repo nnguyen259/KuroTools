@@ -3,6 +3,7 @@ Tools for working with Kuro no Kiseki .dat and .tbl files
 
 # Requirements
 - Python 3.10 and +
+
 If the file is encrypted (CLE encryption):
 - zstandard package is required
 
@@ -12,9 +13,11 @@ tbl2json is used to decompile the game tables (.tbl files) into a .json file con
 json2tbl is used to recompile the .json files that have been decompiled with tbl2json. It will produce a tbl that is readable by the game.
 
 Usage:
-<PYTHON_PATH> tbl2json.py <Path to the tbl file to be decompiled>
+<PYTHON_PATH> tbl2json.py &lt;Path to the tbl file to be decompiled&gt;
+
 (Note: it should be possible to just drag and drop your tbl file on tbl2json to produce the json)
-<PYTHON_PATH> json2tbl.py <Path to the json file to be recompiled>
+
+<PYTHON_PATH> json2tbl.py &lt;Path to the json file to be recompiled)&gt;
 
 # ED9Disassembler (dat2py)
 
@@ -26,7 +29,7 @@ Usage:
 
 Using Python, call the dat2py.py script like this:
 
-<PYTHON_PATH> dat2py.py <Path to the dat file to be disassembled> --markers <True/False> --decompile <True/False>
+<PYTHON_PATH> dat2py.py &lt;Path to the dat file to be disassembled&gt; --markers <True/False> --decompile <True/False>
   
 Default value for decompile is True.
   
