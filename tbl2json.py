@@ -60,9 +60,9 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
             header = {
                 "name": header_name,
                 "hash": unknown,
-                "start": start_offset,
                 "length": entry_length,
                 "count": entry_count,
+                "start": start_offset
             }
             
             headers.append(header)
@@ -87,10 +87,9 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
                     #Then we sort them by entry size in a dict called schemas_by_size
                     schemas_by_size = {}
                     for sch in schemas.items():
-                        sz = 0
                         current_schema = sch[1]
                         variant_name = sch[0]
-                        sz = sz + get_size_from_schema(current_schema)
+                        sz = get_size_from_schema(current_schema)
                         schemas_by_size[sz] = sch
                     #once the sorting is done, we grab the actual entry size from the input tbl
                     actual_entry_size = header["length"]
@@ -130,7 +129,11 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
                 hex_text[j : j + 2] for j in range(0, len(hex_text), 2)
             ).upper()
             output["data_dump"] = hex_text
-
+        for header in output["headers"]:
+            #removing those as they could confuse the user
+            header.pop("count")
+            header.pop("length")
+            header.pop("start")
         with open(f"{filename}.json", "w", encoding="utf-8") as output_file:
             json.dump(output, output_file, ensure_ascii=False, indent="\t")
 

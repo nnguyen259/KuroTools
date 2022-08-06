@@ -28,7 +28,7 @@ def main() -> None:
     if args.markers is None:
         args.markers = False
     if args.decompile is None:
-        args.decompile = False
+        args.decompile = True
     if not args.file:
         raise Exception("ED9Disassembler needs a file to disassemble!")
     else:
