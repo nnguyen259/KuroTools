@@ -6,6 +6,7 @@ import disasm.function as function
 from lib.parser import process_data, readint, readintoffset, readtextoffset, remove2MSB, get_actual_value_str
 from lib.packer import write_dword_in_byte_array
 import traceback
+from lib.crc32 import compute_crc32
 
 current_stack = []
 dict_stacks = {}#Key: Label, Value: State of the stack at the jump
@@ -77,7 +78,7 @@ def add_struct(id, nb_sth1, array2):
         }
     current_function.structs.append(mysterious_struct)
 
-def add_function(name, hash, input_args, output_args, b0, b1):
+def add_function(name, input_args, output_args, b0, b1):
 
     global current_script
     global current_function
@@ -86,7 +87,7 @@ def add_function(name, hash, input_args, output_args, b0, b1):
     
     current_function.id = len(current_script.functions)
     current_function.name = name
-    current_function.hash = hash
+    current_function.hash = compute_crc32(name)
     current_function.input_args = input_args
     current_function.output_args = output_args
     current_function.b0 = b0

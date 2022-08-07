@@ -96,7 +96,6 @@ class ED9Disassembler(object):
 
         result = "    add_function(\n"
         result = result + "\tname= " + "\"" + function.name + "\",\n"
-        result = result + "\thash= " +  str(hex(function.hash)) +",\n"
         result = result + "\tinput_args  = " + "["
         for id_in in range(len(function.input_args) - 1):
             result = result + self.wrap_conversion(function.input_args[id_in]) + ", "
