@@ -76,7 +76,7 @@ class ED9Disassembler(object):
         functions_sorted_by_addr = self.script.functions.copy()
         functions_sorted_by_addr.sort(key=lambda fun: fun.start) 
 
-        for f in functions_sorted_by_addr:
+        for f in self.script.functions:
             python_file.write(self.add_function_str(f))
 
         if (self.decomp == False):
@@ -95,7 +95,6 @@ class ED9Disassembler(object):
     def add_function_str(self, function)->str:
 
         result = "    add_function(\n"
-        result = result + "\tid= " + str(hex(function.id)) + ",\n"
         result = result + "\tname= " + "\"" + function.name + "\",\n"
         result = result + "\thash= " +  str(hex(function.hash)) +",\n"
         result = result + "\tinput_args  = " + "["
@@ -487,8 +486,7 @@ class ED9Disassembler(object):
     def make_function_py_header(self, function)->str:
         result = "#-------------------------\n"
         result = result + "#original file addr: " + str(hex(function.start)) + "\n"
-        result = result + "# " + function.name + "\n"
-        result = result + "    set_current_function(id = "+ hex(function.id)+ ")\n"
+        result = result + "    set_current_function(\""+ function.name + "\")\n"
         for id_strct in range(len(function.structs)):
             result = result + "    add_struct(\n"
             result = result + "\tid = " + str((function.structs[id_strct]["id"]))+",\n"
@@ -664,7 +662,7 @@ class ED9Disassembler(object):
                                 ED9InstructionsSet.locations_dict[addr] = label
                                 ED9InstructionsSet.location_counter = ED9InstructionsSet.location_counter + 1
                             string_list[idx_return_addr] = "PUSHRETURNADDRESS(\"" + label + "\")"
-                            string_list[idx_return_addr - 1] = "PUSHCALLERFUNCTIONINDEX(" + str(hex(function_index)) + ")"
+                            string_list[idx_return_addr - 1] = "PUSHCALLERFUNCTIONINDEX()"
                         else:
                             decompiled_str = "CallFunction(" + decompiled_str + ")"
                             for i in range(idx_return_addr - 1, idx_return_addr + 1): 
@@ -864,6 +862,7 @@ class ED9Disassembler(object):
                 #We now attempt to find all the input parameters of the function and identify the return address (which should be pushed right before them)
                 index_fun = instruction.operands[0].value
                 called_fun = functions[index_fun]
+                #instruction.operands[0] = ED9InstructionsSet.operand(functions[instruction.operands[0].value].name, False) 
                 varin = len(called_fun.input_args)
                 
                 starting_instruction_id = stack[len(stack) -1 - varin]
@@ -882,6 +881,8 @@ class ED9Disassembler(object):
                     #The previous instruction is likely where the call really starts, it pushes a small unsigned integer (maybe some kind of stack size allocated for the called function?)
                     function.instructions[starting_instruction_id - 1].text_before = "#Calling " + called_fun.name + "\n    "
                     function.instructions[starting_instruction_id - 1].name = "PUSHCALLERFUNCTIONINDEX"
+                    
+                    function.instructions[starting_instruction_id - 1].operands.clear()# = ED9InstructionsSet.operand(functions[function.instructions[starting_instruction_id - 1].operands[0].value].name, False)
             elif instruction.op_code == 0x25: 
                addr = instruction.operands[0].value
                if addr in ED9InstructionsSet.locations_dict:
@@ -895,6 +896,12 @@ class ED9Disassembler(object):
             if (update_stack_needed):
                 self.update_stack(instruction, stack, instruction_id)
                 instruction_id = instruction_id + 1
+
+            if instruction.op_code == 0x0C: #If there was a call, the operand becomes the name of the function rather than the index; should actually be in another function coming after this one
+                index_fun = instruction.operands[0].value
+                called_fun = functions[index_fun]
+                instruction.operands[0] = ED9InstructionsSet.operand(functions[instruction.operands[0].value].name, False) 
+                
 
     def wrap_conversion(self, value: int)->str:
         removeLSB = value & 0xC0000000

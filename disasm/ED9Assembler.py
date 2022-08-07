@@ -38,10 +38,18 @@ start_structs_params_section    = -1
 start_code_section              = -1
 start_strings_section           = -1
 
+
+
 class jump:
     def __init__(self):
         self.addr_start = []
         self.addr_destination = -1
+def retrieve_index_by_fun_name(name):
+    global current_script
+    for f in current_script.functions:
+        if f.name == name:
+            return f.id
+    return -1
 
 def UNDEF(value: int)->int:
     return value & 0x3FFFFFFF
@@ -69,14 +77,14 @@ def add_struct(id, nb_sth1, array2):
         }
     current_function.structs.append(mysterious_struct)
 
-def add_function(id, name, hash, input_args, output_args, b0, b1):
+def add_function(name, hash, input_args, output_args, b0, b1):
 
     global current_script
     global current_function
 
     current_function = function.function()
     
-    current_function.id = id
+    current_function.id = len(current_script.functions)
     current_function.name = name
     current_function.hash = hash
     current_function.input_args = input_args
@@ -88,17 +96,14 @@ def add_function(id, name, hash, input_args, output_args, b0, b1):
     functions_sorted_by_id.append(current_function) 
     functions_sorted_by_id.sort(key=lambda fun: fun.id) #whatever
 
-def set_current_function(id):
+def set_current_function(name):
     global current_function
     global current_function_number
     global current_stack
     global variable_names
 
-    for f in current_script.functions:
-        if f.id == id:
-            current_function = f
-            break
-
+    current_id = retrieve_index_by_fun_name(name)
+    current_function = current_script.functions[current_id]
     
     variable_names.clear()
     current_stack.clear()
@@ -321,8 +326,10 @@ def PUSHUNDEFINED(value):
     bin_code_section = bin_code_section + result
     current_addr_code = current_addr_code + len(result)
     
-def PUSHCALLERFUNCTIONINDEX(value):
-    PUSHUNDEFINED(value)
+def PUSHCALLERFUNCTIONINDEX():
+    global current_function
+    #value = retrieve_index_by_fun_name(name)
+    PUSHUNDEFINED(current_function.id)
 
 
 def PUSHSTRING(value):
@@ -529,12 +536,12 @@ def Label(value):
     if value in dict_stacks:
         current_stack = dict_stacks[value]
 
-def CALL(value):
+def CALL(name):
     global current_addr_code
     global bin_code_section
     global functions_sorted_by_id
     global current_stack 
-
+    value = retrieve_index_by_fun_name(name)
     varin = len(functions_sorted_by_id[value].input_args)
 
     for i in range(varin + 2): #removing return address and function index too
@@ -1201,13 +1208,7 @@ def CallFunctionWithoutReturnAddr(fun_name, inputs):
     for str_exp in inputs:
         compile_expr(str_exp)
 
-
-    id_f = -1
-    for f in current_script.functions:
-        if f.name == fun_name:
-            id_f = f.id
-
-    CALL(id_f)
+    CALL(fun_name)
     
 
 
