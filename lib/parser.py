@@ -190,7 +190,9 @@ def get_actual_value_str(stream: BufferedReader, value: int)->str:
     actual_value = remove2MSB(value)
     MSB = removeLSB >> 0x1E
     if (MSB == 3):
-        return "\"" + readtextoffset(stream, actual_value) + "\""
+        text = readtextoffset(stream, actual_value)
+        fixed_text = text.replace("\n", "\\n")
+        return "\"" + fixed_text + "\""
     elif (MSB == 2):
         actual_value = actual_value << 2 #No right shift for the floats
         bytes = struct.pack("<i",actual_value)

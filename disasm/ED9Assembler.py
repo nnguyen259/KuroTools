@@ -381,7 +381,7 @@ def POP(value):
     except Exception as err:
         print("You can ignore the following issue, which is most likely due to a wrong file construction in the first place:")
         print(err)
-        traceback.print_stack()
+        #traceback.print_stack()
     
     b_arg = bytearray(struct.pack("<B", value)) 
     result = bytearray([1]) + b_arg

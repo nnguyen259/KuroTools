@@ -901,7 +901,7 @@ class ED9Disassembler(object):
         actual_value = remove2MSB(value)
         MSB = removeLSB >> 0x1E
         if (MSB == 3):
-            return "\"" + readtextoffset(self.stream, actual_value) + "\"" 
+            return "\"" + readtextoffset(self.stream, actual_value).replace("\n", "\\n") + "\"" 
         elif (MSB == 2):
             actual_value = actual_value << 2 
             bytes = struct.pack("<i",actual_value)
