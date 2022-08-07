@@ -488,7 +488,7 @@ class ED9Disassembler(object):
         result = "#-------------------------\n"
         result = result + "#original file addr: " + str(hex(function.start)) + "\n"
         result = result + "# " + function.name + "\n"
-        result = result + "    set_current_function()\n"
+        result = result + "    set_current_function(id = "+ hex(function.id)+ ")\n"
         for id_strct in range(len(function.structs)):
             result = result + "    add_struct(\n"
             result = result + "\tid = " + str((function.structs[id_strct]["id"]))+",\n"

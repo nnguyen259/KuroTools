@@ -88,12 +88,18 @@ def add_function(id, name, hash, input_args, output_args, b0, b1):
     functions_sorted_by_id.append(current_function) 
     functions_sorted_by_id.sort(key=lambda fun: fun.id) #whatever
 
-def set_current_function():
+def set_current_function(id):
     global current_function
     global current_function_number
     global current_stack
     global variable_names
-    current_function = current_script.functions[current_function_number]
+
+    for f in current_script.functions:
+        if f.id == id:
+            current_function = f
+            break
+
+    
     variable_names.clear()
     current_stack.clear()
     
