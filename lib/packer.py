@@ -104,14 +104,12 @@ def pack_data(
         length = int(int(datatype[1:len(datatype)-5])/8)
         #if length = 32 bits, it might need to be aligned for some reason? I'll do that for 32 only for the moment
         
-        if extra_data_idx > 0x12340:
-            pass
-        if length == 4:
-            extra = extra_data_idx % 4
-            if extra > 0: #padding necessary
-                byte_to_add = 4 - extra
-                writeintoffset(stream, extra_data_idx, 0, byte_to_add)
-                extra_data_idx = extra_data_idx + byte_to_add
+        
+        extra = extra_data_idx % length
+        if extra > 0: #padding necessary
+            byte_to_add = length - extra
+            writeintoffset(stream, extra_data_idx, 0, byte_to_add)
+            extra_data_idx = extra_data_idx + byte_to_add
         writeint(stream, extra_data_idx, 8)
         writeint(stream, len(data), 4)
         for i_usz in range(0, len(data)):

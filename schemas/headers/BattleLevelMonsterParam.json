@@ -2,7 +2,7 @@
 	"FALCOM_PS4": {
 		"game": "Kuro1",
 		"schema": {
-			"long1": "ulong",
+			"name": "toffset",
 			"int1": "int",
 			"int2": "int",
 			"int3": "int",
