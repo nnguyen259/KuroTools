@@ -14,8 +14,8 @@ def init_argparse() -> argparse.ArgumentParser:
         version = f"{parser.prog} version 0.0"
     )
     
-    parser.add_argument('--markers', nargs='?', type=bool)
-    parser.add_argument('--decompile', nargs='?', type=bool)
+    parser.add_argument('--markers', nargs='?', type=str)
+    parser.add_argument('--decompile', nargs='?', type=str)
     parser.add_argument('file')
     return parser
 
@@ -28,7 +28,14 @@ def main() -> None:
     if args.markers is None:
         args.markers = False
     if args.decompile is None:
-        args.decompile = True
+        args.decompile = "True"
+    	
+    #actually no idea how to handle that properly
+    if args.decompile == "True":
+        args.decompile = True 
+    elif args.decompile == "False":
+        args.decompile = False
+    	
     if not args.file:
         raise Exception("ED9Disassembler needs a file to disassemble!")
     else:
