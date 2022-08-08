@@ -6,6 +6,8 @@ import argparse
 from lib.packer import pack_data, writehex, writeint, writetext
 from lib.parser import get_size_from_schema
 
+from lib.crc32 import compute_crc32
+
 def init_argparse() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         usage="%(prog)s [OPTION] [FILE]...",
@@ -67,7 +69,7 @@ def pack(name: Union[str, bytes, os.PathLike]) -> None:
         writeint(outputfile, len(data["headers"]), 4)
         for header in data["headers"]:
             writetext(outputfile, header["name"], padding=64)
-            writehex(outputfile, header["hash"])
+            writeint(outputfile, compute_crc32(header["name"]),4)
             writeint(outputfile, header["start"], 4)  #This should be recomputed
             writeint(outputfile, header["length"], 4) #Same here
             writeint(outputfile, header["count"], 4)  #Same here

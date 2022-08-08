@@ -5,7 +5,7 @@
 			"id": "short",
 			"int": "uint",
 			"empty": "ushort",
-			"unknown": "u16array",
+			"unknown": "u32array",
 			"int2": "uint"
 		}
 	}

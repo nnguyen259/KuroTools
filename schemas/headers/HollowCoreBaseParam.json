@@ -17,8 +17,8 @@
 			"float3": "float",
 			"empty2": "uint",
 			"float4": "float",
-			"name": "toffset",
-			"long2": "ulong",
+			"name": "u32array",
+			"int4": "uint",
 			"name2": "toffset"
 		}
 	}

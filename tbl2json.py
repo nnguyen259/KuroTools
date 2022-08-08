@@ -59,7 +59,6 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
             entry_count = readint(tbl_file, 4)
             header = {
                 "name": header_name,
-                "hash": unknown,
                 "length": entry_length,
                 "count": entry_count,
                 "start": start_offset
