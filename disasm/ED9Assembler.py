@@ -12,6 +12,7 @@ current_stack = []
 dict_stacks = {}#Key: Label, Value: State of the stack at the jump
 variable_names = {}#Key: Stack Index, Value: Symbol
 
+stack_invalid = False #Whenever there is a EXIT, we at least need a Label right after
 current_addr_scripts_var = 0
 current_addr_structs = 0
 current_addr_code = 0
@@ -102,7 +103,9 @@ def set_current_function(name):
     global current_function_number
     global current_stack
     global variable_names
+    global stack_invalid 
 
+    stack_invalid = False
     current_id = retrieve_index_by_fun_name(name)
     current_function = current_script.functions[current_id]
     
@@ -455,7 +458,7 @@ def PUTBACK(value):
 
     index1 = int(len(current_stack) + value/4)
     index2 = current_stack[index1]
-    current_stack[index2] = current_stack[len(current_stack) - 1]
+    #current_stack[index2] = current_stack[len(current_stack) - 1]
     current_stack.pop()
 
     b_arg = bytearray(struct.pack("<i", value)) 
@@ -511,6 +514,8 @@ def JUMP(value):
     global current_addr_code
     global bin_code_section
     global current_stack
+    global stack_invalid
+
     b_arg = bytearray(struct.pack("<I", 0)) #placeholder
     result = bytearray([0x0B]) + b_arg
     bin_code_section = bin_code_section + result
@@ -520,14 +525,15 @@ def JUMP(value):
         jump_dict[value] = jump()
         jump_dict[value].addr_start.append(current_addr_code + 1)
     current_addr_code = current_addr_code + len(result)
-
-    if value not in dict_stacks:
-        dict_stacks[value] = current_stack.copy()
+    if (stack_invalid == False):
+        if value not in dict_stacks:
+            dict_stacks[value] = current_stack.copy()
 
 def Label(value):
     global current_addr_code
     global bin_code_section
     global current_stack 
+    global stack_invalid
 
     if value in jump_dict:
         jump_dict[value].addr_destination = current_addr_code
@@ -536,6 +542,7 @@ def Label(value):
         jump_dict[value].addr_destination = current_addr_code
     if value in dict_stacks:
         current_stack = dict_stacks[value]
+        stack_invalid = False
 
 def CALL(name):
     global current_addr_code
@@ -555,7 +562,9 @@ def CALL(name):
 def EXIT():
     global current_addr_code
     global bin_code_section
-    
+    global stack_invalid
+
+    stack_invalid = True
     result = bytearray([0x0D])
     bin_code_section = bin_code_section + result
     current_addr_code = current_addr_code + len(result)
@@ -564,6 +573,7 @@ def JUMPIFFALSE(value):
     global current_addr_code
     global bin_code_section
     global current_stack
+    global stack_invalid
 
     current_stack.pop()
     b_arg = bytearray(struct.pack("<I", 0)) 
@@ -575,13 +585,15 @@ def JUMPIFFALSE(value):
         jump_dict[value] = jump()
         jump_dict[value].addr_start.append(current_addr_code + 1)
     current_addr_code = current_addr_code + len(result)
-    if value not in dict_stacks:
-        dict_stacks[value] = current_stack.copy()
+    if (stack_invalid == False):
+        if value not in dict_stacks:
+            dict_stacks[value] = current_stack.copy()
 
 def JUMPIFTRUE(value):
     global current_addr_code
     global bin_code_section
     global current_stack
+    global stack_invalid
 
     current_stack.pop()
     b_arg = bytearray(struct.pack("<I", 0)) 
@@ -593,8 +605,9 @@ def JUMPIFTRUE(value):
         jump_dict[value] = jump()
         jump_dict[value].addr_start.append(current_addr_code + 1)
     current_addr_code = current_addr_code + len(result)
-    if value not in dict_stacks:
-        dict_stacks[value] = current_stack.copy()
+    if (stack_invalid == False):
+        if value not in dict_stacks:
+            dict_stacks[value] = current_stack.copy()
 
 def ADD():
     global current_addr_code
@@ -937,6 +950,8 @@ class instr:
        self.params = params
 
 def Command(command_name, inputs):
+    if type(inputs) == list:
+        inputs.reverse()
     for str_exp in inputs:
         compile_expr(str_exp)
     RUNCMD(len(inputs), command_name)
@@ -948,29 +963,25 @@ def AssignVar(symbol, expr):
     global current_addr_code
     global variable_names
 
+    compile_expr(expr)
+
     if symbol in variable_names.values():
 
         idx = find_symbol_in_stack(symbol)
-        if (len(current_stack) - 1) > idx:
-            compile_expr(expr)
+        if (len(current_stack) - 1) > idx: #if the index we put the value to is not the top of the stack, we put it back at that index
             PUTBACKATINDEX(-(len(current_stack) - 1 - idx) * 4)
-        elif (len(current_stack)) == idx:
-            compile_expr(expr)
+        elif (len(current_stack) - 1) == idx: #if it's already on top of the stack, it should have been pushed earlier so nothing to do
+            pass
         else:
             raise Exception("This variable was destroyed") #I'll try to find a way to deal with that later if we end up with a PC version
     else:
-        if len(current_stack) not in variable_names.keys():
-            variable_names[len(current_stack)] = symbol
-            compile_expr(expr)
-        else:
-            #Here there was some problem leading to a mismatch between the assembler and the disassembler stacks,
-            #Happened to me because of a return address not being placed at its usual location (compilation seems special
-            #for for loops) I don't know how to handle this case though. 
-            #My advice is not messing with variables, they're here to help follow the flow of instructions but
-            #really you shouldn't use them, just use functions, commands, jumps, stuff like this which are safe to use (the stack cleans itself)
+        #if the symbol is not in the variable names dict, it's a new variable at an index that was never reached
+        #still, we should verify the top of the stack + 1 doesn't already have a var name associated to it
+        if (len(current_stack)-1) not in variable_names.keys():
+            variable_names[len(current_stack)-1] = symbol
             
-            compile_expr(expr) 
-            #raise Exception("There is already a different variable name associated to this stack index")
+        else:
+            raise Exception("There is already a different variable name associated to this stack index")
         
 def SetVarToAnotherVarValue(symbolout, input): #SetVarToAnotherVarValue
     global current_stack
@@ -1014,7 +1025,7 @@ def WriteAtIndex(value_in, index):
 
     idx_in = find_symbol_in_stack(index)
     
-    if value_in in variable_names.value():
+    if value_in in variable_names.values():
         idx = find_symbol_in_stack(value_in)
         if idx == len(current_stack) - 1:
             if idx_in < len(current_stack) - 1:
@@ -1047,14 +1058,20 @@ def compile_expr(input): #This only so I can know where to push the return addre
             RETRIEVEELEMENTATINDEX(-(len(current_stack) - idx) * 4)
         elif input.id == 3:
             idx = find_symbol_in_stack(input.params[0])
-            RETRIEVEELEMENTATINDEX3(-(len(current_stack) - idx) * 4)
+            RETRIEVEELEMENTATINDEX2(-(len(current_stack) - idx) * 4)
         elif input.id == 4:
             PUSHCONVERTINTEGER(input.params[0])
         elif input.id == 7:
             LOAD32(input.params[0])
         elif input.id == 9:
             LOADRESULT(input.params[0])
+        elif input.id == 0x22:
+            PUSHCALLERFUNCTIONINDEX()
+        elif input.id == 0x23:
+            PUSHRETURNADDRESS(input.params[0])
+
     elif type(input) == list:
+
         for i in range(0,len(input)-1):
             compile_expr(input[i])
         if len(input) == 3:
@@ -1120,6 +1137,12 @@ def Load32(index):
 def LoadResult(index):
     return instr(9, [index])
 
+def CallerID():
+    return instr(0x22, [])
+def ReturnAddress(loc):
+    return instr(0x23, [loc])
+
+
 def add(op1, op2):
     return [op1,op2, instr(0x10, [])]
 def subtract(op1, op2):
@@ -1160,10 +1183,11 @@ def xor1(op1):
 
 def Return():
     global current_function
+    global current_stack 
 
     varin = len(current_function.input_args)
-    if varin > 0:
-        POP(varin * 4)
+    if len(current_stack) > 0:
+        POP(len(current_stack) * 4)
     EXIT()
 
 def CreateVar(symbol, value):
@@ -1205,7 +1229,10 @@ def CallFunctionWithoutReturnAddr(fun_name, inputs):
     global current_addr_code
     global current_stack
     global jump_dict
-    
+
+    if type(inputs) == list:
+        inputs.reverse()
+
     for str_exp in inputs:
         compile_expr(str_exp)
 
@@ -1271,6 +1298,9 @@ def CallFunctionFromAnotherScriptWithoutReturnAddr(file, fun, inputs):
     
 
     #Adding the inputs
+    if type(inputs) == list:
+        inputs.reverse()
+
     for str_exp in inputs:
         compile_expr(str_exp)
 

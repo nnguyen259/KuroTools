@@ -7,6 +7,14 @@ import disasm.ED9InstructionsSet as ED9InstructionsSet
 import traceback
 from processcle import processCLE
 
+def get_var_symbol(var_names, stack) -> str:
+    if len(stack)-1 not in var_names:
+        var_names[len(stack)-1] = "VAR_" + str(len(stack)-1)
+        output = var_names[len(stack)-1]
+    else:
+        output = var_names[len(stack)-1]
+    return output
+
 class ED9Disassembler(object):
     def __init__(self, markers, decomp):
         self.markers = markers
@@ -34,7 +42,7 @@ class ED9Disassembler(object):
             
         self.stream.seek(0)
         self.smallest_data_ptr = filesize
-        self.script = script(self.stream, filename)
+        self.script = script(self.stream, filename, markers = self.markers)
         self.write_script()
 
 
@@ -117,8 +125,6 @@ class ED9Disassembler(object):
 
     def update_stack(self, instruction, stack, instruction_id):
         try:
-               
-                
             functions = self.script.functions
 
             if instruction.op_code == 0x26: 
@@ -141,9 +147,9 @@ class ED9Disassembler(object):
                 elif (op_code == 5): 
                     stack.pop()
                 elif (op_code == 6):  #We pop
-                    index1 = int(len(stack) + instruction.operands[0].value/4)
-                    index2 = stack[index1]
-                    stack[index2] = instruction_id
+                    #index1 = int(len(stack) + instruction.operands[0].value/4)
+                    #index2 = stack[index1]
+                    #stack[index2] = instruction_id
                     stack.pop()
                 elif (op_code == 7): 
                     stack.append(instruction_id)
@@ -215,7 +221,7 @@ class ED9Disassembler(object):
             output = self.variables_names[index_referred]
             result = "SetVarToAnotherVarValue(\""+ output + "\", input=\"" + input + "\")"
         elif (instruction.op_code == 6):
-            index_referred = int((len(stack)) + instruction.operands[0].value/4)
+            index_referred = int((len(stack)) + instruction.operands[0].value/4 - 1)
             index_str = self.variables_names[index_referred]
             top_of_the_stack = self.variables_names[len(stack) - 1]
             result = "WriteAtIndex(\""+ top_of_the_stack + "\", index=\"" + index_str + "\")"
@@ -230,6 +236,7 @@ class ED9Disassembler(object):
         copy_stack = stack.copy()
         checkpoint = instr_id
         checkpoint_str = 0
+        stack_checkpoint = copy_stack.copy()
         counter_exp = 0
         while i < len(instructions):
             instruction = instructions[i]
@@ -309,7 +316,7 @@ class ED9Disassembler(object):
                 if len(parameters_str) == 0: 
                     counter_exp = counter_exp + 1
                     variable_name = self.variables_names[idx_top]
-                    value = "TopVar(\"" + variable_name + "\")" #OK so, TopVar is supposed to look for the symbol in the stack; if it is on top of it, it will not compile anything, if not, it will retrieve it by index. 
+                    value = "TopVar(\"" + variable_name + "\")" 
                 else:
                     value = parameters_str[param_count - 1]
                     parameters_str.pop()
@@ -326,11 +333,12 @@ class ED9Disassembler(object):
             elif (op_code == 0x27): 
                 break
     
+            self.update_stack(instruction, copy_stack, i)
             if counter_exp == 1:
                 checkpoint = i
                 checkpoint_str = len(parameters_str) - 1
-            
-            self.update_stack(instruction, copy_stack, i)
+                stack_checkpoint = copy_stack.copy()
+
             i = i + 1
     
         for j in range(checkpoint_str, len(parameters_str) - 1):
@@ -341,11 +349,11 @@ class ED9Disassembler(object):
         if len(result) > 0:
             result = result[:-2]
         
-        if len(stack) not in self.variables_names:
-            self.variables_names[len(stack)] = "VAR_" + str(len(stack))
-            output = self.variables_names[len(stack)]
+        if len(stack_checkpoint)-1 not in self.variables_names:
+            self.variables_names[len(stack_checkpoint)-1] = "VAR_" + str(len(stack_checkpoint)-1)
+            output = self.variables_names[len(stack_checkpoint)-1]
         else:
-            output = self.variables_names[len(stack)]
+            output = self.variables_names[len(stack_checkpoint)-1]
         return ("AssignVar(" + "\"" + output + "\", " + result + ")", checkpoint - instr_id)
     
     def get_instruction_number_for_expression(self, instructions, start)->int:
@@ -474,6 +482,7 @@ class ED9Disassembler(object):
                 raise ValueError('Should not happen.')
             elif (op_code == 0x27): 
                 raise ValueError('Should not happen.')
+        parameters_str.reverse()
         for parameter_str in parameters_str:
             result = result + parameter_str + ", "  
         if len(result) > 0:
@@ -525,6 +534,9 @@ class ED9Disassembler(object):
         instructions = self.decompile_instructions(function)
         
         return fun_header + instructions
+
+    
+
     def decompile_instructions(self, function) -> str:
         
         functions = self.script.functions
@@ -560,7 +572,10 @@ class ED9Disassembler(object):
             self.instructions_stacks.append(stack.copy())
             
             if instruction.op_code == 0x26: #Line Marker, we can separate with a new line, and get rid of the instruction 
-                string_list.append("")
+                if self.markers == True:
+                    string_list.append(instruction.to_string(self.stream))
+                else:
+                    string_list.append("")
                 instruction_id = instruction_id + 1
             else: #We try to reproduce the stack at any given point, to get rid of the stack index-based instructions (OP 2,3,4,5,6) in function and command calls 
                 #if we encounter a jump of any sort, we store the content of the stack, and when we reach the destination, we restore that stack. The actual values don't matter, it is just used as an unique ID
@@ -586,8 +601,7 @@ class ED9Disassembler(object):
                         decompiled_str = self.add_var_to_stack(instruction, stack)
                    
                     elif (op_code == 6):  #We pop
-                        index1 = int(len(stack) + instruction.operands[0].value/4)
-                        addr_expr = stack[index1]
+                        
                         decompiled_str = self.add_var_to_stack(instruction, stack)
                        
                 
@@ -608,7 +622,10 @@ class ED9Disassembler(object):
                             instruction_id = instruction_id + 1
                             instruction = function.instructions[instruction_id]
                             while instruction.addr not in ED9InstructionsSet.locations_dict:
-                                string_list.append(instruction.to_string(self.stream))
+                                if (instruction.op_code == 0x26 and self.markers == True) or (instruction.op_code != 0x26):
+                                    string_list.append(instruction.to_string(self.stream))
+                                else:
+                                    string_list.append("")
                                 self.instructions_stacks.append([])
                                 instruction_id = instruction_id + 1
                                 if instruction_id > len(function.instructions) - 1:
@@ -625,11 +642,11 @@ class ED9Disassembler(object):
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
                         #Every parameter that has not been retrieved by the previous function was pushed some time ago and put in a variable,
                         #We don't want to compile them again, so we add them to the call just to inform the user using TopVar
-                        params_id = range(len(stack) - varin,len(stack) - varin + remaining_params , 1)
+                        params_id = range(len(stack) - varin + remaining_params , len(stack) - varin,-1)
                         decompiled_str =  "\"" + called_fun.name + "\", ["
                         additional_parameters = ""
                         for param_id in params_id:
-                            additional_parameters = additional_parameters + "TopVar(\"" + self.variables_names[param_id] + "\"),"
+                            additional_parameters = "TopVar(\"" + self.variables_names[param_id] + "\")," + additional_parameters 
                         additional_parameters = additional_parameters[:-1]
                             
                         all_params = ""
@@ -660,8 +677,14 @@ class ED9Disassembler(object):
                                 label = "Loc_"+ str(ED9InstructionsSet.location_counter)
                                 ED9InstructionsSet.locations_dict[addr] = label
                                 ED9InstructionsSet.location_counter = ED9InstructionsSet.location_counter + 1
-                            string_list[idx_return_addr] = "PUSHRETURNADDRESS(\"" + label + "\")"
-                            string_list[idx_return_addr - 1] = "PUSHCALLERFUNCTIONINDEX()"
+
+                            #both following pushes will need variable names, which were added previously while going through the expression
+                            #the stack at this point is 
+                            return_addr_var = "VAR_" + str(len(stack) - 1 - varin)
+                            caller_index_var = "VAR_" + str(len(stack) - 2 - varin)
+
+                            string_list[idx_return_addr] = "AssignVar(\""+return_addr_var + "\", ReturnAddress(\"" + label + "\"))"
+                            string_list[idx_return_addr - 1] = "AssignVar(\""+caller_index_var + "\", CallerID())"
                         else:
                             decompiled_str = "CallFunction(" + decompiled_str + ")"
                             for i in range(idx_return_addr - 1, idx_return_addr + 1): 
@@ -707,11 +730,11 @@ class ED9Disassembler(object):
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
                         #Every parameter that has not been retrieved by the previous function was pushed some time ago and put in a variable,
                         #We don't want to compile them again, so we add them to the call just to inform the user using TopVar
-                        params_id = range(len(stack) - varin,len(stack) - varin + remaining_params , 1)
+                        params_id = range(len(stack) - varin + remaining_params ,len(stack) - varin, -1)
                         decompiled_str =  script_file + ", " + called_fun + ", ["
                         additional_parameters = ""
                         for param_id in params_id:
-                            additional_parameters = additional_parameters + "TopVar(\"" + self.variables_names[param_id] + "\"),"
+                            additional_parameters = "TopVar(\"" + self.variables_names[param_id] + "\")," + additional_parameters
                         additional_parameters = additional_parameters[:-1]
                         all_params = ""
                         if (len(additional_parameters)>0):  
@@ -757,10 +780,10 @@ class ED9Disassembler(object):
                         index_end = instruction_id - 1
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
                         decompiled_str =  "Command(\"" + function.instructions[instruction_id].operands[1].value + "\", ["
-                        params_id = range(len(stack) - varin,len(stack) - varin + remaining_params , 1)
+                        params_id = range(len(stack) - varin + remaining_params ,len(stack) - varin ,-1)
                         additional_parameters = ""
                         for param_id in params_id:
-                            additional_parameters = additional_parameters + "TopVar(\"" + self.variables_names[param_id] + "\"),"
+                            additional_parameters = "TopVar(\"" + self.variables_names[param_id] + "\")," + additional_parameters 
                         additional_parameters = additional_parameters[:-1]
                         all_params = ""
                         if (len(additional_parameters)>0):  
@@ -792,7 +815,6 @@ class ED9Disassembler(object):
                     if (skip == False):
                         if (len(decompiled_str)>0):
                             string_list.append(decompiled_str)
-                    
                         else:
                             string_list.append(instruction.to_string(self.stream))
                         self.update_stack(function.instructions[instruction_id], stack, instruction_id)
@@ -867,21 +889,20 @@ class ED9Disassembler(object):
                 starting_instruction_id = stack[len(stack) -1 - varin]
                 last_instruction = function.instructions[starting_instruction_id]
                 
-                if (last_instruction.name == "PUSHUNDEFINED"): #For safety but should always be the case
-                    function.instructions[starting_instruction_id].name = "PUSHRETURNADDRESS"
-                    addr = last_instruction.operands[0].value
-                    if addr in ED9InstructionsSet.locations_dict:
-                        label = ED9InstructionsSet.locations_dict[addr]
-                    else:
-                        label = "Loc_"+ str(ED9InstructionsSet.location_counter)
-                        ED9InstructionsSet.locations_dict[addr] = label
-                        ED9InstructionsSet.location_counter = ED9InstructionsSet.location_counter + 1
-                    function.instructions[starting_instruction_id].operands[0] = ED9InstructionsSet.operand(label, False)
-                    #The previous instruction is likely where the call really starts, it pushes a small unsigned integer (maybe some kind of stack size allocated for the called function?)
-                    function.instructions[starting_instruction_id - 1].text_before = "#Calling " + called_fun.name + "\n    "
-                    function.instructions[starting_instruction_id - 1].name = "PUSHCALLERFUNCTIONINDEX"
-                    
-                    function.instructions[starting_instruction_id - 1].operands.clear()# = ED9InstructionsSet.operand(functions[function.instructions[starting_instruction_id - 1].operands[0].value].name, False)
+                
+                function.instructions[starting_instruction_id].name = "PUSHRETURNADDRESS"
+                addr = last_instruction.operands[0].value
+                if addr in ED9InstructionsSet.locations_dict:
+                    label = ED9InstructionsSet.locations_dict[addr]
+                else:
+                    label = "Loc_"+ str(ED9InstructionsSet.location_counter)
+                    ED9InstructionsSet.locations_dict[addr] = label
+                    ED9InstructionsSet.location_counter = ED9InstructionsSet.location_counter + 1
+                function.instructions[starting_instruction_id].operands[0] = ED9InstructionsSet.operand(label, False)
+                #The previous instruction is likely where the call really starts, it pushes a small unsigned integer (maybe some kind of stack size allocated for the called function?)
+                function.instructions[starting_instruction_id - 1].text_before = "#Calling " + called_fun.name + "\n    "
+                function.instructions[starting_instruction_id - 1].name = "PUSHCALLERFUNCTIONINDEX"
+                function.instructions[starting_instruction_id - 1].operands.clear()# = ED9InstructionsSet.operand(functions[function.instructions[starting_instruction_id - 1].operands[0].value].name, False)
             elif instruction.op_code == 0x25: 
                addr = instruction.operands[0].value
                if addr in ED9InstructionsSet.locations_dict:

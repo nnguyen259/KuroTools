@@ -35,6 +35,11 @@ def main() -> None:
         args.decompile = True 
     elif args.decompile == "False":
         args.decompile = False
+
+    if args.markers == "True":
+        args.markers = True 
+    elif args.markers == "False":
+        args.markers = False
     	
     if not args.file:
         raise Exception("ED9Disassembler needs a file to disassemble!")
