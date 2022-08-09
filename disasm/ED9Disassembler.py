@@ -349,7 +349,7 @@ class ED9Disassembler(object):
         if len(result) > 0:
             result = result[:-2]
         
-        if len(stack_checkpoint)-1 not in self.variables_names:
+        if len(stack_checkpoint)-1 not in self.variables_names.keys():
             self.variables_names[len(stack_checkpoint)-1] = "VAR_" + str(len(stack_checkpoint)-1)
             output = self.variables_names[len(stack_checkpoint)-1]
         else:
@@ -680,8 +680,18 @@ class ED9Disassembler(object):
 
                             #both following pushes will need variable names, which were added previously while going through the expression
                             #the stack at this point is 
-                            return_addr_var = "VAR_" + str(len(stack) - 1 - varin)
-                            caller_index_var = "VAR_" + str(len(stack) - 2 - varin)
+                            pos_return = len(stack) - 1 - varin
+                            pos_caller_index = len(stack) - 2 - varin
+                            if pos_return in self.variables_names.keys():
+                                return_addr_var = self.variables_names[pos_return]
+                            else:
+                                return_addr_var = "VAR_" + str(pos_return)
+                            
+                            if pos_caller_index in self.variables_names.keys():
+                                caller_index_var = self.variables_names[pos_caller_index]
+                            else:
+                                caller_index_var = "VAR_" + str(pos_caller_index)
+
 
                             string_list[idx_return_addr] = "AssignVar(\""+return_addr_var + "\", ReturnAddress(\"" + label + "\"))"
                             string_list[idx_return_addr - 1] = "AssignVar(\""+caller_index_var + "\", CallerID())"
