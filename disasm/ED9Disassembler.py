@@ -203,7 +203,7 @@ class ED9Disassembler(object):
                     for i in range(count):
                         stack.pop()
         except Exception as err:
-            print("WARNING: Likely a jump right after a return. Just ignore this unless you know what you're doing. Output file should be fine.")
+            print("WARNING: Something unexpected happening at address ", hex(instruction.addr))
             #print(err, traceback.format_exc())
                 
     def add_var_to_stack(self, instruction, stack)->str:
@@ -1002,4 +1002,11 @@ def find_start_function_call(instructions, instruction_id, varin)->int:
             for i in range(count):
                 counter_in = counter_in + 1
         instruction_counter = instruction_counter - 1
+
+    
+    current_instruction = instructions[instruction_id + instruction_counter]
+    while(current_instruction.op_code == 0x26):
+        instruction_counter = instruction_counter - 1
+        current_instruction = instructions[instruction_id + instruction_counter]
+    
     return (instruction_counter, counter_in)

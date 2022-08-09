@@ -396,10 +396,10 @@ def POP(value):
         for i in range(popped_els):
             current_stack.pop()
     except Exception as err:
-        print("You can ignore the following issue, which is most likely due to a wrong file construction in the first place:")
-        print(err)
-        #traceback.print_stack()
-    
+        print("WARNING: Something unexpected happened, not necessarily a problem. Check the error below for more details: ")
+        #print(err)
+        traceback.print_stack()
+        print("This is not an error!!!! Just a warning!! Your file will be generated!")
     b_arg = bytearray(struct.pack("<B", value)) 
     result = bytearray([1]) + b_arg
     bin_code_section = bin_code_section + result
