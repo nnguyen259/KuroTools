@@ -637,7 +637,7 @@ class ED9Disassembler(object):
                         called_fun = functions[index_fun]
                         varin = len(called_fun.input_args)
                         (start, remaining_params) = find_start_function_call(function.instructions, instruction_id, varin)                        
-                        index_start = instruction_id + 1 + start
+                        index_start = instruction_id + start
                         index_end = instruction_id - 1
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
                         #Every parameter that has not been retrieved by the previous function was pushed some time ago and put in a variable,
@@ -735,7 +735,7 @@ class ED9Disassembler(object):
                         called_fun = get_actual_value_str(self.stream, function.instructions[instruction_id].operands[1].value)
                         varin = function.instructions[instruction_id].operands[2].value
                         (start, remaining_params) = find_start_function_call(function.instructions, instruction_id, varin)                        
-                        index_start = instruction_id + 1 + start
+                        index_start = instruction_id + start
                         index_end = instruction_id - 1
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
                         #Every parameter that has not been retrieved by the previous function was pushed some time ago and put in a variable,
@@ -786,7 +786,7 @@ class ED9Disassembler(object):
                         varin = function.instructions[instruction_id].operands[0].value
                         #For a command call we remove the final pop only
                         (start, remaining_params) = find_start_function_call(function.instructions, instruction_id, varin)                        
-                        index_start = instruction_id + 1 + start
+                        index_start = instruction_id + start
                         index_end = instruction_id - 1
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
                         decompiled_str =  "Command(\"" + function.instructions[instruction_id].operands[1].value + "\", ["
@@ -1003,10 +1003,11 @@ def find_start_function_call(instructions, instruction_id, varin)->int:
                 counter_in = counter_in + 1
         instruction_counter = instruction_counter - 1
 
-    
+    if (instruction_id + instruction_counter == -1):
+        return (instruction_counter + 1, counter_in)
     current_instruction = instructions[instruction_id + instruction_counter]
     while(current_instruction.op_code == 0x26):
         instruction_counter = instruction_counter - 1
         current_instruction = instructions[instruction_id + instruction_counter]
     
-    return (instruction_counter, counter_in)
+    return (instruction_counter + 1, counter_in)
