@@ -854,6 +854,7 @@ def CALLFROMANOTHERSCRIPT2(str1, str2, var):
     global current_addr_code
     global bin_code_section
     global current_stack
+    global current_function
 
     b_arg = bytearray(struct.pack("<I", 0)) #placeholder
     result = bytearray([0x23]) + b_arg
@@ -866,8 +867,18 @@ def CALLFROMANOTHERSCRIPT2(str1, str2, var):
     result = result + b_arg
     bin_code_section = bin_code_section + result
 
+    #Here it's a hack for the disassembled version to not cause errors when recompiling. Normally I'd need to know the length of the stack
+    #before the input arguments were added, but at the point of CALLFROMANOTHERSCRIPT2, there is no way I'd know (it has already been cleared)
+    #So I can't restore it to its previous state. All I can do is add as many dummy elements in the stack as there are input parameters to the 
+    #the current function, as usually there is no left over element in the stack except those (but it can happen, and if it happens, it will display
+    # a warning saying a problem happened, but in disassembled mode we don't care about the stack which is correct since taken directly from
+    #the original scripts, except if the user fucks it up somehow, then they will have a hard time debugging it (but just don't mod in disassembled version, really)
+    #The only problem it will lead in the end is the user not being able to tell precisely what's on the stack, that's something they'll have to do manually
     for i in range(var):
-        current_stack.pop() 
+        current_stack.pop()
+    for i in range(len(current_function.input_args)):
+        current_stack.append(0)
+
 
     current_addr_code = current_addr_code + len(result)
 
@@ -1306,5 +1317,23 @@ def CallFunctionFromAnotherScriptWithoutReturnAddr(file, fun, inputs):
 
     CALLFROMANOTHERSCRIPT(file, fun, len(inputs))
 
+def CallFunctionFromAnotherScript2(file, fun, inputs): 
     
+    global current_stack
+    
+    stack_before_call = current_stack.copy()
+    #Adding the inputs
+    if type(inputs) == list:
+        inputs.reverse()
 
+    for str_exp in inputs:
+        compile_expr(str_exp)
+
+    for i in range(1, len(inputs) + 1):
+        SAVERESULT(i)
+    if len(stack_before_call) > 0:
+        POP(len(stack_before_call) * 4)
+    for i in range(len(inputs), 0, -1):
+        LOADRESULT(i)
+    CALLFROMANOTHERSCRIPT2(file, fun, len(inputs))
+    current_stack = stack_before_call.copy()

@@ -26,7 +26,7 @@ def main() -> None:
     parser = init_argparse()
     args = parser.parse_args()
     if args.markers is None:
-        args.markers = False
+        args.markers = "False"
     if args.decompile is None:
         args.decompile = "True"
     	

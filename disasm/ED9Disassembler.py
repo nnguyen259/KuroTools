@@ -185,9 +185,7 @@ class ED9Disassembler(object):
                     for i in range(varin + 5): 
                         stack.pop()
                 elif (op_code == 0x23):
-                    varin = instruction.operands[2].value
-                    for i in range(varin): 
-                        stack.pop()
+                    pass
                     
                 elif (op_code == 0x24):
                     varin = instruction.operands[0].value
@@ -781,7 +779,52 @@ class ED9Disassembler(object):
                             string_list[idx_return_addr] = ""
                     
                     elif (op_code == 0x23):
-                        pass
+                        script_file = get_actual_value_str(self.stream, function.instructions[instruction_id].operands[0].value)
+                        called_fun = get_actual_value_str(self.stream, function.instructions[instruction_id].operands[1].value)
+                        varin = function.instructions[instruction_id].operands[2].value
+                        start_params = 0
+                        if varin > 0:
+                            start_params = varin * 2 #The successive Load and Save results
+                            if (function.instructions[instruction_id - 1 - varin].op_code == 1):
+                                start_params = start_params + 1 
+                        else:
+                            if (function.instructions[instruction_id - 1].op_code == 1):
+                                string_list[instruction_id - 1] = ""
+                                stack = self.instructions_stacks[instruction_id - 1]
+                            
+                        #if there is something in the stack, it will need to be removed, including the input params
+                        #here start should point to the first instruction likely to be the last parameter of the function
+                        start_params = instruction_id - start_params 
+                        (start, remaining_params) = find_start_function_call(function.instructions, start_params, varin)                        
+                        index_start = start_params + start
+                        index_end = start_params - 1
+                        params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
+                        decompiled_str =  "CallFunctionFromAnotherScript2(" + script_file + ", " + called_fun +", ["
+                        params_id = range(len(stack) - varin + remaining_params ,len(stack) - varin ,-1)
+                        additional_parameters = ""
+                        for param_id in params_id:
+                            additional_parameters = "TopVar(\"" + self.variables_names[param_id] + "\")," + additional_parameters 
+                        additional_parameters = additional_parameters[:-1]
+                        all_params = ""
+                        if (len(additional_parameters)>0):  
+                            all_params = additional_parameters
+                            
+                        if (len(params)>0):
+                            if (len(all_params)>0):
+                                all_params = all_params + ", " + params
+                            else: 
+                                all_params = params
+                        else:
+                            all_params = all_params[:-1]
+                        decompiled_str = decompiled_str + all_params + "])"
+                        
+                        for i in range(index_start, instruction_id): #We remove all POPs/Load and Save results
+                            string_list[i] = ""
+
+                        if varin > 0:
+                            stack = self.instructions_stacks[index_start]
+                            
+                        
                     elif (op_code == 0x24):
                         varin = function.instructions[instruction_id].operands[0].value
                         #For a command call we remove the final pop only
@@ -848,7 +891,7 @@ class ED9Disassembler(object):
         #print("NEW FUN: ", str(hex(self.start)))
         stack = [] 
         dict_stacks = {} 
-       
+        stack_list = []
         #first we add the input parameters of the function to the stack
         for in_id in range(len(function.input_args)):
             stack.append(-in_id -1)
@@ -856,6 +899,7 @@ class ED9Disassembler(object):
         instruction_id = 0
         
         while instruction_id < len(function.instructions):
+            stack_list.append(stack.copy())
             update_stack_needed = True
             instruction = function.instructions[instruction_id]
             if instruction.addr in ED9InstructionsSet.locations_dict:
@@ -913,6 +957,12 @@ class ED9Disassembler(object):
                 function.instructions[starting_instruction_id - 1].text_before = "#Calling " + called_fun.name + "\n    "
                 function.instructions[starting_instruction_id - 1].name = "PUSHCALLERFUNCTIONINDEX"
                 function.instructions[starting_instruction_id - 1].operands.clear()# = ED9InstructionsSet.operand(functions[function.instructions[starting_instruction_id - 1].operands[0].value].name, False)
+            elif instruction.op_code == 0x23:
+                varin = instruction.operands[2].value
+                
+                if (function.instructions[instruction_id - 1 - varin].op_code == 1):
+                    stack = stack_list[instruction_id - 1 - varin]
+
             elif instruction.op_code == 0x25: 
                addr = instruction.operands[0].value
                if addr in ED9InstructionsSet.locations_dict:
