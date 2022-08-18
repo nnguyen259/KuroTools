@@ -4,6 +4,7 @@
 #include <iostream>
 #include <filesystem>
 #include "CLEDecrypt.h"
+#include <assimp/postprocess.h>
 namespace fs = std::filesystem;
 void model::to_fbx() {
 
@@ -399,7 +400,7 @@ void model::to_fbx() {
 	Assimp::Exporter exporter;
 	
 	std::cout << "Writing " << this->name + ".fbx" << std::endl;
-	exporter.Export(out, "fbx", this->name + ".fbx");
+	exporter.Export(out, "fbx", this->name + ".fbx", aiProcess_JoinIdenticalVertices); //aiProcess_JoinIdenticalVertices aiProcess_CalcTangentSpace
 
 	delete out;
 

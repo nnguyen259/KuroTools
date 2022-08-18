@@ -93,10 +93,57 @@ struct bone_key_frames {
 	std::vector<keyframe_pos> pos;
 	std::vector<keyframe_rot> rot;
 	std::vector<keyframe_scl> scl;
+
+	void post_process_keys(float start, float end, vec3<float> position_bp, vec3<float> R, vec3<float> scaling_bp) {
+		aiQuaternion rotation_bp(R.y, R.z, R.x);
+
+		std::sort(pos.begin(), pos.end());
+		std::sort(rot.begin(), rot.end());
+		std::sort(scl.begin(), scl.end());
+
+		if ((pos.size() != 0) || (rot.size() != 0) || (scl.size() != 0)) {
+			//in that case we need to check that each of them has at least one key
+			keyframe_pos pos_key(start, { position_bp.x,position_bp.y,position_bp.z });
+			keyframe_rot rot_key(start, { rotation_bp.x,rotation_bp.y,rotation_bp.z, rotation_bp.w });
+			keyframe_scl scl_key(start, { scaling_bp.x,scaling_bp.y,scaling_bp.z });
+
+			if (pos.size() == 0)
+			{
+				pos.push_back(pos_key);
+			}
+			else if (pos[0].time > start) {
+				pos.insert(pos.begin(),pos_key);
+			}
+
+			if (rot.size() == 0)
+			{
+				rot.push_back(rot_key);
+			}
+			else if (rot[0].time > start) {
+				rot.insert(rot.begin(), rot_key);
+			}
+			if (scl.size() == 0)
+			{
+				scl.push_back(scl_key);
+			}
+			else if (pos[0].time > start) {
+				scl.insert(scl.begin(), scl_key);
+			}
+
+		}
+		for (auto& k : rot) {
+			aiQuaternion current_rot(k.data.t, k.data.x, k.data.y, k.data.z);
+			current_rot = rotation_bp * current_rot;
+			k.data.t = current_rot.w;
+			k.data.x = current_rot.x;
+			k.data.y = current_rot.y;
+			k.data.z = current_rot.z;
+		}
+	}
+
+
+	//don't need to resample actually. I misread assimp documentation. Apparently you only need a single key if there are keys for the other components
 	void interpolate_keys(float start, float end, vec3<float> position_bp, vec3<float> R, vec3<float> scaling_bp) {
-
-
-
 		aiQuaternion rotation_bp(R.y, R.z, R.x);
 
 		std::sort(pos.begin(), pos.end());

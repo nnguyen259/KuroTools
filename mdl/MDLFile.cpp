@@ -471,7 +471,7 @@ model MDLFile::extract_model(AssetConfig conf) {
 			
 		}
 		for (auto& ani_bone_k : ani.ani_bone_keys) {
-			ani_bone_k.second.interpolate_keys(ani.start, ani.end, mdl.nodes[ani_bone_k.first].T, mdl.nodes[ani_bone_k.first].R, mdl.nodes[ani_bone_k.first].S);
+			ani_bone_k.second.post_process_keys(ani.start, ani.end, mdl.nodes[ani_bone_k.first].T, mdl.nodes[ani_bone_k.first].R, mdl.nodes[ani_bone_k.first].S);
 		}
 		mdl.anis[ani.name] = ani;
 
