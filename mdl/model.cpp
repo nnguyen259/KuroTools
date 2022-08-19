@@ -5,8 +5,9 @@
 #include <filesystem>
 #include "CLEDecrypt.h"
 #include <assimp/postprocess.h>
+
 namespace fs = std::filesystem;
-void model::to_fbx() {
+void model::to_fbx(const AssetConfig &conf) {
 
 	size_t real_nb_of_meshes = 0;
 	for (auto mesh : this->meshes)
@@ -266,8 +267,10 @@ void model::to_fbx() {
 		aiAnimation* ani = new aiAnimation;
 		
 		ani->mName = ani_.second.name;
-		ani->mTicksPerSecond = 30;//Maybe it's stored somewhere, but I couldn't find it
-		ani->mDuration = (ani_.second.end - ani_.second.start) * ani->mTicksPerSecond;
+		float duration_in_seconds = (ani_.second.end - ani_.second.start);
+		ani->mTicksPerSecond = 24;//Honestly, who cares
+		ani->mDuration = duration_in_seconds * ani->mTicksPerSecond;
+
 		aiNodeAnim** ani_nodes = new aiNodeAnim * [ani_.second.ani_bone_keys.size()];
 
 		unsigned int count_bones_with_ibm = 0;
@@ -276,10 +279,8 @@ void model::to_fbx() {
 				
 				if (node_ptrs_str.count(current_bone) > 0) {
 					aiNode* current_node = node_ptrs_str[current_bone];
-
+					
 					aiNodeAnim* node_ani = new aiNodeAnim();
-
-
 					bone_key_frames keys = it_nd.second;
 
 					std::vector<aiVectorKey> position_keys;
@@ -308,10 +309,10 @@ void model::to_fbx() {
 
 					}
 					if (!keys.rot.empty()) {
-
+						size_t id = 0;
 						for (keyframe_rot key : keys.rot) {
 							aiQuaternion rotation_key = aiQuaternion(key.data.t, key.data.x, key.data.y, key.data.z);
-							rotation_keys.push_back(aiQuatKey(key.time - ani_.second.start, rotation_key));
+							rotation_keys.push_back(aiQuatKey((key.time - ani_.second.start), rotation_key));
 							
 						}
 
@@ -400,7 +401,14 @@ void model::to_fbx() {
 	Assimp::Exporter exporter;
 	
 	std::cout << "Writing " << this->name + ".fbx" << std::endl;
-	exporter.Export(out, "fbx", this->name + ".fbx", aiProcess_JoinIdenticalVertices|aiProcess_OptimizeMeshes|aiProcess_OptimizeGraph); // aiProcess_CalcTangentSpace
+
+	unsigned int PreProcessingFlags = aiProcess_JoinIdenticalVertices | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph;
+	if (conf.bone_limit_per_mesh != -1) {
+		//Something made for CS4 that didn't seem to work well 
+		#define AI_SBBC_DEFAULT_MAX_BONES conf.bone_limit_per_mesh;
+		PreProcessingFlags |= aiProcess_SplitByBoneCount;
+	}
+	exporter.Export(out, "fbx", this->name + ".fbx", PreProcessingFlags); // aiProcess_CalcTangentSpace
 
 	delete out;
 

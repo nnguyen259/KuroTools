@@ -202,9 +202,10 @@ size_t get_cnt(key_type sz)
 
 {
 	switch (sz) {
-	default:
-		throw std::exception("unknown type");
-		return 1;
+	default:{
+		std::string mess = "unknown type " + std::to_string((uint32_t)sz);
+		throw std::exception(mess.c_str());
+		return 1; }
 	case key_type::pos://position
 	case key_type::scale://scale
 	//case 0xe:
@@ -214,6 +215,8 @@ size_t get_cnt(key_type sz)
 		return 4;
 	case key_type::scrollUV:
 		return 2;
+	case key_type::no_actual_idea: //used for grendel somehow
+		return 1;
 	}
 }
 
@@ -226,6 +229,7 @@ bone_ani_data::bone_ani_data(std::vector<uint8_t>& content, uint32_t& addr) {
 	this->b = read_data<uint32_t>(content, addr);
 	this->c = read_data<uint32_t>(content, addr);
 	size_t cnt = read_data<uint32_t>(content, addr);
+	//std::cout << " " << std::hex << addr << std::endl;
 	size_t sz_ = get_cnt(this->ani_type);
 
 	for (size_t i = 0; i < cnt; i++) {

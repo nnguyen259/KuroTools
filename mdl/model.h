@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <assimp\scene.h>
 #include <iostream>
-
+#include "AssetConfig.h"
 
 
 class node {
@@ -329,6 +329,6 @@ public:
 	std::map<unsigned int, material> mats;
 	std::map<std::string, node> nodes;
 
-	void to_fbx();
+	void to_fbx(const AssetConfig &conf);
 	void to_merge(const model& m2);
 };

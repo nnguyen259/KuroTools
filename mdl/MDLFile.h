@@ -116,7 +116,7 @@ public:
 
 
 enum class datatype { face_indexes = 0x04, vertex_coordinates = 0x0C, uv_coordinates = 0x08, weights = 0x10 }; //not sure yet
-enum class key_type { pos = 0x09, rot = 0x0A, scale = 0x0B, scrollUV = 0x0D}; 
+enum class key_type { pos = 0x09, rot = 0x0A, scale = 0x0B, scrollUV = 0x0D, no_actual_idea = 0x0C}; 
 
 
 struct mesh_data_stream {

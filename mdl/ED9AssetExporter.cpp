@@ -6,7 +6,7 @@
 #include "model.h"
 #include <filesystem>
 #include "AssetConfig.h"
-
+#include <cstring>
 namespace fs = std::filesystem;
 int main(int argc, char** argv)
 {
@@ -39,19 +39,29 @@ int main(int argc, char** argv)
 			for (size_t i = 0; i < ani_mdls.size(); i++) {
 				base_model.to_merge(ani_mdls[i]);
 			}
-			base_model.to_fbx();
+			base_model.to_fbx(conf);
 		}
 		else {
-			std::string base_filename = filepath.substr(filepath.find_last_of("/\\") + 1);
-			std::string::size_type const p(base_filename.find_last_of('.'));
-			std::string scene_name = base_filename.substr(0, p);
 
-			decrypt(filepath);
-			std::ifstream input(filepath, std::ios::binary);
-			std::vector<unsigned char> buffer(std::istreambuf_iterator<char>(input), {});
-			MDLFile mdl(scene_name, buffer);
-			model m = mdl.extract_model(conf);
-			m.to_fbx();
+			std::string base_filename = filepath.substr(filepath.find_last_of("/\\") + 1);
+			try{
+				
+				std::string::size_type const p(base_filename.find_last_of('.'));
+				std::string scene_name = base_filename.substr(0, p);
+
+				decrypt(filepath);
+				std::ifstream input(filepath, std::ios::binary);
+				std::vector<unsigned char> buffer(std::istreambuf_iterator<char>(input), {});
+				MDLFile mdl(scene_name, buffer);
+				model m = mdl.extract_model(conf);
+				m.to_fbx(conf);
+			}
+			catch (std::exception e) {
+				std::string msg = e.what();
+				std::transform(msg.begin(), msg.end(), msg.begin(), ::toupper);
+				std::cout << msg << " " << base_filename << std::endl;
+			
+			}
 		}
 	}
 
