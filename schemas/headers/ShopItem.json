@@ -2,12 +2,12 @@
 	"FALCOM_PS4": {
 		"game": "Kuro1",
 		"schema": {
-			"id": "ushort",
-			"short1": "short",
-			"int1": "int",
-			"arr1": "u16array",
+			"shop_id": "ushort",
+			"item_id": "short",
+			"unknown": "int",
+			"start_scena_flags": "u16array",
 			"empty1": "int",
-			"arr2": "u16array",
+			"end_scena_flags": "u16array",
 			"int2": "int"
 		}
 	}
