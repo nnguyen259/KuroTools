@@ -408,7 +408,7 @@ void model::to_fbx(const AssetConfig &conf) {
 		#define AI_SBBC_DEFAULT_MAX_BONES conf.bone_limit_per_mesh;
 		PreProcessingFlags |= aiProcess_SplitByBoneCount;
 	}
-	exporter.Export(out, "fbx", this->name + ".fbx"); // aiProcess_CalcTangentSpace
+	exporter.Export(out, "fbx", this->name + ".fbx", PreProcessingFlags); // aiProcess_CalcTangentSpace
 
 	delete out;
 
