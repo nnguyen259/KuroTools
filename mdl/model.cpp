@@ -217,8 +217,8 @@ void model::to_fbx(const AssetConfig &conf) {
 				aibones[count_bones]->mNumWeights = it_b.second.weights.size();
 				aibones[count_bones]->mWeights = new aiVertexWeight[aibones[count_bones]->mNumWeights]();
 				if (aibones[count_bones]->mNumWeights > 0) {
-					float maxweight = *std::max_element(it_b.second.weights.begin(), it_b.second.weights.end());
-					float minweight = *std::min_element(it_b.second.weights.begin(), it_b.second.weights.end());
+					/*float maxweight = *std::max_element(it_b.second.weights.begin(), it_b.second.weights.end());
+					float minweight = *std::min_element(it_b.second.weights.begin(), it_b.second.weights.end());*/
 
 					for (unsigned int idx_w = 0; idx_w < aibones[count_bones]->mNumWeights; idx_w++) {
 
@@ -402,13 +402,13 @@ void model::to_fbx(const AssetConfig &conf) {
 	
 	std::cout << "Writing " << this->name + ".fbx" << std::endl;
 
-	unsigned int PreProcessingFlags = aiProcess_JoinIdenticalVertices | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph;
+	unsigned int PreProcessingFlags = aiProcess_JoinIdenticalVertices;// | aiProcess_OptimizeMeshes | aiProcess_OptimizeGraph;
 	if (conf.bone_limit_per_mesh != -1) {
 		//Something made for CS4 that didn't seem to work well 
 		#define AI_SBBC_DEFAULT_MAX_BONES conf.bone_limit_per_mesh;
 		PreProcessingFlags |= aiProcess_SplitByBoneCount;
 	}
-	exporter.Export(out, "fbx", this->name + ".fbx", PreProcessingFlags); // aiProcess_CalcTangentSpace
+	exporter.Export(out, "fbx", this->name + ".fbx"); // aiProcess_CalcTangentSpace
 
 	delete out;
 
