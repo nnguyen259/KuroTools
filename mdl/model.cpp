@@ -99,15 +99,15 @@ void model::to_fbx(const AssetConfig &conf) {
 			else if (tex.switch_name == "SWITCH_GLOWMAP1")
 				type = aiTextureType_EMISSIVE;
 			else if (tex.switch_name == "SWITCH_MASKMAP0")
-				type = aiTextureType_OPACITY;
+				type = aiTextureType_UNKNOWN;
 			else if (tex.switch_name == "SWITCH_MASKMAP1")
-				type = aiTextureType_OPACITY;
+				type = aiTextureType_UNKNOWN;
 			else if (tex.switch_name == "SWITCH_TOONMAP")
 				type = aiTextureType_UNKNOWN;
 			else if (tex.switch_name == "SWITCH_NORMALMAP2")
 				type = aiTextureType_NORMALS;
 			else if (tex.switch_name == "SWITCH_MASKMAP2")
-				type = aiTextureType_OPACITY;
+				type = aiTextureType_UNKNOWN;
 			else if (tex.switch_name == "SWITCH_DUDVMAP")
 				type = aiTextureType_UNKNOWN;
 			else if (tex.switch_name == "TRANSLUCENT_MAP")
