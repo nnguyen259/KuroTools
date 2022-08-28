@@ -991,7 +991,7 @@ def OP_E(instr, stream):
     global location_counter
     global locations_dict
 
-    instr.name = "JUMPIFFALSE"
+    instr.name = "JUMPIFTRUE"
     addr = readint(stream, 4)
     if addr in locations_dict:
         label = locations_dict[addr]
@@ -1006,7 +1006,7 @@ def OP_F(instr, stream):
     global location_counter
     global locations_dict
 
-    instr.name = "JUMPIFTRUE"
+    instr.name = "JUMPIFFALSE"
     addr = readint(stream, 4)
     if addr in locations_dict:
         label = locations_dict[addr]
@@ -1210,6 +1210,7 @@ class instruction(object):
         for operand_id in range(len(self.operands)-1):
             value = self.operands[operand_id].value
             if (type(value) == str):
+               
                 result = result + "\"" + value + "\""
             else:
                 if self.operands[operand_id].MSB_encoded == True:
@@ -1220,6 +1221,7 @@ class instruction(object):
         if len(self.operands) > 0:
             value = self.operands[len(self.operands)-1].value
             if (type(value) == str):
+                
                 result = result + "\"" + value + "\""
             else:
                 if self.operands[len(self.operands)-1].MSB_encoded == True:

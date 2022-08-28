@@ -704,7 +704,7 @@ class ED9Disassembler(object):
                         index_start = instruction_id - nb_instr
                         index_end = instruction_id - 1
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
-                        decompiled_str =  "JumpWhenFalse(\"" + function.instructions[instruction_id].operands[0].value + "\", "+ params + ")"
+                        decompiled_str =  "JumpWhenTrue(\"" + function.instructions[instruction_id].operands[0].value + "\", "+ params + ")"
                         for i in range(nb_instr): #removing return address and function index too
                             string_list[index_start + i] = ""
                     
@@ -718,7 +718,7 @@ class ED9Disassembler(object):
                         index_start = instruction_id - nb_instr
                         index_end = instruction_id - 1
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
-                        decompiled_str =  "JumpWhenTrue(\"" + function.instructions[instruction_id].operands[0].value + "\", "+ params + ")"
+                        decompiled_str =  "JumpWhenFalse(\"" + function.instructions[instruction_id].operands[0].value + "\", "+ params + ")"
                         for i in range(nb_instr): #removing return address and function index too
                             string_list[index_start + i] = ""
                     

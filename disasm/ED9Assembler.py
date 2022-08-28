@@ -577,7 +577,7 @@ def JUMPIFFALSE(value):
 
     current_stack.pop()
     b_arg = bytearray(struct.pack("<I", 0)) 
-    result = bytearray([0x0E]) + b_arg
+    result = bytearray([0x0F]) + b_arg
     bin_code_section = bin_code_section + result
     if value in jump_dict:
         jump_dict[value].addr_start.append(current_addr_code + 1) #recording address for when we know where the string are compiled
@@ -597,7 +597,7 @@ def JUMPIFTRUE(value):
 
     current_stack.pop()
     b_arg = bytearray(struct.pack("<I", 0)) 
-    result = bytearray([0x0F]) + b_arg
+    result = bytearray([0x0E]) + b_arg
     bin_code_section = bin_code_section + result
     if value in jump_dict:
         jump_dict[value].addr_start.append(current_addr_code + 1) #recording address for when we know where the string are compiled
