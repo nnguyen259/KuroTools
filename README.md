@@ -24,9 +24,9 @@ To use the tool, either drag and drop a mdl on ED9AssetExporter.exe, or put the 
 
 The tool outputs a single fbx file.
 textures are not included in the mdl so you have to retrieve them from the game files and put them in the same folder than the output fbx before opening it in blender or whichever 3D tool you are using.
+# Alternative tools
 
-Note on alternative tools:
-The script disassembler is very rough and not very userfriendly, more like a prototype type of thing. If you find it too difficult, please have a look at other alternatives to decompile the script files:
+The script disassembler is very rough and not very userfriendly, more like a prototype type of thing made from the study of PS4 eboot. If you find it too difficult, please have a look at other alternatives to decompile the script files:
 [Xxmyl Kuro Modify Tool](https://github.com/Xxmyl/KuroModifyTool/tree/v0.5-beta/KuroModifyTool)
 [Ouroboros' ED9Decompiler](https://github.com/Ouroboros/Falcom/tree/master/Decompiler2/Falcom/ED9) <= This one is likely to be the best tool given a few weeks/months
 
