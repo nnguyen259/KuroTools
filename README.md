@@ -27,8 +27,8 @@ textures are not included in the mdl so you have to retrieve them from the game 
 # Alternative tools
 
 The script disassembler is very rough and not very userfriendly, more like a prototype type of thing made from the study of PS4 eboot. If you find it too difficult, please have a look at other alternatives to decompile the script files:
-[Xxmyl Kuro Modify Tool](https://github.com/Xxmyl/KuroModifyTool/tree/v0.5-beta/KuroModifyTool)
-[Ouroboros' ED9Decompiler](https://github.com/Ouroboros/Falcom/tree/master/Decompiler2/Falcom/ED9) <= This one is likely to be the best tool given a few weeks/months
+- [Xxmyl Kuro Modify Tool](https://github.com/Xxmyl/KuroModifyTool/tree/v0.5-beta/KuroModifyTool)
+- [Ouroboros' ED9Decompiler](https://github.com/Ouroboros/Falcom/tree/master/Decompiler2/Falcom/ED9) <= This one is likely to be the best tool given a few weeks/months
 
 As for MDL extraction, if you encounter problems when using our tool (for example, running on Linux, which was not tested, please have a look at this tool:
 [uyjulian's mdl parser py file](https://gist.github.com/uyjulian/9a9d6395682dac55d113b503b1172009)
