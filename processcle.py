@@ -20,6 +20,7 @@ dec_counter = blowfish.ctr_counter(iv[0], f = operator.add)
 
 
 def processCLE(file_content):
+    result = file_content
     magic = file_content[0:4]
     to_decrypt = [b"F9BA", b"C9BA"]
     to_decompress = [b"D9BA"]

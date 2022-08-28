@@ -1,0 +1,12 @@
+{
+	"CLE_PC": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"uint1": "uint",
+			"title": "toffset",
+			"text": "toffset",
+			"text2": "toffset"
+		}
+	}
+}
