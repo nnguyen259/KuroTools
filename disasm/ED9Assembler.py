@@ -805,7 +805,7 @@ def NEGATIVE():
     bin_code_section = bin_code_section + result
     current_addr_code = current_addr_code + len(result)
 
-def ISTRUE():
+def ISFALSE():
     global current_addr_code
     global bin_code_section
     global current_stack
@@ -1120,7 +1120,7 @@ def compile_expr(input): #This only so I can know where to push the return addre
             if input[1].id == 0x1F:
               NEGATIVE()
             elif input[1].id == 0x20:
-                ISTRUE()
+                ISFALSE()
             elif input[1].id == 0x21:
                 XOR1()
     else:
@@ -1187,7 +1187,7 @@ def or3(op1, op2):
     return [op1,op2, instr(0x1E, [])]
 def negative(op1):
     return [op1, instr(0x1F, [])]
-def istrue(op1):
+def isfalse(op1):
     return [op1, instr(0x20, [])]
 def xor1(op1):
     return [op1, instr(0x21, [])]

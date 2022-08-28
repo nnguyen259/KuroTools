@@ -1067,7 +1067,7 @@ def OP_1F(instr, stream):
     instr.name = "NEGATIVE"
 def OP_20(instr, stream):
 
-    instr.name = "ISTRUE"
+    instr.name = "ISFALSE"
 def OP_21(instr, stream):
 
     instr.name = "XOR1"
