@@ -1,5 +1,5 @@
 # KuroTools
-Tools for working with Kuro no Kiseki .dat and .tbl files
+Tools for working with Kuro no Kiseki .dat and .tbl files. Currently works for the Asian PC release of Kuro no Kiseki 1
 
 # Requirements
 - Python 3.10 and +
