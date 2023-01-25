@@ -1,0 +1,9 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"skill_power": "int",
+			"icon_id": "int"
+		}
+	}
+}

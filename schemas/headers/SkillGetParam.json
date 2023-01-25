@@ -6,5 +6,16 @@
 			"skill_id_1": "ushort",
 			"skill_id_2": "ushort"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"character_id": "ushort",
+			"skill_id_1": "ushort",
+			"skill_id_2": "ushort",
+			"skill_id_3": "ushort",
+			"skill_id_4": "ushort"
+
+		}
 	}
 }
