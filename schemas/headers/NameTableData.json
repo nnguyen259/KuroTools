@@ -14,5 +14,23 @@
 			"text3": "toffset",
 			"text4": "toffset"
 		}
+	},
+	"CLE_PC" :{
+		"game": "Kuro2",
+		"schema": {
+			"character_id": "ulong",
+			"name": "toffset",
+			"texture": "toffset",
+			"face": "toffset",
+			"model": "toffset",
+			"long1": "ulong",
+			"text1": "toffset",
+			"long2": "long",
+			"text2": "toffset",
+			"long3": "ulong",
+			"text3": "toffset",
+			"text4": "toffset",
+			"text5": "toffset"
+		}
 	}
 }
