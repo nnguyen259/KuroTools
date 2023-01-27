@@ -1,0 +1,25 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"id": "uint",
+			"id_2": "uint",
+			"empty1": "short",
+			"stone_cost_1": "ushort",
+			"stone_cost_2": "ushort",
+			"stone_cost_3": "ushort",
+			"stone_cost_4": "ushort",
+			"stone_cost_5": "ushort",
+			"stone_cost_6": "ushort",
+			"stone_cost_7": "ushort",
+			"stone_cost_8": "ushort",
+			"stone_cost_9": "ushort",
+			"stone_cost_10": "ushort",
+			"stone_cost_11": "ushort",
+			"stone_cost_12": "ushort",
+			"stone_cost_13": "ushort",
+			"stone_cost_14": "ushort",
+			"stone_cost_15": "ushort"
+		}
+	}
+}

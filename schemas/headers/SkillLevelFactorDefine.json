@@ -1,0 +1,16 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"id": "ulong",
+			"text1": "toffset",
+			"text2": "toffset",
+			"text3": "toffset",
+			"long1": "long",
+			"array1": "u32array",
+			"int1": "int",
+			"int2": "int",
+			"int3": "int"
+		}
+	}
+}

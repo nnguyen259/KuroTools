@@ -1,0 +1,27 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"chr_id": "ushort",
+			"skill_id": "ushort",
+			"empty1": "ushort",
+			"upgrade_type_id": "ushort",
+			"empty2": "ushort",
+			"lvl_1_param": "ushort",
+			"lvl_2_param": "ushort",
+			"lvl_3_param": "ushort",
+			"lvl_4_param": "ushort",
+			"lvl_5_param": "ushort",
+			"lvl_6_param": "ushort",
+			"lvl_7_param": "ushort",
+			"lvl_8_param": "ushort",
+			"lvl_9_param": "ushort",
+			"lvl_10_param": "ushort",
+			"lvl_11_param": "ushort",
+			"lvl_12_param": "ushort",
+			"lvl_13_param": "ushort",
+			"lvl_14_param": "ushort",
+			"lvl_15_param": "ushort"
+		}
+	}
+}
