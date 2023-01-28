@@ -3,6 +3,7 @@
 		"SkillParam",
 		"SkillGetParam",
 		"SkillChangeParam",
+		"SkillPowerIcon",
 		"SkillGrendelParam"
 	]
 }

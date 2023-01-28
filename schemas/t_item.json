@@ -2,6 +2,7 @@
 	"headers": [
 		"ItemTableData",
 		"ItemKindParam2",
-		"QuartzParam"
+		"QuartzParam",
+		"ItemTabType"
 	]
 }
