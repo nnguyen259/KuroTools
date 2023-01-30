@@ -2,7 +2,7 @@
 Tools for working with Kuro no Kiseki .dat and .tbl files.
 
 # Compatability
-KuroTools is currently compatible with CLE's Steam release of Kuro no Kiseki. For CLE's Steam release of Kuro no Kiseki 2 -CRIMSON SiN-, it is currently possible to extract files, however insertion is not possible due to only loading compressed assets.
+KuroTools is currently compatible with CLE's Steam release of Kuro no Kiseki and mostly works with CLE's Steam release of Kuro no Kiseki 2 -CRIMSON SiN-.
 
 # Requirements
 - Python 3.10 and +
