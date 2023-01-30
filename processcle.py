@@ -1,6 +1,7 @@
 import lib.blowfish as blowfish
 import struct
 import operator
+import math
 try:
     import zstandard
 except ImportError:
@@ -32,6 +33,29 @@ def processCLE(file_content):
             result = decompressor.decompress(file_content[8:])
         file_content = result
         magic = file_content[0:4]
+
+    return result
+
+def compressCLE(file_content):
+    compressor = zstandard.ZstdCompressor(level=9, write_checksum=True)
+    result = compressor.compress(file_content)
+    filesize=len(result)
+    a = 8*math.ceil(filesize/8) - filesize
+    for x in range (a):
+        result = result + b"0"
+    filesize=len(result)
+    result=b"D9BA"+filesize.to_bytes(4,'little')+result    
+
+    return result
+
+def encryptCLE(file_content):
+    result = b"".join(cipher.encrypt_ctr(file_content, dec_counter))
+    filesize=len(result)
+    a = 8*math.ceil(filesize/8) - filesize
+    for x in range (a):
+        result = result + b"0"
+    filesize=len(result)
+    result=b"F9BA"+filesize.to_bytes(4,'little')+result
 
     return result
 
