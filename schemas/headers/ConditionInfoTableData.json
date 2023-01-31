@@ -18,8 +18,10 @@
 				}
 			},
 			"float1": "float",
-			"long1": "ulong",
-			"long2": "ulong",
+			"int5": "int",
+			"int6": "int",
+			"int7": "int",
+			"int8": "int",
 			"flag": "toffset"
 		}
 	}
