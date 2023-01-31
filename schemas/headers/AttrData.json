@@ -1,6 +1,6 @@
 {
-	"FALCOM_PS4": {
-		"game": "Kuro1",
+	"CLE_PC": {
+		"game": "Kuro2",
 		"schema": {
 			"id": "ubyte",
 			"element_id_1": "ubyte",
