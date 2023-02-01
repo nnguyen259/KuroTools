@@ -13,5 +13,21 @@
 			"scena_array2": "u16array",
 			"int2": "int"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"long1": "long",
+			"id": "uint",
+			"int1": "int",
+			"long2": "long",
+			"connect_name": "toffset",
+			"connect_description": "toffset",
+			"long3": "long",
+			"scena_array1": "u16array",
+			"empty1": "int",
+			"scena_array2": "u16array",
+			"int2": "int"
+		}
 	}
 }
