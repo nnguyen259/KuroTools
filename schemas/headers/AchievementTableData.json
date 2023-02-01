@@ -16,5 +16,25 @@
 			"achievement_name": "toffset",
 			"achievement_description": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"achievement_category": "uint",
+			"achievement_id": "uint",
+			"achievement_objective_1": "uint",
+			"achievement_objective_param_1": "uint",
+			"long1": "long",
+			"arr1": "u32array",
+			"short1": "short",
+			"short2": "short",
+			"int1": "int",
+			"int2": "int",
+			"long2": "long",
+			"empty": "long",
+			"flag": "toffset",
+			"achievement_name": "toffset",
+			"achievement_description": "toffset"
+		}
 	}
 }

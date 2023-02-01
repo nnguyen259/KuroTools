@@ -10,11 +10,7 @@
 			"int4": "uint",
 			"name": "toffset",
 			"description": "toffset",
-			"text2": "toffset",
-			"int5": "uint",
-			"int6": "uint",
-			"arr3": "u32array",
-			"int7": "uint"
+			"text2": "toffset"
 		}
 	}
 }
