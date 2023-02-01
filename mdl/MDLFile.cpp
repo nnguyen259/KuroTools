@@ -2,9 +2,91 @@
 #include "Utilities.h"
 #include <iostream>
 #include <fstream>
-material_data::material_data(std::vector<uint8_t>& content, uint32_t &addr) {
+#include <nlohmann/json.hpp>
+using ordered_json = nlohmann::ordered_json;
+
+
+bool MDLFile::write_to_json(AssetConfig conf) {
+	
+	ordered_json j;
 
 	
+	for (auto mat : this->materials) {
+		
+		for (auto param : mat.sths3){
+			std::string value = "";
+			switch (param.type) {
+			case 0:
+			case 1:
+			case 4:
+				
+				value = value + std::to_string(read_as_float(param.values[0]));
+				
+				break;
+			case 2:
+			case 5:
+				value = value + "[";
+				for (size_t i = 0; i < 1; i++)
+					value = value + std::to_string(read_as_float(param.values[i])) + ",";
+				value = value + std::to_string(read_as_float(param.values[1]));
+				value = value + "]";
+				break;
+			case 3:
+			case 6:
+				value = value + "[";
+				for (size_t i = 0; i < 2; i++)
+					value = value + std::to_string(read_as_float(param.values[i])) + ",";
+				value = value + std::to_string(read_as_float(param.values[2]));
+				value = value + "]";
+				break;
+			case 7:
+				value = value + "[";
+				for (size_t i = 0; i < 3; i++)
+					value = value + std::to_string(read_as_float(param.values[i])) + ",";
+				value = value + std::to_string(read_as_float(param.values[3]));
+				value = value + "]";
+				break;
+			case 8:
+				value = value + "[";
+				for (size_t i = 0; i < 15; i++)
+					value = value + std::to_string(read_as_float(param.values[i])) + ",";
+				value = value + std::to_string(read_as_float(param.values[15]));
+				value = value + "]";
+				break;
+			}
+			j[mat.str1][mat.str2][param.name] = value;
+		}
+		for (auto switch__ : mat.sths2) {
+			
+			j[mat.str1]["switches"][switch__.name] = (int)switch__.int1;
+		}
+		j[mat.str1]["unknown values"]["a"] = (int)mat.v3.a;
+		j[mat.str1]["unknown values"]["b"] = (int)mat.v3.b;
+		j[mat.str1]["unknown values"]["c"] = (int)mat.v3.c;
+		j[mat.str1]["unknown values"]["d"] = (float)mat.a;
+		j[mat.str1]["unknown values"]["e"] = (int)mat.b;
+		unsigned int uv_idx = 0;
+		for (auto tex : mat.textures) {
+
+			std::string switch_name = conf.map_ids[mat.str2][tex.tex_slot];
+			j[mat.str1]["texture maps"][switch_name]["texture"] = tex.name;
+			j[mat.str1]["texture maps"][switch_name]["uv map index"] = (int)mat.uv_maps_idx[uv_idx];
+			uv_idx++;
+		
+		}
+
+	}
+
+	std::ofstream o(this->name + ".json");
+	o << std::setw(4) << j << std::endl;
+	
+	o.close();
+	
+	return true; }
+
+material_data::material_data(std::vector<uint8_t>& content, uint32_t &addr) {
+
+	unsigned int init = addr;
 	this->str1 = read_string(content, addr);
 	this->str2 = read_string(content, addr);
 	this->str3 = read_string(content, addr);
@@ -15,11 +97,15 @@ material_data::material_data(std::vector<uint8_t>& content, uint32_t &addr) {
 	}
 
 	cnt = read_data<uint32_t>(content, addr);
+	size_t cnt_params = cnt;
 	for (size_t i = 0; i < cnt; i++) {
-		this->sths3.push_back(param2(content, addr));
+		param2 param = param2(content, addr);
+		this->sths3.push_back(param);
+		
 	}
-
 	cnt = read_data<uint32_t>(content, addr);
+
+	size_t cnt_switch = cnt;
 	for (size_t i = 0; i < cnt; i++) {
 		this->sths2.push_back(switch_(content, addr));
 	}
@@ -36,9 +122,11 @@ material_data::material_data(std::vector<uint8_t>& content, uint32_t &addr) {
 	}
 
 	this->v3 = something_else2(content, addr);
-
-	this->a = read_data<uint32_t>(content, addr);
+	this->a = read_data<float>(content, addr);
 	this->b = read_data<uint32_t>(content, addr);
+	unsigned int end = addr;
+	//std::cout << this->str1 << " " << std::hex << end-init << " " << this->v3.a << " " << this->v3.b << " " << this->v3.c << std::endl;
+
 
 	
 
@@ -106,25 +194,30 @@ std::string material_data::to_string() {
 }
 
 mesh_data_stream::mesh_data_stream(std::vector<uint8_t>& content, uint32_t& addr) {
-
+	
 	this->id = read_data<uint32_t>(content, addr);
 	size_t size = read_data<uint32_t>(content, addr);
 	this->type = static_cast<datatype>(read_data<uint32_t>(content, addr));
+	
 	size_t cnt = size / 4;
 	for (size_t i = 0; i < cnt; i++) {
 		this->sth.push_back(read_data<uint32_t>(content, addr));
+		
 	}
-	
 }
 
 mesh_attributes::mesh_attributes(std::vector<uint8_t>& content, uint32_t& addr) {
 	
 	this->material_id = read_data<uint32_t>(content, addr);
+	//std::cout << "material id: " << material_id << std::endl;
 	size_t cnt = read_data<uint32_t>(content, addr);
 	for (size_t i = 0; i < cnt; i++) {
 		this->datas.push_back(mesh_data_stream(content, addr));
-	}
+		auto stream = this->datas[this->datas.size() - 1];
+		//std::cout << std::hex << addr << " " << stream.id << " " << (uint32_t) stream.type << " " << stream.sth.size() << std::endl;
 
+	}
+	
 }
 
 node_struct::node_struct(std::vector<uint8_t>& content, uint32_t& addr) {
@@ -148,20 +241,25 @@ mesh_data::mesh_data(std::vector<uint8_t>& content, uint32_t& addr) {
 	this->name = read_string(content, addr);
 	size_t size = read_data<uint32_t>(content, addr);
 	size_t cnt = read_data<uint32_t>(content, addr);
-
+	//std::cout << this->name << std::endl;
 	for (size_t i = 0; i < cnt; i++) {
 		this->mesh_info.push_back(mesh_attributes(content, addr));
 	}
+	
 	size_t nb_nodes = read_data<uint32_t>(content, addr);
+	//std::cout << "nb bones " << nb_nodes << std::endl;
 	for (size_t i = 0; i < nb_nodes; i++) {
 		this->nodes.push_back(node_struct(content, addr));
 	}
 
 	cnt = read_data<uint32_t>(content, addr); //1403da718
-	for (size_t i = 0; i < cnt/4; i++) {
-		this->floats.push_back(read_data<float>(content, addr));
+	
+	for (size_t i = 0; i < cnt / 4; i++) {
+		float clip = read_data<float>(content, addr);
+		this->clipping.push_back(clip);
+		//std::cout << clip << " ";
 	}
-
+	//std::cout << std::endl;
 
 }
 
@@ -180,14 +278,16 @@ node_data::node_data(std::vector<uint8_t>& content, uint32_t& addr, uint32_t id)
 
 	this->id = id;
 	this->name = read_string(content, addr);
-	//I think they all have to do with the bind pose
-	this->int1 = read_data<uint32_t>(content, addr);
-	this->int2 = read_data<uint32_t>(content, addr);
+	
+	this->int1 = read_data<uint32_t>(content, addr); //type of node : mesh 2, bone 1, locator 0
+	this->int2 = read_data<uint32_t>(content, addr); // equals -1 if not a mesh, otherwise id of the "pack" of meshes in the second section
+	
 	this->T = read_data<vec3<float>>(content, addr);
-	this->something = read_data<vec4<float>>(content, addr); //quaternion but what the hell is this
-	this->int3 = read_data<uint32_t>(content, addr);//maybe the order of rotations
+	this->something = read_data<vec4<float>>(content, addr); 
+	this->int3 = read_data<uint32_t>(content, addr);
 	this->R = read_data<vec3<float>>(content, addr);
 	this->S = read_data<vec3<float>>(content, addr);
+	
 	this->v5 = read_data<vec3<float>>(content, addr);
 	this->int4 = read_data<uint32_t>(content, addr);
 	size_t cnt = this->int4 * 4;
@@ -264,26 +364,43 @@ MDLFile::MDLFile(std::string name, std::vector<uint8_t>& content) {
 		cnt_struct = read_data<uint32_t>(content, addr);
 
 		switch (type) {
-			case 0:
-				for (size_t j = 0; j < cnt_struct; j++) {
-					material_data struc = material_data(content, addr);
-					/*std::ofstream file(struc.str1 + "params.txt");
-					file << struc.to_string();
-					file.close();*/
+		case 0:
+			for (size_t j = 0; j < cnt_struct; j++) {
+				material_data struc = material_data(content, addr);
+				/*std::ofstream file(struc.str1 + "params.txt");
+				file << struc.to_string();
+				file.close();*/
 
-					this->materials.push_back(struc);
-				}
-				break;
-			case 1:
-				for (size_t j = 0; j < cnt_struct; j++) {
-					this->meshes.push_back(mesh_data(content, addr));
-				}
-				break;
-			case 2:
-				for (size_t j = 0; j < cnt_struct; j++) {
-					this->nodes.push_back(node_data(content, addr, j));
-				}
-				break;
+				this->materials.push_back(struc);
+			}
+			break;
+		case 1:
+			for (size_t j = 0; j < cnt_struct; j++) {
+				this->meshes.push_back(mesh_data(content, addr));
+			}
+			break;
+		case 2:{
+			for (size_t j = 0; j < cnt_struct; j++) {
+				this->nodes.push_back(node_data(content, addr, j));
+			}
+			//debug TRS 
+			std::vector<node_data> nodes_sorted = {};
+			for (auto node_ : this->nodes) {
+				nodes_sorted.push_back(node_);
+			}
+			std::sort(nodes_sorted.begin(), nodes_sorted.end(), [](node_data a, node_data b)
+				{
+					return a.name > b.name;
+				});
+			/*for (auto node : nodes_sorted) {
+				std::cout << "written as:" << " " << node.name << std::endl;
+				std::cout << "" << "T " << node.T.x << " " << node.T.y << " " << node.T.z << std::endl;
+				std::cout << "" << "R " << node.R.x << " " << node.R.y << " " << node.R.z << std::endl;
+				std::cout << "" << "S " << node.S.x << " " << node.S.y << " " << node.S.z << std::endl;
+			}*/
+
+			break;
+		}
 			case 3:
 				this->ani.push_back(anim_data(content, addr, cnt_struct));
 				break;
@@ -298,34 +415,47 @@ MDLFile::MDLFile(std::string name, std::vector<uint8_t>& content) {
 
 }
 
+void MDLFile::create_node_hierarchy(tsl::ordered_map<std::string, node> &nodes, node_data node_info, unsigned int parent, std::string parent_name) {
+	
+	node nd;
+	nd.id = node_info.id;
+	nd.parent = parent;
+	nd.parent_name = parent_name;
+	nd.T = node_info.T;
+	nd.R = node_info.R;
+	nd.S = node_info.S;
+	nd.transform = matrix4<float>(node_info.T, node_info.R, node_info.S);
+	nd.name = node_info.name;
+	nd.children = node_info.children_ids;
+	nodes[nd.name] = nd;
+	for (unsigned int children_id = 0; children_id < nd.children.size(); children_id++) {
+		create_node_hierarchy(nodes, this->nodes[nd.children[children_id]], nd.id, nd.name);
+		
+	}
+
+	
+
+}
 
 model MDLFile::extract_model(AssetConfig conf) {
 	model mdl;
 	mdl.name = this->name;
 	unsigned int id_mat = 0;
 	//The first thing we'll do is creating the node using the third section info
-	for (auto node_info : this->nodes) {
-		node nd;
-		nd.T = node_info.T;
-		nd.R = node_info.R;
-		nd.S = node_info.S;
-		nd.transform = matrix4<float>(node_info.T, node_info.R, node_info.S);
-		nd.name = node_info.name;
-		nd.id = node_info.id;
-		nd.children = node_info.children_ids;
-		mdl.nodes[nd.name] = nd;
-	}
+	
 
-
+	create_node_hierarchy(mdl.nodes, this->nodes[0], -1, "");
 	for (material_data structa : this->materials) {
 
 		material mat;
 		mat.name = structa.str1; //at least str1 is unique
 		mat.id = id_mat;
 		id_mat++;
+		unsigned int tex_id = 0;
 		for (texture tex : structa.textures) {
 			std::string switch_name = conf.map_ids[structa.str2][tex.tex_slot];
-			mat.tex_data.push_back({ tex.name, switch_name, tex.tex_slot, {} });
+			mat.tex_data.push_back({ tex.name, switch_name, tex.tex_slot, structa.uv_maps_idx[tex_id] });
+			tex_id++;
 		}
 		mat.uv_map_ids = structa.uv_maps_idx;
 		mdl.mats[mat.id] = mat;
@@ -339,8 +469,25 @@ model MDLFile::extract_model(AssetConfig conf) {
 		
 		unsigned int internal_mesh_id = 0;
 		for (mesh_attributes meshes_data : structb.mesh_info) {
+			std::string material_name = this->materials[meshes_data.material_id].str1;// std::string(this->materials[meshes_data.material_id].st1.begin(), this->materials[meshes_data.material_id].sth1.end());
+
 			mesh m;
-			m.name = structb.name;// + "_" + std::to_string(internal_mesh_id);
+			
+			m.name = structb.name;
+			if (mdl.nodes.count(m.name) == 0) {
+				node mesh_node = mdl.nodes[structb.name];
+				mesh_node.children = {};
+				mesh_node.name = m.name;
+				mesh_node.id = mdl.nodes.size();
+				mdl.nodes[m.name] = mesh_node;
+				//mdl.nodes[structb.name].children.push_back(mesh_node.id);
+				if (mdl.nodes[structb.name].parent != -1){
+					mdl.nodes[mdl.nodes[structb.name].parent_name].children.push_back(mesh_node.id); //adding it to the hierarchy at the same level than the first mesh of its kind
+				}
+			
+			}
+			
+
 			std::vector<float> weights, vertices, normals, tangents;
 			
 			std::vector<std::vector<vec2<float>>> uv_maps;
@@ -391,20 +538,27 @@ model MDLFile::extract_model(AssetConfig conf) {
 				}
 
 			}
+			
+			//std::ofstream myfile;
+			//myfile.open(m.name + ".txt");
+			
 			for (size_t i = 0; i < vertices.size()/3; i++) {
 				m.vertices.push_back({ vertices[i * 3], vertices[i * 3 + 1], vertices[i * 3 + 2] });
-			}
-			for (size_t i = 0; i < normals.size() / 3; i++) {
 				m.normals.push_back({ normals[i * 3], normals[i * 3 + 1], normals[i * 3 + 2] });
-			}
-			for (size_t i = 0; i < tangents.size() / 3; i++) {
 				m.tangents.push_back({ tangents[i * 3], tangents[i * 3 + 1], tangents[i * 3 + 2] });
+
+				//myfile << vertices[i * 3] << " " << vertices[i * 3 + 1] << " " << vertices[i * 3 + 2] << " | ";
+				//myfile << normals[i * 3] << " " << normals[i * 3 + 1] << " " << normals[i * 3 + 2] << " | ";
+				//myfile << tangents[i * 3] << " " << tangents[i * 3 + 1] << " " << tangents[i * 3 + 2] << std::endl;
 			}
+			
 
 			for (size_t i = 0; i < face_idx.size()/3; i++) {
-				m.faces_indexes.push_back({ face_idx[i * 3], face_idx[i * 3 + 1 ], face_idx[i * 3 + 2] });
+				m.faces_indexes.push_back({ face_idx[i * 3], face_idx[i * 3 + 1], face_idx[i * 3 + 2] });
+				//myfile << face_idx[i * 3] << " " << face_idx[i * 3 + 1] << " " << face_idx[i * 3 + 2] << std::endl;
 			}
 
+			//myfile.close();
 			for (size_t i = 0; i < bones_ids.size() / 4; i++) {
 
 				unsigned int vertex_id = i;
@@ -422,11 +576,11 @@ model MDLFile::extract_model(AssetConfig conf) {
 				m.bones[node_2.name].weights.push_back(weights[i * 4 + 1]);
 				m.bones[node_3.name].weights.push_back(weights[i * 4 + 2]);
 				m.bones[node_4.name].weights.push_back(weights[i * 4 + 3]);
+				
 			}
 			std::sort(mdl.mats[m.material_id].tex_data.begin(), mdl.mats[m.material_id].tex_data.end());
 			
 			for (auto node_ : structb.nodes) {
-				std::string name = node_.name;
 				m.bones[name].offsetmatrix = node_.transform;
 			}
 
@@ -439,23 +593,41 @@ model MDLFile::extract_model(AssetConfig conf) {
 				m.bones.erase(bone_name_to_erase);
 
 
-			mdl.meshes[structb.name].push_back(m);
+			mdl.meshes[m.name].push_back(m);
 			internal_mesh_id++;
 		}
+		
 	
 	}
 
+
+
+
 	//create ani data
+	mdl.bind_pose.name = "bind_pose";
+	mdl.bind_pose.start = 0;
+	mdl.bind_pose.end = 0.1;
+	
+	for (auto nd : mdl.nodes) {
+		aiQuaternion rotation_bp(mdl.nodes[nd.first].R.y, mdl.nodes[nd.first].R.z, mdl.nodes[nd.first].R.x);
+		mdl.bind_pose.ani_bone_keys[nd.first].pos.push_back(keyframe_pos(0, { mdl.nodes[nd.first].T.x, mdl.nodes[nd.first].T.y, mdl.nodes[nd.first].T.z }));
+		mdl.bind_pose.ani_bone_keys[nd.first].rot.push_back(keyframe_rot(0, { rotation_bp.x, rotation_bp.y, rotation_bp.z, rotation_bp.w }));
+		mdl.bind_pose.ani_bone_keys[nd.first].scl.push_back(keyframe_scl(0, { mdl.nodes[nd.first].S.x, mdl.nodes[nd.first].S.y, mdl.nodes[nd.first].S.z }));
+
+	}
+
 	for (anim_data anim : this->ani) {
 		animation ani;
 		ani.name = mdl.name;
 		ani.start = anim.start;
 		ani.end = anim.end;
 		for (bone_ani_data anim_bone_data : anim.data) {
+			
 			switch (anim_bone_data.ani_type) {
 				case key_type::pos: {
 					for (auto poskey : anim_bone_data.keyframe_datas) {
 						ani.ani_bone_keys[anim_bone_data.bone_name].pos.push_back(keyframe_pos( poskey.time, {poskey.data[0],poskey.data[1],poskey.data[2]} ));
+						
 					}
 					break;
 				}
@@ -475,8 +647,11 @@ model MDLFile::extract_model(AssetConfig conf) {
 			
 		}
 		for (auto& ani_bone_k : ani.ani_bone_keys) {
+			
+			
 			ani_bone_k.second.post_process_keys(ani.start, ani.end, mdl.nodes[ani_bone_k.first].T, mdl.nodes[ani_bone_k.first].R, mdl.nodes[ani_bone_k.first].S);
 		}
+
 		mdl.anis[ani.name] = ani;
 
 	}
