@@ -19,9 +19,9 @@ If the file is encrypted (CLE encryption):
 - mdl folder: source code of the MDL exporter/importer
 
 # Guide
-Please see the following documents, which contains a tutorial to make a simple mod using TBL and scripts editing, as well as a guide to Kuro model injection.
+Please see the following documents, which include a tutorial to make a simple mod using TBL and scripts editing, as well as a guide to Kuro model injection.
 
-[Guide for TBL & Scena editing](https://docs.google.com/document/d/19ajbTZzda54i5xZWDLXOq0oOVQrhJYXU9rmgz3Ya3Bc/edit?usp=sharing)
+[Guide for TBL & Scena editing](https://docs.google.com/document/d/19ajbTZzda54i5xZWDLXOq0oOVQrhJYXU9rmgz3Ya3Bc/edit?usp=sharing)  
 [Guide for model injection](https://github.com/Trails-Research-Group/Doc/wiki/How-to:-Import-custom-models-to-Kuro-no-Kiseki)
 
 It's advised you use the disassemble mode for scena editing, as it will round trip perfectly (Decompilation might not round trip perfectly for some files, resulting in unreachable code. If that happens it may or may not cause issue after recompilation). To use the diassembler, just add --decompile False to the command.
