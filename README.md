@@ -30,7 +30,7 @@ Also see [this](https://docs.google.com/document/d/1n_nECCpRQJacN2i3g4gAVZtsiHF1
  
 For Kuro 2, The textures and models will require compression, and the dat and tbl files will require compression+encryption (Remember: Its always compression first, encryption second) 
 
-# MDL extraction
+# MDL extraction/import
 ![shizuna_run](https://user-images.githubusercontent.com/69110695/185493665-86b7cf3f-23a2-40e7-84d2-cb868ba66348.gif)
 
 From version 1.2.0, we introduce a new tool for asset extraction for Kuro 1 ONLY. 
