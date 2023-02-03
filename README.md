@@ -48,6 +48,6 @@ The script disassembler is very rough and not very userfriendly, more like a pro
 - [Ouroboros' ED9Decompiler](https://github.com/Ouroboros/Falcom/tree/master/Decompiler2/Falcom/ED9) 
 - [Xxmyl Kuro Modify Tool](https://github.com/Xxmyl/KuroModifyTool/tree/v0.5-beta/KuroModifyTool)
 ## MDL export
-[(Python) uyjulian's asset extractor](https://gist.github.com/uyjulian/9a9d6395682dac55d113b503b1172009)  
-[(Python) eArmada8's extract and import MDL tool](https://github.com/eArmada8/kuro_mdl_tool)
+- [(Python) uyjulian's asset extractor](https://gist.github.com/uyjulian/9a9d6395682dac55d113b503b1172009)  
+- [(Python) eArmada8's extract and import MDL tool](https://github.com/eArmada8/kuro_mdl_tool)
 
