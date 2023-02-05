@@ -1,5 +1,7 @@
 {
 	"headers" : [
-		"TopicTableData"
+		"TopicTableData",
+		"TopicGetCond",
+		"TopicUseCond"
 	]
 }
