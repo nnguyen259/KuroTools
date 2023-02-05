@@ -10,5 +10,15 @@
 			"text2": "toffset",
 			"text3": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"id": "long",
+			"text1": "toffset",
+			"text2": "toffset",
+			"text3": "toffset"
+
+		}
 	}
 }
