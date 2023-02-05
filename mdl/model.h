@@ -2,21 +2,24 @@
 #include <string>
 #include <vector>
 #include "Utilities.h"
-#include <map>
+#include <tsl/ordered_map.h>
 #include <algorithm>
 #include <assimp\scene.h>
 #include <iostream>
 #include "AssetConfig.h"
 
 
+
 class node {
 public:
 	uint32_t id;
+	
 	std::string name;
 	matrix4<float> transform;
 	vec3<float> T, R, S; //I want to be sure
 	std::vector<unsigned int> children;
-
+	unsigned int parent;
+	std::string parent_name;
 };
 
 
@@ -24,7 +27,7 @@ struct tex {
 	std::string name;
 	std::string switch_name;
 	unsigned int tex_slot;
-	std::vector<vec2<float>> uv;
+	unsigned int uv;
 	bool operator< (const tex& t2)
 	{
 		return this->tex_slot < t2.tex_slot;
@@ -33,6 +36,7 @@ struct tex {
 
 struct material {
 	std::string name;
+	std::string shader_name;
 	unsigned int id;
 	std::vector<tex> tex_data;
 	std::vector<uint8_t> uv_map_ids;
@@ -43,6 +47,13 @@ struct bone {
 	std::vector<float> weights;
 	std::vector<unsigned int> vertex_id;
 	matrix4<float> offsetmatrix;
+};
+
+struct bounding_box {
+
+	vec3<float> min;
+	vec3<float> max;
+
 };
 
 struct mesh { //mesh are outside of the hierarchy, I think, they're not nodes?
@@ -96,7 +107,7 @@ struct bone_key_frames {
 
 	void post_process_keys(float start, float end, vec3<float> position_bp, vec3<float> R, vec3<float> scaling_bp) {
 		aiQuaternion rotation_bp(R.y, R.z, R.x);
-
+		
 		std::sort(pos.begin(), pos.end());
 		std::sort(rot.begin(), rot.end());
 		std::sort(scl.begin(), scl.end());
@@ -318,17 +329,22 @@ struct animation {
 	std::map<std::string, bone_key_frames> ani_bone_keys;
 };
 
+
+
 class model
 {
 public:
 	model() = default;
+	model(std::string fbx_file);
 	~model() = default;
 	std::string name;
 	std::map<std::string, std::vector<mesh>> meshes; //node name
 	std::map<std::string, animation> anis; //animation name
+	animation bind_pose; //I think blender sets the bind pose as the first pose it finds among the animations, effectively FUCKING UP the transforms
 	std::map<unsigned int, material> mats;
-	std::map<std::string, node> nodes;
-
+	tsl::ordered_map<std::string, node> nodes;
+	void to_json();
+	void to_mdl(AssetConfig config);
 	void to_fbx(const AssetConfig &conf);
 	void to_merge(const model& m2);
 };

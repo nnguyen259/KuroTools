@@ -15,11 +15,12 @@ struct texture {
 	texture(std::vector<uint8_t>& content, uint32_t& addr) {
 		this->name = read_string(content, addr);
 		this->tex_slot = read_data<uint32_t>(content, addr);
-
+		
 		this->int2 = read_data<uint32_t>(content, addr);
 		this->int3 = read_data<uint32_t>(content, addr);
 	}
 	std::string to_string();
+	
 	
 };
 
@@ -107,7 +108,8 @@ public:
 	std::vector<uint8_t> uv_maps_idx;
 	std::vector<uint8_t> sth1;
 	something_else2 v3;
-	uint32_t a = 0, b = 0;
+	float a = 0;
+	uint32_t b = 0;
 
 	material_data(std::vector<uint8_t>& content, uint32_t& addr);
 	std::string to_string();
@@ -180,9 +182,8 @@ public:
 	
 	std::string name;
 	std::vector<mesh_attributes> mesh_info;
-	uint32_t int1;
 	std::vector<node_struct> nodes;
-	std::vector<float> floats;
+	std::vector<float> clipping;
 
 	mesh_data(std::vector<uint8_t>& content, uint32_t& addr);
 	std::string to_string();
@@ -226,5 +227,7 @@ public:
 
 	MDLFile(std::string name, std::vector<uint8_t>& content);
 	model extract_model(AssetConfig conf);
+	void create_node_hierarchy(tsl::ordered_map<std::string, node>& nodes, node_data node_info, unsigned int parent, std::string parent_name);
+	bool write_to_json(AssetConfig conf);
 
 };

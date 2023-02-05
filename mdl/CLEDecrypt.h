@@ -11,7 +11,7 @@
 #include <crypto++/filters.h>
 #include <crypto++/blowfish.h>
 #include <crypto++/secblock.h>
-#include <zstd.h>
+#include <zstd/zstd.h>
 #include "Utilities.h"
 #include <unordered_set>
 
