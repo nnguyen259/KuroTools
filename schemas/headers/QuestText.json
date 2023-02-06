@@ -34,6 +34,19 @@
 			"arr2": "u16array",
 			"int5": "int"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"quest_id": "ushort",
+			"int1": "int",
+			"empty1": "short",
+			"quest_description": "toffset",
+			"array_flag1": "u16array",
+			"empty3": "int",
+			"array_flag2": "u16array",
+			"empty4": "int",
+			"empty5": "long"
+		}
 	}
-
 }

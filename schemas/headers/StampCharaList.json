@@ -1,0 +1,10 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"float1": "float",
+			"float2": "float"
+		}
+	}
+}
