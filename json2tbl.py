@@ -37,8 +37,6 @@ def pack(name: Union[str, bytes, os.PathLike]) -> None:
                 ) as schema_file:
                     schemas: dict
                     schemas = json.load(schema_file)
-        else:
-            schemas = ("data_schema",{"game":"???","schema":{"data": "data"}})
         
         all_header_data = data["data"][i]["data"]
         header["count"] = len(all_header_data)
@@ -51,7 +49,7 @@ def pack(name: Union[str, bytes, os.PathLike]) -> None:
             else:
                 header["length"] = 0
 
-            schema = schemas[1]["schema"]
+            schema = ("data_schema",{"game":"???","schema":{"data": "data"}})
         else:
             header["length"] = get_size_from_schema(schemas[header["schema"]])
             schema = schemas[header["schema"]]["schema"]

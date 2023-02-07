@@ -81,20 +81,23 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
 
                 schemas_by_size: dict
 
+                #First we get all versions of the schema (Falcom? CLE?)
+                #Then we sort them by entry size in a dict called schemas_by_size
+                schemas_by_size = {}
+                for sch in schemas.items():
+                    current_schema = sch[1]
+                    variant_name = sch[0]
+                    sz = get_size_from_schema(current_schema)
+                    schemas_by_size[sz] = sch
+                #once the sorting is done, we grab the actual entry size from the input tbl
+                actual_entry_size = header["length"]
+                #finally we select the correct schema corresponding to the size specified in the input tbl
+                correct_schema = schemas_by_size[actual_entry_size]
+                header["schema"] = correct_schema[0]
+
                 for _ in range(header["count"]):
-                    #First we get all versions of the schema (Falcom? CLE?)
-                    #Then we sort them by entry size in a dict called schemas_by_size
-                    schemas_by_size = {}
-                    for sch in schemas.items():
-                        current_schema = sch[1]
-                        variant_name = sch[0]
-                        sz = get_size_from_schema(current_schema)
-                        schemas_by_size[sz] = sch
-                    #once the sorting is done, we grab the actual entry size from the input tbl
-                    actual_entry_size = header["length"]
-                    #finally we select the correct schema corresponding to the size specified in the input tbl
-                    correct_schema = schemas_by_size[actual_entry_size]
-                    header["schema"] = correct_schema[0]
+                    
+                    
                     #and now we process the data specified in that schema.
                     processed = 0
                     data = {}
