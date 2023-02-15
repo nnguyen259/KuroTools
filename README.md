@@ -26,8 +26,9 @@ Please see the following documents, which include a tutorial to make a simple mo
 
 It's advised you use the disassemble mode for scena editing, as it will round trip perfectly (Decompilation might not round trip perfectly for some files, resulting in unreachable code. If that happens it may or may not cause issue after recompilation). To use the diassembler, just add --decompile False to the command.
 
-Also see [this](https://docs.google.com/document/d/1n_nECCpRQJacN2i3g4gAVZtsiHF1Bg2XzVwrp7oOGl8/edit?usp=sharing) to learn how to add your own schemas to the tool.
- 
+See [this](https://docs.google.com/document/d/1n_nECCpRQJacN2i3g4gAVZtsiHF1Bg2XzVwrp7oOGl8/edit?usp=sharing) to learn how to add your own schemas to the tool.  
+And [this guide](https://docs.google.com/document/d/1ofetrdRn3BY8GIqfnzWrutw9MnyNEfLYZ6NOgxZzg8A/edit) can help you script the AIs (to create your custom battles).    
+  
 For Kuro 2, The textures and models will require compression, and the dat and tbl files will require compression+encryption (Remember: Its always compression first, encryption second) 
 
 # MDL extraction/import
