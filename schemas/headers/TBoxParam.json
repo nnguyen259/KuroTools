@@ -1,0 +1,16 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"scena": "toffset",
+			"name": "toffset",
+			"flag": "toffset",
+			"hack_box_id": "long",
+			"item_list": "u16array",
+			"empty1": "int",
+			"hack_box_thing_1": "long",
+			"hack_box_thing_2": "u16array",
+			"empty2": "int"
+		}
+	}
+}

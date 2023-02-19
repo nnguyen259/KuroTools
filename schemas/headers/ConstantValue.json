@@ -3,8 +3,8 @@
 		"game": "Kuro1",
 		"schema": {
 			"id": "uint",
-			"value1": "int",
-			"value2": "int"
+			"value1": "uint",
+			"value2": "uint"
 		}
 	}
 }
