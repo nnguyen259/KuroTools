@@ -1,0 +1,29 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"id": "ushort",
+			"time_chart_id": "uint",
+			"empty1": "short",
+			"text1": "toffset",
+			"arr1": "u16array",
+			"empty2": "ushort",
+			"short1": "ushort",
+			"byte1": "ubyte",
+			"byte2": "ubyte",
+			"byte3": "ubyte",
+			"byte4": "ubyte",
+			"byte5": "ubyte",
+			"byte6": "ubyte",
+			"byte7": "ubyte",
+			"byte8": "ubyte",
+			"text2": "toffset",
+			"description": "toffset",
+			"text3": "toffset",
+			"date": "toffset",
+			"location": "toffset",
+			"arr2": "u16array",
+			"empty3": "uint"
+		}
+	}
+}
