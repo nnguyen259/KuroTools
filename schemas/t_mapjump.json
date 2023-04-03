@@ -2,6 +2,7 @@
 	"headers": [
 		"MapJumpRegionData",
 		"MapJumpAreaData",
-		"MapJumpSpotData"
+		"MapJumpSpotData",
+		"MapJumpWorldData"
 	]
 }
