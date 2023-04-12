@@ -22,8 +22,8 @@
 			"text3": "toffset",
 			"date": "toffset",
 			"location": "toffset",
-			"arr2": "u16array",
-			"empty3": "uint"
+			"tex4": "toffset",
+			"long1": "long"
 		}
 	}
 }

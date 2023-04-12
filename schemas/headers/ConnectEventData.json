@@ -17,17 +17,16 @@
 	"CLE_PC": {
 		"game": "Kuro2",
 		"schema": {
+			"arr1": "u16array",
 			"long1": "long",
-			"id": "uint",
-			"int1": "int",
-			"long2": "long",
-			"connect_name": "toffset",
-			"connect_description": "toffset",
-			"long3": "long",
-			"scena_array1": "u16array",
 			"empty1": "int",
-			"scena_array2": "u16array",
-			"int2": "int"
+			"text1": "toffset",
+			"text2": "toffset",
+			"long2": "long",
+			"arr2": "u16array",
+			"empty": "int",
+			"arr3": "u16array",
+			"int1": "int"	
 		}
 	}
 }

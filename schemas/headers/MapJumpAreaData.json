@@ -14,5 +14,22 @@
 			"jump_file": "toffset",
 			"description": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"id": "ulong",
+			"place_name": "toffset",
+			"place_name_highlight": "toffset",
+			"scena_file": "toffset",
+			"int1": "uint",
+			"int2": "uint",
+			"float1": "float",
+			"float2": "float",
+			"place": "toffset",
+			"jump_file": "toffset",
+			"description": "toffset",
+			"long1": "long"
+		}
 	}
 }

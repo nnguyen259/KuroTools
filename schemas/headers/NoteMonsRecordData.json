@@ -1,0 +1,13 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"text1": "toffset",
+			"text2": "toffset",
+			"id": "int",
+			"short1": "ushort",
+			"short2": "ushort",
+			"text3": "toffset"
+		}
+	}
+}
