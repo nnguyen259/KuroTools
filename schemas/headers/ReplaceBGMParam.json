@@ -1,0 +1,17 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"id": "uint",
+			"int1": "int",
+			"flag": "toffset",
+			"track_name_1": "toffset",
+			"track_name_2": "toffset",
+			"ost": "toffset",
+			"sound_file": "toffset",
+			"short1": "ushort",
+			"short2": "ushort",
+			"float": "float"
+		}
+	}
+}
