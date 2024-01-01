@@ -1,0 +1,21 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "uint",
+			"int1": "int",
+			"name": "toffset",
+			"long1": "long",
+			"long2": "long",
+			"file1": "toffset",
+			"file2": "toffset",
+			"file3": "toffset",
+			"file4": "toffset",
+			"file5": "toffset",
+			"file6": "toffset",
+			"int2": "uint",
+			"int3": "uint",
+			"unk_txt_offset": "toffset"
+		}
+	}
+}

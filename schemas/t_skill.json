@@ -4,6 +4,7 @@
 		"SkillGetParam",
 		"SkillChangeParam",
 		"SkillPowerIcon",
-		"SkillGrendelParam"
+		"SkillGrendelParam",
+		"SSkillTable"
 	]
 }
