@@ -1,8 +1,11 @@
 # KuroTools
-Tools for working with Kuro no Kiseki .dat, .mdl and .tbl files.
+Tools for working with Kuro no Kiseki .dat, .mdl and .tbl files. Also works on games released post-Kuro that use the same engine.
 
 # Compatibility
-KuroTools is currently compatible with CLE's Steam release of Kuro no Kiseki and mostly works with CLE's Steam release of Kuro no Kiseki 2 -CRIMSON SiN-.
+KuroTools is currently compatible with:
+- CLE's Steam release of Kuro no Kiseki
+- NISA/PH3's Steam release of Trails through Daybreak
+- CLE's Steam release of Kuro no Kiseki 2 -CRIMSON SiN-
 
 # Requirements
 - Python 3.10 and +
@@ -25,6 +28,8 @@ Please see the following documents, which include a tutorial to make a simple mo
 [Guide for model injection](https://github.com/Trails-Research-Group/Doc/wiki/How-to:-Import-custom-models-to-Kuro-no-Kiseki)
 
 It's advised you use the disassemble mode for scena editing, as it will round trip perfectly (Decompilation might not round trip perfectly for some files, resulting in unreachable code. If that happens it may or may not cause issue after recompilation). To use the diassembler, just add --decompile False to the command.
+
+With the advent of Ys X, some .dat files are known to throw a 'cannot convert float to int' error, resulting in an incomplete .py file being rendered. In the case of such an error being encountered while modding, please switch to disassemble mode as outlined in the previous paragraph and run dat2py again on the .dat file.
 
 See [this](https://docs.google.com/document/d/1n_nECCpRQJacN2i3g4gAVZtsiHF1Bg2XzVwrp7oOGl8/edit?usp=sharing) to learn how to add your own schemas to the tool.  
 And [this guide](https://docs.google.com/document/d/1ofetrdRn3BY8GIqfnzWrutw9MnyNEfLYZ6NOgxZzg8A/edit) can help you script the AIs (to create your custom battles).    

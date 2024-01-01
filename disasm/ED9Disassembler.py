@@ -1,3 +1,4 @@
+import math
 import struct
 import os
 from pathlib import Path
@@ -640,11 +641,18 @@ class ED9Disassembler(object):
                         params = self.get_param_str_from_instructions(function.instructions, index_start, index_end)
                         #Every parameter that has not been retrieved by the previous function was pushed some time ago and put in a variable,
                         #We don't want to compile them again, so we add them to the call just to inform the user using TopVar
-                        params_id = range(len(stack) - varin + remaining_params , len(stack) - varin,-1)
+                        range_start=len(stack) - varin + remaining_params
+                        range_stop=len(stack) - varin
+                        #Ceiling the start and stop cause sometimes the value comes as fractions when decompiling .dats in Ys X
+                        params_id = range(math.floor(range_start) , math.floor(range_stop),-1)
                         decompiled_str =  "\"" + called_fun.name + "\", ["
+                        ##print(called_fun.name)
+                        ##print("\n")
                         additional_parameters = ""
                         for param_id in params_id:
-                            additional_parameters = "TopVar(\"" + self.variables_names[param_id] + "\")," + additional_parameters 
+                            additional_parameters = "TopVar(\"" + self.variables_names[param_id] + "\")," + additional_parameters
+                            ##print(self.variables_names)
+                            ##print("\n")
                         additional_parameters = additional_parameters[:-1]
                             
                         all_params = ""
