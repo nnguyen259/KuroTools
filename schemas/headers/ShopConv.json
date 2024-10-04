@@ -3,14 +3,14 @@
 		"game": "Kuro1",
 		"schema": {
 			"id": "uint",
-			"float1": "float",
-			"float2": "float",
-			"float3": "float",
-			"float4": "float",
-			"float5": "float",
-			"float6": "float",
-			"float7": "float",
-			"float8": "float"
+			"earth_sepith_exchange_rate": "float",
+			"water_sepith_exchange_rate": "float",
+			"fire_sepith_exchange_rate": "float",
+			"wind_sepith_exchange_rate": "float",
+			"time_sepith_exchange_rate": "float",
+			"space_sepith_exchange_rate": "float",
+			"mirage_sepith_exchange_rate": "float",
+			"sepith_mass_exchange_rate": "float"
 		}
 	}
 }
