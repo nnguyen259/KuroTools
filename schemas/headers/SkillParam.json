@@ -13,8 +13,8 @@
 			"flag2": "toffset",
 			"targeting_data": "int",
 			"float1": "float",
-			"float2": "float",
-			"float3": "float",
+			"target_aoe_range": "float",
+			"target_aoe_size": "float",
 			"effects" : {
 				"size": 5,
 				"schema": {
@@ -24,7 +24,7 @@
 					"value3": "uint"
 				}
 			},
-			"float4": "float",
+			"stun_chance": "float",
 			"cast_delay": "ushort",
 			"recovery_delay": "ushort",
 			"cost": "ushort",

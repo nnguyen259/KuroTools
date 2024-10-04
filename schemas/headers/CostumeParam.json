@@ -2,9 +2,9 @@
 	"FALCOM_PS4": {
 		"game": "Kuro1",
 		"schema": {
-			"shrt0": "short",
+			"character_id": "short",
 			"shrt1": "short",
-			"shrt2": "short",
+			"item_id": "short",
 			"shrt3": "short",
 			"text": "toffset",
 			"name": "toffset",
