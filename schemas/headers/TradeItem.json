@@ -7,7 +7,7 @@
 				"size": 6,
 				"schema": {
 					"trade_material_item_id": "uint",
-					"amount_reequired": "uint"
+					"amount_required": "uint"
 				}
 			}
 		}
