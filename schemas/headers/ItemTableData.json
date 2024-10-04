@@ -8,7 +8,7 @@
 			"text2": "toffset",
 			"category": "ubyte",
 			"subcategory": "ubyte",
-			"unknown": "data10",
+			"icons": "data10",
 			"float1": "float",
 			"float2": "float",
 			"effects" : {
