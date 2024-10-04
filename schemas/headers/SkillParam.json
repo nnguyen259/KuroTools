@@ -14,7 +14,7 @@
 			"targeting_data": "int",
 			"float1": "float",
 			"target_aoe_range": "float",
-			"target_aoe_width": "float",
+			"target_aoe_size": "float",
 			"effects" : {
 				"size": 5,
 				"schema": {
