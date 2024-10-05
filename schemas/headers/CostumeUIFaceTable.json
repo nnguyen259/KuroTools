@@ -1,0 +1,15 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"character_id": "uint",
+			"int0": "int",
+			"int1": "uint",
+			"int2": "uint",
+			"arr0": "u32array",
+			"int3": "uint",
+			"arr1": "u32array",
+			"int4": "uint"
+		}
+	}
+}
