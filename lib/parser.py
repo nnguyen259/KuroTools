@@ -105,9 +105,9 @@ def process_data(
         data = hex_text
     elif datatype.endswith(("byte", "short", "int", "long", "float")):
         if datatype.startswith("u"):
-            data, data_processed = process_number(stream, datatype[1:], True)
+            data, data_processed = process_number(stream, datatype[1:], False)
         else:
-            data, data_processed = process_number(stream, datatype, False)
+            data, data_processed = process_number(stream, datatype, True)
         processed += data_processed
     elif datatype.startswith("toffset"):
         if datatype == "toffset":
