@@ -20,5 +20,15 @@
 			"int3": "int",
 			"int4": "int"
 		}
+	},
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "uint",
+			"int0": "uint",
+			"shop_name": "toffset",
+			"text1": "toffset",
+			"text2": "toffset"
+		}
 	}
 }

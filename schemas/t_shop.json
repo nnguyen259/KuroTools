@@ -1,5 +1,7 @@
 {
 	"headers": [
+		"ProductInfo",
+		"ShopNameInfo",
 		"ShopInfo",
 		"ShopItem",
 		"ShopTypeDesc",

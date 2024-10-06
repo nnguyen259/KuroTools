@@ -1,0 +1,11 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"int0": "uint",
+			"int1": "uint",
+			"text0": "toffset",
+			"text1": "toffset"
+		}
+	}
+}
