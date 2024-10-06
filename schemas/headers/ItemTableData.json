@@ -51,12 +51,12 @@
 		"game": "Ys_X",
 		"schema": {
 			"id": "uint",
-			"int1": "uint",
+			"icon": "uint",
 			"name": "toffset",
 			"short_desc": "toffset",
 			"long_desc": "toffset",
 			"int2": "uint",
-			"short0": "short",
+			"type": "short",
 			"short1": "short",
 			"int3": "uint",
 			"maybe_unused0" : {
@@ -80,31 +80,24 @@
 			},
 			"obtain_type": "toffset",
 			"obtain_amount" : "float",
-			"short2": "ushort",
-			"maybe_unused2" : {
-				"size": 2,
-				"schema": {
-					"value": "ubyte"
-				}
-			},
 			"int5": "uint",
+			"hp": "int",
 			"str": "int",
 			"break": "int",
 			"def": "int",
 			"vit": "int",
 			"luck": "int",
-			"sint0": "int",
-			"sint1": "int",
-			"sint2": "int",
-			"sint3": "int",
-			"sint4": "int",
-			"float0": "float",
-			"int6": "uint",
-			"float1": "float",
-			"float2": "float",
-			"float3": "float",
-			"int7": "uint",
-			"float4": "float",
+			"crit": "int",
+			"eva": "int",
+			"dmg": "int",
+			"dmg_received": "int",
+			"effects": {
+				"size": 4,
+				"schema": {
+					"id": "uint",
+					"value": "float"
+				}
+			},
 			"text4": "toffset",
 			"int8": "uint",
 			"int9": "uint"
