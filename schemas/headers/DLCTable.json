@@ -9,8 +9,8 @@
 			"quantity": "u32array",
 			"int3": "uint",
 			"name": "toffset",
-			"description": "toffset",
-			"description2": "toffset"
+			"type_desc": "toffset",
+			"description": "toffset"
 		}
 	}
 }
