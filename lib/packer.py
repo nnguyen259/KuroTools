@@ -88,9 +88,9 @@ def pack_data(
         writehex(stream, data)
     elif datatype.endswith(("byte", "short", "int", "long", "float")):
         if datatype.startswith("u"):
-            pack_number(stream, datatype[1:], data, True)
+            pack_number(stream, datatype[1:], data, False)
         else:
-            pack_number(stream, datatype, data, False)
+            pack_number(stream, datatype, data, True)
     elif datatype.startswith("toffset"):
         writeint(stream, extra_data_idx, 8)
         if datatype == "toffset":
