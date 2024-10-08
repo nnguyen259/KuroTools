@@ -46,5 +46,61 @@
 			"description": "toffset",
 			"data" : "data16"
 		}
+	},
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "uint",
+			"icon": "uint",
+			"name": "toffset",
+			"short_desc": "toffset",
+			"long_desc": "toffset",
+			"int2": "uint",
+			"type": "short",
+			"short1": "short",
+			"int3": "uint",
+			"maybe_unused0" : {
+				"size": 3,
+				"schema": {
+					"value": "uint"
+				}
+			},
+			"byte0": "ubyte",
+			"byte1": "ubyte",
+			"byte2": "ubyte",
+			"byte3": "ubyte",
+			"int4": "uint",
+			"byte4": "ubyte",
+			"byte5": "ubyte",
+			"maybe_unused1" : {
+				"size": 6,
+				"schema": {
+					"value": "ubyte"
+				}
+			},
+			"obtain_type": "toffset",
+			"obtain_amount" : "float",
+			"int5": "uint",
+			"hp": "int",
+			"str": "int",
+			"break": "int",
+			"def": "int",
+			"vit": "int",
+			"luck": "int",
+			"crit": "int",
+			"eva": "int",
+			"dmg": "int",
+			"dmg_received": "int",
+			"effects": {
+				"size": 4,
+				"schema": {
+					"id": "uint",
+					"value": "float"
+				}
+			},
+			"text4": "toffset",
+			"int8": "uint",
+			"int9": "uint"
+		}
 	}
 }

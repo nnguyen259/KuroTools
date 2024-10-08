@@ -1,0 +1,19 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"character_id": "uint",
+			"int0": "uint",
+			"item_id": "int",
+			"int2": "int",
+			"base_model": "toffset",
+			"equip_model": "toffset",
+			"attach_point": "toffset",
+			"text3": "toffset",
+			"text4": "toffset",
+			"text5": "toffset",
+			"text6": "toffset",
+			"text7": "toffset"
+		}
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "uint",
+			"sort_id": "uint",
+			"items": "u32array",
+			"int2": "uint",
+			"quantity": "u32array",
+			"int3": "uint",
+			"name": "toffset",
+			"type_desc": "toffset",
+			"description": "toffset"
+		}
+	}
+}
