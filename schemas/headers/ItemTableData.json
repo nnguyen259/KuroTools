@@ -8,7 +8,10 @@
 			"text2": "toffset",
 			"category": "ubyte",
 			"subcategory": "ubyte",
-			"icons": "data10",
+			"item_icon": "ushort",
+			"effect_icon": "ushort",
+                        "element": "ushort",
+                        "int1": "uint",
 			"float1": "float",
 			"float2": "float",
 			"effects" : {
@@ -44,7 +47,10 @@
 			"animation": "toffset",
 			"name": "toffset",
 			"description": "toffset",
-			"data" : "data16"
+			"int2": "uint", 
+                        "int3": "uint",
+			"arts_id": "uint",
+			"int4": "uint"
 		}
 	},
 	"FALCOM_SWITCH": {
