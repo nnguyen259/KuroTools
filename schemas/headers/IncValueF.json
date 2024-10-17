@@ -1,0 +1,10 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"name": "toffset",
+			"value": "float",
+			"padding": "uint"
+		}
+	}
+}
