@@ -24,5 +24,33 @@
 			"int8": "int",
 			"flag": "toffset"
 		}
+	},
+	"Falcom_PS4": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint",
+			"int1": "uint",
+			"state_name": "toffset",
+			"int2": "uint",
+			"int3": "uint",
+			"int4": "uint",
+				"effects" : {
+				"size": 3,
+				"schema": {
+					"value1": "uint",
+					"value2": "uint",
+					"value3": "uint",
+					"value4": "uint"
+				}
+			},
+			"float1": "float",
+			"float2": "float",
+			"int5": "int",
+			"int6": "int",
+			"int7": "int",
+			"int8": "int",
+			"int9": "int",
+			"flag": "toffset"
+		}
 	}
 }
