@@ -12,5 +12,15 @@
 			"hack_box_thing_2": "u16array",
 			"empty2": "int"
 		}
+	},
+	"PH3_PC": {
+		"game": "Kuro1",
+		"schema": {
+			"scena": "toffset",
+			"name": "toffset",
+			"flag": "toffset",
+			"item_list": "u16array",
+			"empty": "int"
+		}
 	}
 }
