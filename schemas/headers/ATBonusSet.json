@@ -29,6 +29,32 @@
 			"unused_byte_11": "ubyte"
 		}
 	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint",
+			"player_or_foe_value": "ubyte",
+			"general_at_bonus_chance": "ubyte",
+			"hp_heal_s_bonus_chance": "ubyte",
+			"ep_heal_s_bonus_chance": "ubyte",
+			"cp_heal_s_bonus_chance": "ubyte",
+			"hp_heal_l_bonus_chance": "ubyte",
+			"ep_heal_l_bonus_chance": "ubyte",
+			"cp_heal_l_bonus_chance": "ubyte",
+			"unknown_bonus_chance_1": "ubyte",
+			"unknown_bonus_chance_2": "ubyte",
+			"unknown_bonus_chance_3": "ubyte",
+			"unknown_bonus_chance_4": "ubyte",
+			"unknown_bonus_chance_5": "ubyte",
+			"unknown_bonus_chance_6": "ubyte",
+			"unknown_bonus_chance_7": "ubyte",
+			"unknown_bonus_chance_8": "ubyte",
+			"unknown_bonus_chance_9": "ubyte",
+			"unknown_bonus_chance_10": "ubyte",
+			"unknown_bonus_chance_11": "ubyte",
+			"byte1": "ubyte"
+		}
+	},
 	"CLE_PC": {
 		"game": "Kuro2",
 		"schema": {

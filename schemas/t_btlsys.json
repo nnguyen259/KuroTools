@@ -4,6 +4,9 @@
 		"BattleLevelField",
 		"BattleLevelTurn",
 		"BattleLevelMonsterParam",
-		"TacticalBonus"
+		"TacticalBonus",
+		"ATBonusParam",
+		"BattleEnemyLevelStatusAdjust",
+		"BattleEnemyLevelAdjust"
 	]
 }
