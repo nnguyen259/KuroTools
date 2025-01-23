@@ -14,5 +14,22 @@
 			"voice_subtitle": "toffset",
 			"empty2": "long"
 		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint",
+			"int1": "int",
+			"toffset1": "toffset",
+			"empty1": "long",
+			"toffset2": "toffset",
+			"long1": "long",
+			"scena_flag_array": "u16array",
+			"int2": "int",
+			"array1": "u16array",
+			"int3": "int",
+			"voice_subtitle": "toffset",
+			"empty2": "long"
+		}
 	}
 }

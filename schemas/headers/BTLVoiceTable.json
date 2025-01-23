@@ -1,0 +1,18 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kai",
+		"schema": {	
+			"int1": "int",	
+			"long1": "long",
+			"long2": "long",
+			"empty1": "int",
+			"arr1": "u32array",
+			"empty2": "int",
+			"arr2": "u32array",
+			"empty3": "int",
+			"text1": "toffset",
+			"arr3": "u8array",
+			"empty4": "int"
+		}
+	}
+}
