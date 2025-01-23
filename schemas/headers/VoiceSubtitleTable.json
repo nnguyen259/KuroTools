@@ -1,0 +1,10 @@
+{
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "int",
+			"int1": "int",
+			"text": "toffset"
+		}
+	}
+}
