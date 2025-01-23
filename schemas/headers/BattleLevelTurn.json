@@ -9,5 +9,17 @@
 			"hp_or_unknown_multi_2": "uint",
 			"enemy_spd_multiplier": "uint"
 		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"difficulty_id": "uint",
+			"player_damage_multiplier": "uint",
+			"enemy_damage_multiplier": "uint",
+			"hp_or_unknown_multi_1": "uint",
+			"hp_or_unknown_multi_2": "uint",
+			"enemy_spd_multiplier": "uint",
+			"int1": "uint"
+		}
 	}
 }

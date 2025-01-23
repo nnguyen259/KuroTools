@@ -1,0 +1,17 @@
+{
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "ubyte",
+			"reference_id": "ubyte",
+			"int1": "int",
+			"short1": "ushort",
+			"flag": "toffset",
+			"int2": "int",
+			"int3": "int",
+			"int4": "int",
+			"int5": "int",
+			"at_bonus_name": "toffset"
+		}
+	}
+}
