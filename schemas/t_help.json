@@ -1,5 +1,6 @@
 {
 	"headers": [
-		"HelpTableData"
+		"HelpTableData",
+		"RealTimeHelpTableData"
 	]
 }

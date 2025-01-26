@@ -9,7 +9,8 @@
 			"file_name2": "toffset",
 			"tab_name": "toffset",
 			"empty_text_offset": "toffset",
-			"long1": "long"
+			"long1": "long",
+			"long2": "long"
 		}
 	}
 }
