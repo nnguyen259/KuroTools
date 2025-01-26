@@ -19,5 +19,31 @@
 			"empty2": "uint",
 			"text8": "toffset"
 		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint",
+			"int1": "int",
+			"int2": "int",
+			"int3": "int",
+			"long1": "long",
+			"long2": "long",
+			"text1": "toffset",
+			"text2": "toffset",
+			"text3": "toffset",
+			"text4": "toffset",
+			"text5": "toffset",
+			"text6": "toffset",
+			"text7": "toffset",
+			"text8": "toffset",
+			"long3": "long",
+			"arr": "u32array",
+			"empty1": "uint",
+			"arr2": "u32array",
+			"empty2": "uint",
+			"text9": "toffset",
+			"text10": "toffset"
+		}
 	}
 }
