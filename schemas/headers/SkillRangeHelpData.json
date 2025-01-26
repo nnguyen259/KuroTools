@@ -1,0 +1,12 @@
+{
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "long",
+			"text1": "toffset",
+			"text2": "toffset",
+			"text3": "toffset",
+			"text4": "toffset"
+		}
+	}
+}
