@@ -9,6 +9,19 @@
 			"file_name2": "toffset",
 			"tab_name": "toffset",
 			"empty_text_offset": "toffset",
+			"long1": "long"
+		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "short",
+			"short1": "short",
+			"int1": "int",
+			"file_name1": "toffset",
+			"file_name2": "toffset",
+			"tab_name": "toffset",
+			"empty_text_offset": "toffset",
 			"long1": "long",
 			"long2": "long"
 		}
