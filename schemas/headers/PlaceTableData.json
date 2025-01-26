@@ -12,5 +12,28 @@
 			"bytesseq": "toffsetlatin-1",
 			"utf8text": "toffset"
 		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "ulong",
+			"text": "toffset",
+			"text2": "toffset",
+			"float1": "float",
+			"float2": "float",
+			"float3": "float",
+			"empty1": "uint",
+			"scena_flag_array1": "u16array",
+			"float5": "float",
+			"scena_flag_array2": "u16array",
+			"float6": "float",
+			"text3": "toffset",
+			"text4": "toffset",
+			"text5": "toffset",
+			"float7": "float",
+			"float8": "float",
+			"float9": "float",
+			"empty2": "uint"
+		}
 	}
 }
