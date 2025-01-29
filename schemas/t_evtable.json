@@ -1,0 +1,7 @@
+{
+	"headers": [
+		"EventGroupData",
+		"EventSubGroupData",
+		"EventTableData"
+	]
+}

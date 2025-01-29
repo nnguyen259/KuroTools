@@ -1,0 +1,9 @@
+{
+	"headers" : [
+		"HackingPlayerData",
+		"HackingSkillData",
+		"HackingBarrierData",
+		"HackingEnemyData",
+		"HackingStageData"
+	]
+}

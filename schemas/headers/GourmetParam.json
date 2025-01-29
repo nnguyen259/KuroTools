@@ -8,5 +8,22 @@
 			"description": "toffset",
 			"long1": "long"
 		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "short",
+			"short": "short",
+			"int1": "int",
+			"description": "toffset",
+			"long1": "long",
+			"text1": "toffset",
+			"long2": "long",
+			"text2": "toffset",
+			"text3": "toffset",
+			"uint1": "uint",
+			"uint2": "uint",
+			"long3": "long"
+		}
 	}
 }

@@ -5,6 +5,8 @@
 		"PreStorySelect",
 		"GlossarySelect",
 		"CharactorSelect",
+		"CharactorList",
+		"CharactorContents",
 		"PreStoryMainContents",
 		"TimeLineList",
 		"PreStoryList",
@@ -12,6 +14,10 @@
 		"BeforeStoryList",
 		"BeforeStoryContents", 
 		"GlossaryList",
-		"GlossaryContents"
+		"GlossaryContents",
+		"SeriesList",
+		"SeriesContents",
+		"LogList",
+		"LogContents"
 	]
 }

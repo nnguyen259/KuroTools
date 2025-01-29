@@ -1,0 +1,17 @@
+{
+	"headers" : [
+		"AttrTypeHelpData",
+		"SkillTypeHelpData",
+		"SkillEffectTypeHelpData",
+		"SkillTextArrayData",
+		"SkillTypeHelpData",
+		"SkillLevelHelpData",
+		"SkillItemStatusData",
+		"SkillConnectListData",
+		"EquipLineHelpData",
+		"ItemKindHelpData",
+		"SkillEffectHelpData",
+		"ConditionHelpData",
+		"SkillRangeHelpData"
+	]
+}

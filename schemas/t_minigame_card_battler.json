@@ -1,0 +1,9 @@
+{
+	"headers" : [
+		"CardData",
+		"CardEffectText",
+		"CardAttributeData",
+		"CardBattlerMessage",
+		"LogText"
+	]
+}

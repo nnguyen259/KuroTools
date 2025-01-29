@@ -1,0 +1,12 @@
+{
+  "FALCOM_PS5": {
+    "game": "Kai",
+    "schema": {
+      "uint1": "uint",
+      "uint2": "uint",
+      "uint3": "uint",
+      "uint4": "uint",
+      "text": "toffset"
+    }
+  }
+}
