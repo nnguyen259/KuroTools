@@ -46,5 +46,53 @@
 			"description_1": "toffset",
 			"description_2": "toffset"
 		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "ushort",
+			"byte1": "ubyte",
+			"byte2": "ubyte",
+			"element_earth": "ubyte",
+			"element_water": "ubyte",
+			"element_fire": "ubyte",
+			"element_wind": "ubyte",
+			"element_time": "ubyte",
+			"element_space": "ubyte",
+			"element_mirage": "ubyte",
+			"activation_chance": "ubyte",
+			"sclm_activation_chance": "ubyte",
+			"sboost_activation_chance": "ubyte",
+			"sboost_sclm_activation_chance": "ubyte",
+			"full_boost_activation_chance": "ubyte",
+			"empty": "ubyte",
+			"byte3": "ubyte",
+			"upgrade_id": "ushort",
+			"empty2": "uint",
+			"array_flag": "u16array",
+			"empty3": "int",
+			"flag2": "toffset",
+			"activation_condition_1": "uint",
+			"activation_condition_2": "uint",
+			"int1": "uint",
+			"empty4": "uint",
+			"short1": "ushort",
+			"skill_substitute_id": "ushort",
+			"effects" : {
+				"size": 2,
+				"schema": {
+					"id": "ushort",
+					"value1": "uint",
+					"value2": "uint",
+					"value3": "uint"
+				}
+			},
+			"int2": "uint",
+			"int3": "int",
+			"animation": "toffset",
+			"id_for_something": "ulong",
+			"name": "toffset",
+			"description": "toffset"
+		}
 	}
 }
