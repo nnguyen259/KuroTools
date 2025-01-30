@@ -1,0 +1,12 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kai",
+		"schema": {
+		       "int": "uint",
+		       "float1": "float",
+		       "float2": "float",
+		       "float3": "float",
+		       "float4": "float"
+        }
+    }
+}

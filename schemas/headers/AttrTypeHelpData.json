@@ -3,8 +3,8 @@
 		"game": "Kai",
 		"schema": {
 			"id": "long",
-			"text": "toffset",
-			"long1": "long"
+			"element_name": "toffset",
+			"long": "long"
 		}
 	}
 }

@@ -2,7 +2,10 @@
 	"FALCOM_PS5": {
 		"game": "Kai",
 		"schema": {
-			"id": "long",
+			"category_id": "ushort",
+			"subcategory_id": "ushort",
+			"short1": "ushort",
+			"short2": "ushort",
 			"text1": "toffset",
 			"long": "long",
 			"text2": "toffset"

@@ -12,6 +12,7 @@
 		"ItemKindHelpData",
 		"SkillEffectHelpData",
 		"ConditionHelpData",
-		"SkillRangeHelpData"
+		"SkillRangeHelpData",
+		"SkillRangeData"
 	]
 }
