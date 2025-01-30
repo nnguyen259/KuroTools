@@ -6,6 +6,7 @@
 		"ShopItem",
 		"ShopTypeDesc",
 		"ShopConv",
-		"TradeItem"
+		"TradeItem",
+		"BargainItem"
 	]
 }
