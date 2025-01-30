@@ -3,8 +3,8 @@
 		"game": "Kai",
 		"schema": {
 			"id": "long",
-			"text": "toffset",
-			"long1": "long"
+			"skill_type_name": "toffset",
+			"text": "toffset"
 		}
 	}
 }
