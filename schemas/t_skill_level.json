@@ -5,6 +5,9 @@
 		"SkillLevelSkillSetting",
 		"SkillLevelAbilityDefine",
 		"SkillLevelAbilityParam",
-		"SkillLevelFactorDefine"
+		"SkillLevelFactorDefine",
+		"SkillLevelConstant",
+		"SkillLevelExpData",
+		"SkillLevelExpCorrectData"
 	]
 }
