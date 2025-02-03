@@ -1,0 +1,20 @@
+{
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"character_id": "uint",
+			"line_type": "uint",
+			"1": "int",
+			"short1": "ushort",
+			"slots" : {
+				"size": 3,
+				"schema": {
+					"restriction_id": "uint",
+					"short1": "ushort",
+					"short2": "ushort"
+				}
+			},
+			"slot_line_number": "ushort"
+		}
+	}
+}

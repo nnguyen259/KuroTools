@@ -1,0 +1,13 @@
+{
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"rate1": "ushort",
+			"rate2": "ushort",
+			"rate3": "ushort",
+			"rate4": "ushort",
+			"rate5": "ushort",
+			"rate6": "ushort"
+		}
+	}
+}

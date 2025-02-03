@@ -23,5 +23,23 @@
 			"lvl_14_param": "ushort",
 			"lvl_15_param": "ushort"
 		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"chr_id": "ushort",
+			"skill_id": "ushort",
+			"upgrade_type_id": "ushort",
+			"lv_1_param": "short",
+			"lvl_2_param": "short",
+			"lvl_3_param": "short",
+			"lvl_4_param": "short",
+			"lvl_5_param": "short",
+			"lvl_6_param": "short",
+			"lvl_7_param": "short",
+			"lvl_8_param": "short",
+			"lvl_9_param": "short",
+			"lvl_10_param": "short"
+		}
 	}
 }

@@ -1,0 +1,14 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "uint",
+			"short1": "ushort",
+			"short2": "ushort",
+			"short3": "ushort",
+			"short4": "ushort",
+			"short5": "ushort",
+			"short6": "ushort"
+		}
+	}
+}

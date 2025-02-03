@@ -1,0 +1,10 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "uint",
+			"int1": "int",
+			"int2": "int"
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"int1": "int",
+			"int2": "int"
+		}
+	}
+}
