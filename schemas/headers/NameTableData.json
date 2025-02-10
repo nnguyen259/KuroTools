@@ -4,15 +4,15 @@
 		"schema": {
 			"character_id": "ulong",
 			"name": "toffset",
-			"texture": "toffset",
-			"face": "toffset",
 			"model": "toffset",
+			"face": "toffset",
+			"script": "toffset",
 			"long1": "ulong",
 			"text1": "toffset",
 			"text2": "toffset",
 			"long2": "ulong",
 			"text3": "toffset",
-			"text4": "toffset"
+			"full_name": "toffset"
 		}
 	},
 	"CLE_PC" :{
@@ -20,17 +20,17 @@
 		"schema": {
 			"character_id": "ulong",
 			"name": "toffset",
-			"texture": "toffset",
-			"face": "toffset",
 			"model": "toffset",
+			"face": "toffset",
+			"script": "toffset",
 			"long1": "ulong",
 			"text1": "toffset",
 			"long2": "long",
 			"text2": "toffset",
 			"long3": "ulong",
 			"text3": "toffset",
-			"text4": "toffset",
-			"text5": "toffset"
+			"full_name": "toffset",
+			"full_name_en": "toffset"
 		}
 	}
 }
