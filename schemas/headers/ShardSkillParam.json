@@ -34,9 +34,9 @@
 				"size": 2,
 				"schema": {
 					"id": "uint",
-					"value1": "uint",
-					"value2": "uint",
-					"value3": "uint"
+					"value1": "int",
+					"value2": "int",
+					"value3": "int"
 				}
 			},
 			"int2 ": "uint",
@@ -82,9 +82,9 @@
 				"size": 2,
 				"schema": {
 					"id": "ushort",
-					"value1": "uint",
-					"value2": "uint",
-					"value3": "uint"
+					"value1": "int",
+					"value2": "int",
+					"value3": "int"
 				}
 			},
 			"int2": "uint",
