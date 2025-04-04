@@ -1456,6 +1456,13 @@ def init_command_names_dicts():
     (0x1D, 0x04) : "Cmd_unknown_12_04",
     (0x1D, 0x05) : "Cmd_unknown_12_05",
     (0x1D, 0x07) : "Cmd_unknown_12_07",
+    (0x10, 0x19) : "Cmd_unknown_10_19",
+    (0x17, 0x1D) : "Cmd_unknown_17_1D",
+    (0x1C, 0x1E) : "Cmd_unknown_1C_1E",
+    (0x0D, 0x6C) : "Cmd_unknown_0D_6C",
+    (0x0D, 0x6D) : "Cmd_unknown_0D_6D",
+    (0x06, 0x2D) : "Cmd_unknown_06_2D",
+    (0x1C, 0x13) : "Cmd_unknown_1C_13",
     }
     
     reverse_commands_dict =  {v: k for k, v in commands_dict.items()}
