@@ -1,0 +1,23 @@
+{
+	"CLE_PC": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"uint1": "uint",
+			"game": "toffset"
+		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "long",
+			"text": "toffset",
+			"toffset1": "toffset",
+			"toffset2": "toffset",
+			"toffset3": "toffset",
+			"toffset4": "toffset",
+			"uint1": "uint",
+			"uint2": "uint"
+		}
+	}
+}

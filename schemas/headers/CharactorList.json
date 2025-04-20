@@ -1,0 +1,25 @@
+{
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "uint",
+			"short1": "ushort",
+			"short2": "ushort",
+			"int1": "toffset",
+			"int3": "toffset",
+			"text": "toffset"
+		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint",
+			"short1": "ushort",
+			"short2": "ushort",
+			"int1": "toffset",
+			"int3": "toffset",
+			"text1": "toffset",
+			"text2": "toffset"
+		}
+	}
+}
