@@ -2,9 +2,8 @@
   "FALCOM_PS5": {
     "game": "Kai",
     "schema": {
-      "uint1": "uint",
-      "uint2": "uint",
-      "long2": "long",
+      "long": "long",
+      "toffset": "toffset",
       "text1": "toffset",
       "text2": "toffset"
     }
