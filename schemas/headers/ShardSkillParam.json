@@ -81,14 +81,13 @@
 			"effects" : {
 				"size": 2,
 				"schema": {
-					"id": "ushort",
-					"value1": "int",
-					"value2": "int",
-					"value3": "int"
+					"id": "uint",
+					"value1": "uint",
+					"value2": "uint",
+					"value3": "uint"
 				}
 			},
 			"int2": "uint",
-			"int3": "int",
 			"animation": "toffset",
 			"id_for_something": "ulong",
 			"name": "toffset",
