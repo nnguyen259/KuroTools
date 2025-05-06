@@ -1,0 +1,12 @@
+{
+	"headers" : [
+		"FreeDungeonData",
+		"FreeDungeonSection",
+		"FreeDungeonReward",
+		"FreeDungeonClearBonus",
+		"FreeDungeonSupportPos",
+		"FreeDungeonCPSupplyList",
+		"FreeDungeonTBox",
+		"FreeDungeonBreakObj"
+	]
+}

@@ -1,0 +1,30 @@
+{
+	"NISA_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"ushort1": "ushort",
+			"uint1": "uint",
+			"ushort2": "ushort",
+			"id": "toffset",
+			"ulong1": "ulong",
+			"ulong2": "ulong",
+			"ulong3": "ulong",
+			"ulong4": "ulong",
+			"ulong5": "ulong",
+			"ulong6": "ulong",
+			"ulong7": "ulong",
+			"ulong8": "ulong",
+			"ulong9": "ulong",
+			"ulong10": "ulong",
+			"ulong11": "ulong",
+			"ulong12": "ulong",
+			"ulong13": "ulong",
+			"ulong14": "ulong",
+			"ulong15": "ulong",
+			"ulong16": "ulong",
+			"ulong17": "ulong",
+			"ulong18": "ulong",
+			"text": "toffset"
+		}
+	}
+}

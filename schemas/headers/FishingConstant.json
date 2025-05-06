@@ -1,0 +1,10 @@
+{
+	"NISA_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"ulong1": "ulong",
+			"ulong2": "ulong",
+			"ulong3": "ulong"
+		}
+	}
+}
