@@ -1,0 +1,18 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "long",
+			"arr1": "u32array",
+			"int1": "int",
+			"arr2": "u32array",
+			"int2": "int",
+			"arr3": "u32array",
+			"int3": "int",
+			"arr4": "u32array",
+			"int4": "int",
+			"arr5": "u32array",
+			"int5": "int"
+		}
+	}
+}

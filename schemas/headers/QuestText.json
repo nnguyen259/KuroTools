@@ -48,5 +48,16 @@
 			"empty4": "int",
 			"empty5": "long"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"quest_id": "ushort",
+			"txt_id": "int",
+			"empty1": "short",
+			"quest_description": "toffset",
+			"long1": "long",
+			"unk_txt": "toffset"
+		}
 	}
 }

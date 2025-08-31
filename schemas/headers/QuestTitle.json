@@ -52,7 +52,46 @@
 			"int6": "int",
 			"arr2": "u16array",
 			"int7": "int"
-
+		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "ushort",
+			"int1": "int",
+			"empty1": "short",
+			"quest_name": "toffset",
+			"quest_giver": "toffset",
+			"short1": "short",
+			"int2": "int",
+			"empty2": "short",
+			"file_name": "toffset",
+			"int3": "int",
+			"int4": "int",
+			"byte1": "ubyte",
+			"byte2": "ubyte",
+			"byte3": "ubyte",
+			"byte4": "ubyte",
+			"byte5": "ubyte",
+			"byte6": "ubyte",
+			"byte7": "ubyte",
+			"byte8": "ubyte",
+			"byte9": "ubyte",
+			"byte10": "ubyte",
+			"byte11": "ubyte",
+			"byte12": "ubyte",
+			"byte13": "ubyte",
+			"byte14": "ubyte",
+			"byte15": "ubyte",
+			"byte16": "ubyte",
+			"int5": "int",
+			"int6": "int",
+			"short2": "ushort",
+			"int7": "int",
+			"empty3": "short",
+			"quest_number": "toffset",
+			"completion_comment": "toffset",
+			"empty4": "long"
 		}
 	}
 }
