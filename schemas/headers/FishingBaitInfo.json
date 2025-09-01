@@ -1,0 +1,9 @@
+{
+	"NISA_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"uint1": "uint",
+			"uint2": "uint"
+		}
+	}
+}

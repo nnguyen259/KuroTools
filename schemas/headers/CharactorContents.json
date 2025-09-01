@@ -1,12 +1,17 @@
 {
-  "FALCOM_PS5": {
-    "game": "Kai",
-    "schema": {
-      "uint1": "uint",
-      "uint2": "uint",
-      "uint3": "uint",
-      "uint4": "uint",
-      "text": "toffset"
-    }
-  }
+	"FALCOM_PS4": {
+		"game": "Kuro1",
+		"schema": {
+			"id": "ulong",
+			"text": "toffset"
+		}
+	},
+	"FALCOM_PS5": {
+		"game": "Kai",
+		"schema": {
+			"id": "ulong",
+			"text1": "toffset",
+			"text2": "toffset"
+		}
+	}
 }

@@ -1,0 +1,14 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"ulong1": "ulong",
+			"ulong2": "ulong",
+			"ulong3": "ulong",
+			"ulong4": "ulong",
+			"float1": "float",
+			"float2": "float",
+			"float3": "float"
+		}
+	}
+}

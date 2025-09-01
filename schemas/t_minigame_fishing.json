@@ -1,0 +1,9 @@
+{
+	"headers": [
+		"FishInfo",
+		"FishingConstant",
+		"FishingBaitInfo",
+		"FishingCastInfo",
+		"FishingSpot"
+	]
+}
