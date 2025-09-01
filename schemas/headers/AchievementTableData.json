@@ -37,8 +37,8 @@
 			"achievement_description": "toffset"
 		}
 	},
-	"FALCOM_PS5": {
-		"game": "Kai",
+	"FALCOM_PC": {
+		"game": "Sora1",
 		"schema": {
 			"achievement_category": "uint",
 			"achievement_id": "uint",
@@ -51,11 +51,11 @@
 			"int1": "int",
 			"int2": "int",
 			"long2": "long",
-			"empty": "long",
-			"flag": "toffset",
+			"long3": "long",
+			"flag1": "toffset",
+			"flag2": "toffset",
 			"achievement_name": "toffset",
-			"achievement_description": "toffset",
-			"long3": "long"
+			"achievement_description": "toffset"
 		}
 	}
 }

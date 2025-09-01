@@ -1,0 +1,12 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"achievement_category": "long",
+			"tag": "toffset",
+			"name": "toffset",
+			"achieved_goal": "toffset",
+			"todo_goal": "toffset"
+		}
+	}
+}
