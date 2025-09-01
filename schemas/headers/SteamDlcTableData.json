@@ -1,0 +1,13 @@
+{
+	"CLE_PC2": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint",
+			"steam_app_id": "uint",
+			"arr1": "u32array",
+			"int2": "uint",
+			"dlc_name": "toffset",
+			"description": "toffset"
+		}
+	}
+}
