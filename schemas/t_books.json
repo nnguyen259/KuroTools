@@ -2,6 +2,7 @@
 	"headers" : [
 		"BooksTitle",
 		"BooksText",
-		"BooksTitleReplace"
+		"BooksTitleReplace",
+		"BooksCategory"
 	]
 }

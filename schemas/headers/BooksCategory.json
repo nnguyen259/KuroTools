@@ -1,0 +1,10 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "long",
+			"category_name": "toffset",
+			"unused": "toffset"
+		}
+	}
+}

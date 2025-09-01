@@ -9,5 +9,17 @@
 			"file_name": "toffset",
 			"long2": "long"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "short",
+			"int1": "int",
+			"empty1": "short",
+			"title": "toffset",
+			"short1": "ushort",
+			"short2": "ushort",
+			"empty2": "int"
+		}
 	}
 }
