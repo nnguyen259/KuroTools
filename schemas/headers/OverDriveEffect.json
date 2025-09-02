@@ -1,0 +1,26 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "int",
+			"int1": "int",
+			"int2": "int",
+			"int3": "int",
+			"int4": "int",
+			"int5": "int",
+			"int6": "int",
+			"int7": "int",
+			"int8": "int",
+			"int9": "int",
+			"int10": "int",
+			"int11": "int",
+			"text1": "toffset",
+			"text2": "toffset",
+			"text3": "toffset",
+			"text4": "toffset",
+			"text5": "toffset",
+			"text6": "toffset",
+			"text7": "toffset"
+		}
+	}
+}
