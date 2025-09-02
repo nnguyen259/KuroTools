@@ -108,5 +108,55 @@
 			"int8": "uint",
 			"int9": "uint"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "uint",
+			"character_restriction": "uint",
+			"text1": "toffset",
+			"text2": "toffset",
+			"category": "ubyte",
+			"subcategory": "ubyte",
+			"item_icon": "ushort",
+			"effect_icon": "ushort",
+			"element": "ushort",
+			"int1": "uint",
+			"float1": "float",
+			"float2": "float",
+			"effects" : {
+				"size": 5,
+				"schema": {
+					"id": "uint",
+					"value1": "uint",
+					"value2": "uint",
+					"value3": "uint"
+				}
+			},
+			"float3": "float",
+			"hp": "uint",
+			"ep": "uint",
+			"str": "uint",
+			"def": "uint",
+			"ats": "uint",
+			"adf": "uint",
+			"agl": "uint",
+			"dex": "uint",
+			"hit": "uint",
+			"eva": "uint",
+			"aeva": "uint",
+			"crit": "uint",
+			"spd": "uint",
+			"mov": "uint",
+			"stack_size": "int",
+			"price": "int",
+			"animation": "toffset",
+			"name": "toffset",
+			"description": "toffset",
+			"int2": "uint",
+			"int3": "uint",
+			"int4": "uint",
+			"int5": "uint"
+		}
 	}
 }
