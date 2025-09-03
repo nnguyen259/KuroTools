@@ -30,5 +30,28 @@
 			"text1": "toffset",
 			"text2": "toffset"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "ulong",
+			"shop_name": "toffset",
+			"long1": "long",
+			"flag": "toffset",
+			"empty": "ushort",
+			"shop_price_percent": "short",
+			"shop_cam_pos_x": "float",
+			"shop_cam_pos_y": "float",
+			"shop_cam_pos_z": "float",
+			"shop_cam_rotation_1": "float",
+			"shop_cam_rotation_2": "float",
+			"shop_cam_rotation_3": "float",
+			"shop_cam_rotation_4": "float",
+			"float1": "float",
+			"byte1": "ubyte",
+			"byte2": "ubyte",
+			"byte3": "ubyte",
+			"byte4": "ubyte"
+		}
 	}
 }
