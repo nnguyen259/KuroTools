@@ -1,0 +1,8 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "ushort"
+		}
+	}
+}

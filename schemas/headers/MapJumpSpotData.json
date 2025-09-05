@@ -10,10 +10,41 @@
 			"x_coordinate": "float",
 			"y_coordinate": "float",
 			"z_coordinate": "float",
-			"float4": "float",
+			"angle": "float",
 			"long2": "ulong",
 			"jump_file": "toffset",
 			"toffset2": "toffset"
+		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "uint",
+			"region_id": "uint",
+			"area_id": "uint",
+			"int1": "uint",
+			"place_name": "toffset",
+			"long1": "ulong",
+			"scena_file": "toffset",
+			"x_coordinate1": "float",
+			"y_coordinate1": "float",
+			"z_coordinate1": "float",
+			"angle1": "float",
+			"sub_scena_file": "toffset",
+			"int2": "uint",
+			"x_coordinate2": "float",
+			"y_coordinate2": "float",
+			"z_coordinate2": "float",
+			"angle2": "float",
+			"int3": "uint",
+			"tag": "toffset",
+			"float1": "ulong",
+			"jump_file": "toffset",
+			"jump_file_note1": "toffset",
+			"long2": "ulong",
+			"jump_file_note2": "toffset",
+			"long3": "ulong",
+			"jump_file_note3": "toffset"
 		}
 	}
 }

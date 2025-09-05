@@ -31,5 +31,26 @@
 			"voice_subtitle": "toffset",
 			"empty2": "long"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "ulong",
+			"char_ids": "u16array",
+			"empty1": "uint",
+			"filename": "toffset",
+			"type_id": "long",
+			"tag": "toffset",
+			"array2": "u16array",
+			"empty2": "uint",
+			"array3": "u16array",
+			"empty3": "uint",
+			"array4": "u32array",
+			"empty4": "uint",
+			"array5": "u32array",
+			"empty5": "uint",
+			"dialogue": "toffset",
+			"unknown": "long"
+		}
 	}
 }

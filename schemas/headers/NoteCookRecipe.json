@@ -1,0 +1,15 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "int",
+			"ingredients": {
+				"size": 8,
+				"schema": {
+					"id": "uint",
+					"nb": "uint"
+				}
+			}
+		}
+	}
+}

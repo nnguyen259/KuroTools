@@ -31,5 +31,20 @@
 			"description": "toffset",
 			"long1": "long"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "uint",
+			"region_id": "uint",
+			"place_name": "toffset",
+			"scena_file": "toffset",
+			"x_coordinate": "float",
+			"y_coordinate": "float",
+			"z_coordinate": "float",
+			"float4": "float",
+			"jump_file": "toffset",
+			"description": "toffset"
+		}
 	}
 }
