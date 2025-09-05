@@ -54,5 +54,33 @@
 			"utf8text": "toffset",
 			"text3": "toffset"
 		}
+	},
+	"FALCOM_PC2": {
+		"game": "Sora1",
+		"schema": {
+			"id": "ulong",
+			"file1": "toffset",
+			"file2": "toffset",
+			"file3": "toffset",
+			"long1": "ulong",
+			"long2": "ulong",
+			"empty_array1": "u16array",
+			"float1": "float",
+			"empty_array2": "u16array",
+			"float2": "float",
+			"long3": "ulong",
+			"tags": "toffset",
+			"name": "toffset",
+			"empty_text": "toffset",
+			"long4": "ulong",
+			"next_file": "toffset",
+			"long5": "ulong",
+			"long6": "ulong",
+			"long7": "ulong",
+			"int": "uint",
+			"float4": "float",
+			"float6": "float",
+			"float7": "float"
+		}
 	}
 }
