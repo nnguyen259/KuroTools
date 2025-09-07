@@ -9,5 +9,16 @@
 			"short2": "ushort",
 			"text3": "toffset"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"text1": "toffset",
+			"int1": "uint",
+			"int2": "uint",
+			"region": "long",
+			"text2": "toffset",
+			"text3": "toffset"
+		}
 	}
 }

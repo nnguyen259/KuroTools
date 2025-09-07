@@ -1,6 +1,7 @@
 {
 	"headers": [
 		"ConditionInfoTableData",
-		"ConditionTypeParam"
+		"ConditionTypeParam",
+		"OverDriveEffect"
 	]
 }

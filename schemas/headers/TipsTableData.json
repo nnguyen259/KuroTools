@@ -9,5 +9,20 @@
 			"text_1": "toffset",
 			"text_2": "toffset"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id1": "ushort",
+			"id2": "ushort",
+			"int1": "uint",
+			"array": "u16array",
+			"int2": "uint",
+			"tag": "toffset",
+			"tab_id": "uint",
+			"order": "uint",
+			"title": "toffset",
+			"text": "toffset"
+		}
 	}
 }

@@ -1,0 +1,9 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"level": "int",
+			"ratio": "int"
+		}
+	}
+}

@@ -12,6 +12,17 @@
 		"NoteBooksMenu",
 		"NoteHelpMenu",
 		"NoteMonsRecordData",
-		"NoteGenesisData"
+		"NoteGenesisData",
+		"NoteMainCategory",
+		"NoteMainBadge",
+		"NoteMainAffiliation",
+		"NoteMainHistory",
+		"NoteBattleCategory",
+		"NoteCookCategory",
+		"NoteHelpCategory",
+		"NoteCookChara",
+		"NoteCookItem",
+		"NoteCookRecipe",
+		"NoteCookBonusChara"
 	]
 }
