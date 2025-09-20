@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from pathlib import Path
 from typing import Union
 
@@ -21,7 +22,8 @@ def init_argparse() -> argparse.ArgumentParser:
     return parser
 
 def parse(name: Union[str, bytes, os.PathLike]) -> None:
-    filename = Path(name).stem
+    true_filename = Path(name).stem
+    filename = re.sub("\d", "%d", true_filename)
     filesize = os.path.getsize(name)
     with open(name, "rb") as tbl_file:
         magic = tbl_file.read(4)
@@ -136,7 +138,7 @@ def parse(name: Union[str, bytes, os.PathLike]) -> None:
             header.pop("count")
             header.pop("length")
             header.pop("start")
-        with open(f"{filename}.json", "w", encoding="utf-8") as output_file:
+        with open(f"{true_filename}.json", "w", encoding="utf-8") as output_file:
             json.dump(output, output_file, ensure_ascii=False, indent="\t")
 
 

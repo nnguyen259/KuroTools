@@ -1,0 +1,32 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"string1": "toffset",
+			"id": "ulong",
+			"array1": "u32array",
+			"btl_name": "uint",
+			"tag": "toffset",
+			"long2": "ulong",
+			"array2": "u16array",
+			"empty2": "uint",
+			"array3": "u16array",
+			"empty3": "uint",
+			"battle": "toffset",
+			"int1": "uint",
+			"float1": "float",
+			"float2": "float",
+			"float3": "float",
+			"float4": "float",
+			"unknown1": "uint",
+			"unknown2": "uint",
+			"unknown3": "uint",
+			"string7": "toffset",
+			"move_type": "toffset",
+			"string9": "toffset",
+			"long5": "ulong",
+			"long6": "ulong",
+			"stringA": "toffset"
+		}
+	}
+}
