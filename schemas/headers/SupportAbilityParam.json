@@ -1,0 +1,22 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"ability_id": "ubyte",
+			"upgrade_id": "ubyte",
+			"byte1": "ubyte",
+			"byte2": "ubyte",
+			"param_1": "int",
+			"param_2": "int",
+			"empty1": "int",
+			"activation_chance": "int",
+			"activation_chance_overdrive": "int",
+			"int3": "int",
+			"empty2": "int",
+			"flag": "toffset",
+			"animation": "toffset",
+			"name": "toffset",
+			"description": "toffset"
+		}
+	}
+}

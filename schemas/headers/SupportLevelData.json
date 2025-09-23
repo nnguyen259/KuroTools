@@ -1,0 +1,11 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"chr_id": "ushort",
+			"level": "ushort",
+			"ability_id": "int",
+			"int1": "int"
+		}
+	}
+}
