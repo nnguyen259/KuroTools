@@ -4,8 +4,8 @@
 		"schema": {
 			"chr_id": "ushort",
 			"level": "ushort",
-			"ability_id": "int",
-			"int1": "int"
+			"exp_requirement": "int",
+			"ability_id": "int"
 		}
 	}
 }
