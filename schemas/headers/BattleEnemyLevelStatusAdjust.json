@@ -2,11 +2,12 @@
 	"FALCOM_PS4": {
 		"game": "Kuro1",
 		"schema": {
-			"id": "uint",
-			"int1": "int",
-			"int2": "int",
-			"int3": "int",
-			"int4": "int"
+			"difficulty_id": "ushort",
+			"level": "ushort",
+			"hp_multi": "int",
+			"str_multi": "int",
+			"ats_multi": "int",
+			"spd_multi": "int"
 		}
 	}
 }
