@@ -1,0 +1,15 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"unknown_id1": "ulong",
+			"x_coordinate": "float",
+			"y_coordinate": "float",
+			"z_coordinate": "float",
+			"unknown": "uint",
+			"unknown_id2": "ushort",
+			"item_id": "ushort",
+			"value": "uint"
+		}
+	}
+}
