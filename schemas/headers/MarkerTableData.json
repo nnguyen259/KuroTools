@@ -15,5 +15,31 @@
 			"long4": "long",
 			"text3": "toffset"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"map&lp_icon_id" : "short",
+			"far_icon_id" : "short",
+			"empty1" : "uint",
+			"map_ids" : "u32array",
+			"empty2" : "uint",
+			"show_flags" : "u16array",
+			"empty3" : "uint",
+			"hide_flags" : "u16array",
+			"placement_type" : "short", 
+			"chr_id" : "short", 
+			"quest_id" : "long",
+			"scene_or_lp_name" : "toffset",
+			"empty4" : "uint",
+			"x_pos" : "float",
+			"y_pos" : "float",
+			"z_pos" : "float",
+			"highlight_radius" : "float",
+			"trigger_radius" : "float",
+			"transition_buffer" : "float",
+			"empty5" : "uint",
+			"end" : "toffset"
+		}
 	}
 }
