@@ -8,9 +8,9 @@
 			"int3": "uint",
 			"arr2": "u32array",
 			"int4": "uint",
-			"name": "toffset",
-			"description": "toffset",
-			"text2": "toffset"
+			"text1": "toffset",
+			"text2": "toffset",
+			"text3": "toffset"
 		}
 	}
 }
