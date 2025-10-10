@@ -8,5 +8,15 @@
 			"float": "float",
 			"uint2": "uint"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "uint",
+			"uint1": "uint",
+			"text": "toffset",
+			"float": "float",
+			"uint2": "uint"
+		}
 	}
 }

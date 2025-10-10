@@ -5,14 +5,12 @@
 			"id1": "ushort",
 			"id2": "ushort",
 			"id3": "uint",
-			"text1": "toffset",
+			"toffset": "toffset",
 			"float1": "float",
-			"uint1": "uint",
-			"text2": "toffset",
 			"float2": "float",
-			"uint2": "uint",
-			"text3": "toffset",
-			"toffset": "toffset"
+			"uint": "uint",
+			"float3": "float",
+			"ulong": "ulong"
 		}
 	}
 }
