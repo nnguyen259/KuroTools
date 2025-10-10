@@ -1,0 +1,13 @@
+{
+	"headers": [
+		"RecaptureIslandInfoTable",
+		"RecaptureIslandMissionLevelTable",
+		"RecaptureIslandMissionTypeTable",
+		"RecaptureIslandMissionTable",
+		"ShipTensionLevelBonusTable",
+		"RecaptureIslandSkillTable",
+		"RecaptureIslandSkillParamBuffTable",
+		"RecaptureIslandSkillVoiceTable",
+		"RecaptureIslandEmitEnemyShipTable"
+	]
+}
