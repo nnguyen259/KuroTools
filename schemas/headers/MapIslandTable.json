@@ -1,0 +1,16 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"text1": "ulong",
+			"island_name": "toffset",
+			"island_desc": "toffset",
+			"island_image": "toffset",
+			"array1": "u32array",
+			"unk_u32_1": "uint",
+			"array2": "u32array",
+			"unk_u32_2": "uint",
+			"text2": "toffset"
+		}
+	}
+}

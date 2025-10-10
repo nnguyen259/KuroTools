@@ -1,0 +1,13 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"int": "int",
+			"float1": "float",
+			"float2": "float",
+			"float3": "float",
+			"float4": "float",
+			"float5": "float"
+		}
+	}
+}

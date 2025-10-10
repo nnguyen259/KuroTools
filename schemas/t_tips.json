@@ -1,5 +1,6 @@
 {
 	"headers" : [
-		"TipsTableData"
+		"TipsTableData",
+		"TipsTable"
 	]
 }

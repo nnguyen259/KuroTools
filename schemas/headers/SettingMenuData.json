@@ -1,0 +1,53 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "ulong",
+			"name1": "toffset",
+			"option_1": "toffset",
+			"option_2": "toffset",
+			"option_3": "toffset",
+			"option_4": "toffset",
+			"option_5": "toffset",
+			"option_6": "toffset",
+			"option_7": "toffset",
+			"option_8": "toffset",
+			"option_1_desc": "toffset",
+			"option_2_desc": "toffset",
+			"option_3_desc": "toffset",
+			"option_4_desc": "toffset",
+			"option_5_desc": "toffset",
+			"option_6_desc": "toffset",
+			"option_7_desc": "toffset",
+			"option_8_desc": "toffset",
+			"option_1_desc_2": "toffset",
+			"option_2_desc_2": "toffset",
+			"option_3_desc_2": "toffset",
+			"option_4_desc_2": "toffset",
+			"option_5_desc_2": "toffset",
+			"option_6_desc_2": "toffset",
+			"option_7_desc_2": "toffset",
+			"option_8_desc_2": "toffset",				
+			"unk_u32_1": {
+				"size": 2,
+				"schema": {
+					"uint1": "uint"
+				}
+			},
+			"float1": "float",
+			"floats": {
+				"size": 3,
+				"schema": {
+					"uint2": "uint"
+				}
+			},
+			"floats2": {
+				"size": 8,
+				"schema": {
+					"float2": "float"
+				}
+			},
+			"text": "toffset"
+		}
+	}
+}

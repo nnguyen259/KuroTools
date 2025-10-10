@@ -93,6 +93,32 @@
 			"completion_comment": "toffset",
 			"empty4": "long"
 		}
+	},
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "ulong",
+			"text": "toffset",
+			"arr1": "u32array",
+			"uint1": "uint",
+			"arr2": "u32array",
+			"uint2": "uint",
+			"arr3": "u32array",
+			"uint3": "uint",
+			"arr4": "u32array",
+			"uint4": "uint",
+			"arr5": "u32array",
+			"uint5": "uint",
+			"ulong1": "ulong",
+			"arr6": "u32array",
+			"uint6": "uint",
+			"toffset1": "toffset",
+			"toffset2": "toffset",
+			"uint7": "uint",
+			"uint8": "uint",
+			"ulong2": "ulong"
+		}
 	}
 }
+
 

@@ -20,5 +20,26 @@
 			"text3": "toffset"
 
 		}
+	},
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "ushort",
+			"ushort": "ushort",
+			"uint1": "uint",
+			"text1": "toffset",
+			"text2": "toffset",
+			"arr1": "u16array",
+			"uint2": "uint",
+			"arr2": "u16array",
+			"uint3": "uint",
+			"arr3": "u16array",
+			"uint4": "uint",
+			"arr4": "u16array",
+			"uint5": "uint",
+			"toffset1": "toffset",
+			"toffset2": "toffset"
+
+		}
 	}
 }

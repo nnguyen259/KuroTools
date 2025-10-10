@@ -1,0 +1,9 @@
+{
+	"headers": [
+		"AbordageGroupTable",
+		"AbordageIDTable",
+		"AbordageSpawnSeaTable",
+		"AbordageSpawnDeckTable",
+		"AbordageSpawnTboxTable"
+	]
+}

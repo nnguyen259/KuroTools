@@ -1,0 +1,10 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "uint",
+			"region_id": "uint",
+			"picture": "toffset"
+		}
+	}
+}

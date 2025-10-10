@@ -1,0 +1,16 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id1": "ushort",
+			"id2": "ushort",
+			"id3": "uint",
+			"toffset": "toffset",
+			"float1": "float",
+			"float2": "float",
+			"uint": "uint",
+			"float3": "float",
+			"ulong": "ulong"
+		}
+	}
+}

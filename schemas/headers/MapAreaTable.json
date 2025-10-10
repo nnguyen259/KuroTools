@@ -1,0 +1,20 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"area_id": "ulong",
+			"map": "toffset",
+			"minimap": "toffset",
+			"map_name": "toffset",
+			"array1": "u32array",
+			"unk_u32_1": "uint",
+			"array2": "u32array",
+			"unk_u32_2": "uint",
+			"array3": "u32array",
+			"unk_u32_3": "uint",
+			"array4": "u32array",
+			"unk_u32_4": "uint",
+			"text": "toffset"
+		}
+	}
+}

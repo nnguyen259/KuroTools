@@ -1,5 +1,6 @@
 {
 	"headers": [
-		"LookPointTableData"
+		"LookPointTableData",
+		"LookPointTable"
 	]
 }

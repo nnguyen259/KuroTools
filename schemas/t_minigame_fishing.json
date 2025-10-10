@@ -4,6 +4,11 @@
 		"FishingConstant",
 		"FishingBaitInfo",
 		"FishingCastInfo",
-		"FishingSpot"
+		"FishingSpot",
+		"FishingEventParam",
+		"FishingActionParam",
+		"FishParam",
+		"EtcItemParam"
 	]
 }
+

@@ -1,0 +1,10 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"region_id": "uint",
+			"island_id": "uint",
+			"area_id": "uint"
+		}
+	}
+}

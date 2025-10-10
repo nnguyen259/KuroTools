@@ -1,0 +1,30 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"unk_u32_1": "uint",
+			"unk_u32_2": "uint",
+			"ability_icon": "uint",
+			"unk_u32_3": "uint",
+			"ability_name": "toffset",
+			"ability_name_alt": "toffset",
+			"detailed_desc": "toffset",
+			"detailed_desc_alt": "toffset",
+			"simple_desc": "toffset",
+			"simple_desc_alt": "toffset",
+			"ability_id": "uint",
+			"level_1_value": "float",
+			"level_2_value": "float",
+			"level_3_value": "float",
+			"level_4_value": "float",
+			"level_5_value": "float",
+			"level_6_value": "float",
+			"level_7_value": "float",
+			"level_8_value": "float",
+			"level_9_value": "float",
+			"level_10_value": "float",
+			"unk_u32_4": "uint",
+			"text": "toffset"
+		}
+	}
+}

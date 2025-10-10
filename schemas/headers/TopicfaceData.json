@@ -1,0 +1,10 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"ushort1": "ushort",
+			"ushort2": "ushort",
+			"ushort3": "ushort"
+		}
+	}
+}

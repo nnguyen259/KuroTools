@@ -1,0 +1,29 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"category": "uint",
+			"unk_u32_1": "uint",
+			"unk_u32_2": "uint",
+			"float1": "float",
+			"float2": "float",
+			"empty": "uint",
+			"picture": "toffset",
+			"profile" : {
+				"size": 7,
+				"schema": {
+					"type": "toffset"
+				}
+			},
+			"observations": "toffset",
+			"imressions" : {
+				"size": 2,
+				"schema": {
+					"character_id": "ulong",
+					"text": "toffset"
+				}
+			}, 
+			"unknown_u64": "ulong"
+		}
+	}
+}

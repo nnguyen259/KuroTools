@@ -59,5 +59,15 @@
 			"long1": "long",
 			"unk_txt": "toffset"
 		}
+	},
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"id1": "uint",
+			"id2": "uint",
+			"text": "toffset",
+			"arr": "u32array",
+			"int": "int"
+		}
 	}
 }

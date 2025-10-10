@@ -1,0 +1,13 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "ulong",
+			"toffset": "toffset",
+			"arr1": "u32array",
+			"uint1": "uint",
+			"arr2": "u32array",
+			"uint2": "uint"
+		}
+	}
+}

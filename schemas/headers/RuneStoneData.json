@@ -1,0 +1,17 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "uint",
+			"unk_u32_1": "uint",
+			"rune_stone_name": "toffset",
+			"rune_stone_description": "toffset",
+			"rune_stone_text": "toffset",
+			"rune_stone_diary_image": "toffset",
+			"rune_stone_scene_image": "toffset",
+			"float": "float",
+			"unk_u32_2": "uint",
+			"unk_u64": "ulong"
+		}
+	}
+}

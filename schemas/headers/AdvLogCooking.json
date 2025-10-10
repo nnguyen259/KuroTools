@@ -1,0 +1,10 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"uint1": "uint",
+			"uint2": "uint",
+			"uint3": "uint"
+		}
+	}
+}

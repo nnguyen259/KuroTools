@@ -5,5 +5,12 @@
 			"key" : "toffset",
 			"value" : "toffset"
 		}
+	},
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"key" : "toffset",
+			"value" : "toffset"
+		}
 	}
 }
