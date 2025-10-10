@@ -2,8 +2,10 @@
 	"headers": [
 		"HelpTableData",
 		"RealTimeHelpTableData",
+		"HelpTitle",
 		"HelpPage",
 		"HelpIconList",
-		"HelpImageList"
+		"HelpController",
+		"HelpOverlayIcon"
 	]
 }
