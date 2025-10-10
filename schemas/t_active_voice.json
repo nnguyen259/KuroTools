@@ -1,5 +1,7 @@
 {
 	"headers": [
-		"ActiveVoiceTableData"
+		"ActiveVoiceTableData",
+		"ActiveVoiceTable"
 	]
+
 }
