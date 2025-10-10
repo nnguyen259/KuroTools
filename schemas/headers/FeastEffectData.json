@@ -1,0 +1,10 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"effect_id": "uint",
+			"unk_u32": "uint",
+			"effect_name": "toffset"
+		}
+	}
+}

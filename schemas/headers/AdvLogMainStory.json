@@ -1,0 +1,14 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"uint1": "uint",
+			"uint2": "uint",
+			"text1": "toffset",
+			"uint3": "uint",
+			"uint4": "uint",
+			"ulong": "ulong",
+			"text2": "toffset"
+		}
+	}
+}

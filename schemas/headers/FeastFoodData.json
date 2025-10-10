@@ -1,0 +1,22 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"item_id": "uint",
+			"recipe_id": "uint",
+			"u32_1": "uint",
+			"u32_2": "uint",
+			"u32_3": "uint",
+			"basic_ingredients_req": "uint",
+			"float1": "float",
+			"float2": "float",
+			"effect_id1": "uint",
+			"effect_value1": "float",
+			"effect_id2": "uint",
+			"effect_value2": "float",
+			"effect_id3": "uint",
+			"effect_value3": "float", 
+			"unk_u32": "uint"
+		}
+	}
+}

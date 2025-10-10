@@ -1,0 +1,47 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"unk_u32_1": "uint",
+            "unk_u16_1": "ushort",
+            "priority": "ushort",
+            "unk_u32_2": "uint",
+            "unk_u32_3": "uint",
+            "array1": "u32array",
+            "unk_u32_4": "uint",
+            "array2": "u32array",
+            "unk_u32_5": "uint",
+            "array3": "u32array",
+            "unk_u32_6": "uint",
+            "unk_u32_7": "uint",
+            "unk_u32_8": "uint",
+            "name1": "toffset",
+            "details": "toffset",
+            "desc_1": "toffset",
+            "desc_2": "toffset",
+            "text1": "toffset",
+            "text2": "toffset",
+            "unlock_1": "toffset",
+            "unlock_2": "toffset",
+            "unlock_3": "toffset",
+            "unlock_4": "toffset",
+            "materials": {
+                "size": 4,
+                "schema": {
+                    "id": "uint",
+                    "req_amount": "uint"
+                 }    
+             },       
+            "empty1": "ulong",
+            "empty2": "ulong",    
+            "empty3": "ulong",
+            "upgrades": {
+                "size": 12,
+                "schema": {
+                    "id": "uint",
+                    "value": "uint"
+                }
+            }   
+		}
+	}
+}

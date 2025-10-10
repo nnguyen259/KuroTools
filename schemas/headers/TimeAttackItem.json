@@ -1,0 +1,12 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"item_id": "uint",
+			"empty": "uint",
+			"name1": "toffset",
+			"quantity": "uint",
+			"unk_u32": "uint"
+		}
+	}
+}

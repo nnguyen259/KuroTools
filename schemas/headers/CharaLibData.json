@@ -1,0 +1,37 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"id": "long",
+			"arr": "u32array",
+			"int1": "int",
+			"arr2": "u32array",
+			"int2": "int",
+			"long1": "long",
+			"text1": "toffset",
+			"text2": "toffset",
+			"long2": "long",
+			"text3": "toffset",
+			"text4": "toffset",
+			"toffset1": "toffset",
+			"int3": "int",
+			"int4": "int",
+			"toffset2": "toffset",
+			"text5": "toffset",
+			"arr3": "u32array",
+			"int5": "int",
+			"arr4": "u32array",
+			"int6": "int",
+			"arr5": "u32array",
+			"int7": "int",
+			"text6": "toffset",
+			"text7": "toffset",
+			"text8": "toffset",
+			"text9": "toffset",
+			"text10": "toffset",
+			"text11": "toffset",
+			"arr6": "u32array",
+			"int8": "int"
+		}
+	}
+}

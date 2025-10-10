@@ -1,0 +1,22 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"ushort1": "ushort",
+			"uint": "uint",
+			"ushort2": "ushort",
+			"text": "toffset",
+			"toffset1": "toffset",
+			"toffset2": "toffset",
+			"toffset3": "toffset",
+			"short1": "short",
+			"short2": "short",
+			"short3": "short",
+			"short4": "short",
+			"short5": "short",
+			"short6": "short",
+			"short7": "short",
+			"short8": "short"
+		}
+	}
+}

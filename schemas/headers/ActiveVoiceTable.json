@@ -1,0 +1,20 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X",
+		"schema": {
+			"uint1": "uint",
+			"uint2": "uint",
+			"uint3": "uint",
+			"uint4": "uint",
+			"arr1": "u32array",
+			"uint5": "uint",
+			"arr2": "u32array",
+			"uint6": "uint",
+			"ushort1": "ushort",
+			"ulong": "ulong",
+			"uint7": "uint",
+			"ushort2": "ushort",
+			"text": "toffset"
+		}
+	}
+}
