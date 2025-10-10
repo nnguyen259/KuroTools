@@ -2,6 +2,8 @@
 	"headers" : [
 		"TopicTableData",
 		"TopicGetCond",
-		"TopicUseCond"
+		"TopicUseCond",
+		"TopicfaceData"
 	]
+
 }
