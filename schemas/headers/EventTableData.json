@@ -20,5 +20,27 @@
 			"text": "toffset",
 			"long5": "long"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"id": "long",
+			"text1": "toffset",
+			"text2": "toffset",
+			"long1": "long",
+			"text3": "toffset",
+			"text4": "toffset",
+			"long2": "long",
+			"text5": "toffset",
+			"uint1": "uint",
+			"uint2": "uint",
+			"text6": "toffset",
+			"arr1": "u16array",
+			"uint3": "uint",
+			"arr2": "u16array",
+			"uint4": "uint",
+			"text": "toffset",
+			"long3": "long"
+		}
 	}
 }
