@@ -25,7 +25,7 @@
 			"flag": "toffset"
 		}
 	},
-	"Falcom_PS4": {
+	"FALCOM_PS4": {
 		"game": "Kai",
 		"schema": {
 			"id": "uint",
@@ -53,7 +53,7 @@
 			"flag": "toffset"
 		}
 	},
-	"Falcom_PC": {
+	"FALCOM_PC": {
 		"game": "Sora1",
 		"schema": {
 			"id": "uint",
