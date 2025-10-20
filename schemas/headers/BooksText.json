@@ -17,5 +17,15 @@
 			"book_text": "toffset",
 			"long1": "long"
 		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora1",
+		"schema": {
+			"book_id": "short",
+			"line_id": "int",
+			"empty1": "short",
+			"book_text": "toffset",
+			"texture": "toffset"
+		}
 	}
 }
