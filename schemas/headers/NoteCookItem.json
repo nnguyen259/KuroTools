@@ -10,11 +10,8 @@
 			"int5": "int",
 			"int6": "int",
 			"text2": "toffset",
-			"text3": "toffset",
-			"short1": "short",
-			"short2": "short",
-			"short3": "short",
-			"short4": "short"
+			"arr": "u8array",
+			"int7": "int"
 		}
 	}
 }
