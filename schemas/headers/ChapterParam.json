@@ -57,11 +57,12 @@
 			"text2": "toffset",
 			"text3": "toffset",
 			"text4": "toffset",
-			"text5": "toffset",
-			"long1": "long",
-			"text6": "toffset",
-			"long2": "long",
-			"text7": "toffset"
+			"empty1": "toffset",
+			"long": "long",
+			"arr": "u32array",
+			"int4": "int",
+			"empty2": "toffset"
 		}
 	}
+
 }
