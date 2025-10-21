@@ -45,7 +45,7 @@
 			"empty2": "uint",
 			"array3": "u16array",
 			"empty3": "uint",
-			"array4": "u32array",
+			"array4": "u16array",
 			"empty4": "uint",
 			"array5": "u32array",
 			"empty5": "uint",
@@ -53,4 +53,5 @@
 			"unknown": "long"
 		}
 	}
+
 }
