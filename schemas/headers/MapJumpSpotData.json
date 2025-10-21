@@ -29,7 +29,7 @@
 			"x_coordinate1": "float",
 			"y_coordinate1": "float",
 			"z_coordinate1": "float",
-			"angle1": "float",
+			"empty": "uint",
 			"sub_scena_file": "toffset",
 			"int2": "uint",
 			"x_coordinate2": "float",
@@ -40,10 +40,10 @@
 			"tag": "toffset",
 			"float1": "ulong",
 			"jump_file": "toffset",
-			"jump_file_note1": "toffset",
-			"long2": "ulong",
-			"jump_file_note2": "toffset",
-			"long3": "ulong",
+			"arr1": "u16array",
+			"long2": "uint",
+			"arr2": "u16array",
+			"long3": "uint",
 			"jump_file_note3": "toffset"
 		}
 	}
