@@ -42,7 +42,7 @@
 			"x_coordinate": "float",
 			"y_coordinate": "float",
 			"z_coordinate": "float",
-			"float4": "float",
+			"empty": "uint",
 			"jump_file": "toffset",
 			"description": "toffset"
 		}
