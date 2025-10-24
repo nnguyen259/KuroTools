@@ -1,6 +1,6 @@
 # KuroTools
 Tools for working with Kuro no Kiseki .dat, .mdl and .tbl files. Also works on games released post-Kuro that use the same engine.
-DON'T USE THE VERSION IN THE RELEASES SECTION THAT ONE IS FROM 2023 DOWNLOAD THE CODE UNDER THE 'CODE' BUTTON AT THE TOP!
+DON'T USE THE VERSION IN THE RELEASES SECTION THAT ONE IS FROM 2023 DOWNLOAD THE REPOSITORY UNDER THE 'CODE' BUTTON AT THE TOP!
 
 # Compatibility
 KuroTools is currently compatible with:
