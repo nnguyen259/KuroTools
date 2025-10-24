@@ -1,5 +1,6 @@
 # KuroTools
 Tools for working with Kuro no Kiseki .dat, .mdl and .tbl files. Also works on games released post-Kuro that use the same engine.
+DON'T USE THE VERSION IN THE RELEASES SECTION THAT ONE IS FROM 2023 DOWNLOAD THE CODE UNDER THE 'CODE' BUTTON AT THE TOP!
 
 # Compatibility
 KuroTools is currently compatible with:
@@ -35,6 +36,20 @@ See [this](https://docs.google.com/document/d/1n_nECCpRQJacN2i3g4gAVZtsiHF1Bg2Xz
 And [this guide](https://docs.google.com/document/d/1ofetrdRn3BY8GIqfnzWrutw9MnyNEfLYZ6NOgxZzg8A/edit) can help you script the AIs (to create your custom battles).    
   
 For Kuro 2, The textures and models will require compression, and the dat and tbl files will require compression+encryption (Remember: Its always compression first, encryption second) 
+
+If 2 games have different schemas with identical length it may be wise to use a "-g" argument when decompiling. Example:
+
+PS D:\Translation\Sora1\tool\KuroTools-master> python tbl2json.py t_books.tbl
+{'name': 'BooksTitle', 'length': 24, 'count': 33, 'start': 248, 'schema': 'Sora1'}
+{'name': 'BooksText', 'length': 24, 'count': 184, 'start': 1040, 'schema': 'Kuro2'}
+{'name': 'BooksCategory', 'length': 24, 'count': 3, 'start': 5456, 'schema': 'Sora1'}
+
+PS D:\Translation\Sora1\tool\KuroTools-master> python tbl2json.py -g Sora1 t_books.tbl
+{'name': 'BooksTitle', 'length': 24, 'count': 33, 'start': 248, 'schema': 'Sora1'}
+{'name': 'BooksText', 'length': 24, 'count': 184, 'start': 1040, 'schema': 'Sora1'}
+{'name': 'BooksCategory', 'length': 24, 'count': 3, 'start': 5456, 'schema': 'Sora1'}
+
+As you can see the BooksText schema being used has been changed from Kuro2 to Sora1 in this case.
 
 # MDL extraction/import
 <p align="center"><img src="https://user-images.githubusercontent.com/69110695/185493665-86b7cf3f-23a2-40e7-84d2-cb868ba66348.gif"/></p>
