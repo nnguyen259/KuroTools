@@ -5,8 +5,14 @@ DON'T USE THE VERSION IN THE RELEASES SECTION THAT ONE IS FROM 2023 DOWNLOAD THE
 # Compatibility
 KuroTools is currently compatible with:
 - CLE's Steam release of Kuro no Kiseki
-- NISA/PH3's Steam release of Trails through Daybreak
+- NISA/PH3's Steam\GOG release of Trails through Daybreak
 - CLE's Steam release of Kuro no Kiseki 2 -CRIMSON SiN-
+- NISA/PH3's Steam\GOG release of Trails through Daybreak 2
+- CLE's Steam release of  Kai no Kiseki -Farewell, O Zemuria- 
+- NISA/PH3's Steam\GOG release of Ys X: Nordics (.dat semi compatible)
+- GungHo's Steam release of  Trails in the Sky 1st Chapter (.dat semi compatible)
+
+For .dat files better use [Ingert tool](https://github.com/Aureole-Suite/Ingert).
 
 # Requirements
 - Python 3.10 and +
@@ -38,7 +44,7 @@ And [this guide](https://docs.google.com/document/d/1ofetrdRn3BY8GIqfnzWrutw9Mny
 For Kuro 2, The textures and models will require compression, and the dat and tbl files will require compression+encryption (Remember: Its always compression first, encryption second) 
 
 If 2 games have different schemas with identical length it may be wise to use a "-g" argument when decompiling. Example:
-
+```
 PS D:\Translation\Sora1\tool\KuroTools-master> python tbl2json.py t_books.tbl
 {'name': 'BooksTitle', 'length': 24, 'count': 33, 'start': 248, 'schema': 'Sora1'}
 {'name': 'BooksText', 'length': 24, 'count': 184, 'start': 1040, 'schema': 'Kuro2'}
@@ -48,7 +54,7 @@ PS D:\Translation\Sora1\tool\KuroTools-master> python tbl2json.py -g Sora1 t_boo
 {'name': 'BooksTitle', 'length': 24, 'count': 33, 'start': 248, 'schema': 'Sora1'}
 {'name': 'BooksText', 'length': 24, 'count': 184, 'start': 1040, 'schema': 'Sora1'}
 {'name': 'BooksCategory', 'length': 24, 'count': 3, 'start': 5456, 'schema': 'Sora1'}
-
+```
 As you can see the BooksText schema being used has been changed from Kuro2 to Sora1 in this case.
 
 # MDL extraction/import
@@ -66,6 +72,7 @@ As of version 1.3, the tool also supports model injection (MDL creation from FBX
 # Alternative tools
 ## Scena editing
 The script disassembler is very rough and not very userfriendly, more like a prototype type of thing made from the study of PS4 eboot. If you find it too difficult, please have a look at other alternatives to decompile the script files:
+- [Aureole-Suite Ingert](https://github.com/Aureole-Suite/Ingert)
 - [Ouroboros' ED9Decompiler](https://github.com/Ouroboros/Falcom/tree/master/Decompiler2/Falcom/ED9) 
 - [Xxmyl Kuro Modify Tool](https://github.com/Xxmyl/KuroModifyTool/tree/v0.5-beta/KuroModifyTool)
 ## MDL export
