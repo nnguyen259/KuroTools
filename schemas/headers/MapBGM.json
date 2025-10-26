@@ -8,5 +8,17 @@
 			"arr2": "u16array",
 			"int1": "int"
 		}
-	}
+	},
+    "FALCOM_PC": {
+        "game": "Sora1",
+        "schema": {
+            "scene_id": "long",
+            "enable_flags": "u16array",
+            "empty1": "uint",
+            "disable_flags": "u16array",
+            "map_bgm": "int",
+            "float1": "float",
+            "empty2": "uint"
+        }
+    }
 }
