@@ -15,5 +15,22 @@
 			"description": "toffset",
 			"bonus": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint",
+			"int1": "uint",
+			"int2": "ulong",
+			"int3": "u32array",
+			"int4": "uint",
+			"int5": "ulong",
+			"int6": "u32array",
+			"int7": "uint",
+			"int8": "ulong",
+			"int9": "ulong",
+			"description": "toffset",
+			"bonus": "toffset"
+		}
 	}
 }

@@ -28,5 +28,21 @@
 			"arr3": "u16array",
 			"int1": "int"	
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"arr1": "u16array",
+			"long1": "long",
+			"empty1": "int",
+			"text1": "toffset",
+			"text2": "toffset",
+			"long2": "long",
+			"arr2": "u16array",
+			"empty": "int",
+			"arr3": "u16array",
+			"int1": "int",
+			"toffset": "toffset"		
+		}
 	}
 }
