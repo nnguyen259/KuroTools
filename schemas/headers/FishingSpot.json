@@ -120,5 +120,30 @@
             "ulong8": "ulong",
             "toffset": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+            "id1": "toffset",
+            "id2": "toffset",
+            "ushort1": "ushort",
+			"uint1": "uint",
+			"ushort2": "ushort",
+            "arr1": "u16array",
+            "uint2": "uint",
+            "arr2": "u16array",
+            "uint3" : {
+				"size": 30,
+				"schema": {
+					"value": "uint"
+				}
+			},
+			"empty" : {
+				"size": 67,
+				"schema": {
+					"value": "uint"
+				}
+			}
+		}
 	}
 }

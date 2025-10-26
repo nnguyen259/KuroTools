@@ -1,0 +1,8 @@
+{
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint"
+		}
+	}
+}

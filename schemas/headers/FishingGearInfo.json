@@ -1,0 +1,15 @@
+{
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"ushort1": "ushort",
+			"uint1": "uint",
+			"bite" : {
+				"size": 22,
+				"schema": {
+					"value": "ubyte"
+				}
+			}
+		}
+	}
+}
