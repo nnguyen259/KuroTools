@@ -1,5 +1,7 @@
 {
 	"headers": [
-		"ChrDataParam"
+		"ChrDataParam",
+		"TalkChrData",
+		"PortraitChrData"
 	]
 }
