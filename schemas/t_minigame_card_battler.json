@@ -4,6 +4,8 @@
 		"CardEffectText",
 		"CardAttributeData",
 		"CardBattlerMessage",
-		"LogText"
+		"LogText",
+		"AITypeList",
+		"ScoreCoefficient"
 	]
 }
