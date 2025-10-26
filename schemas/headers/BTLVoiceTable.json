@@ -6,7 +6,7 @@
 			"long1": "long",
 			"long2": "long",
 			"empty1": "int",
-			"arr1": "u32array",
+			"arr1": "u16array",
 			"empty2": "int",
 			"arr2": "u32array",
 			"empty3": "int",
