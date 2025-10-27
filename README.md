@@ -43,7 +43,16 @@ And [this guide](https://docs.google.com/document/d/1ofetrdRn3BY8GIqfnzWrutw9Mny
   
 For Kuro 2, The textures and models will require compression, and the dat and tbl files will require compression+encryption (Remember: Its always compression first, encryption second) 
 
-If 2 games have different schemas with identical length it may be wise to use a "-g" argument when decompiling. Example:
+If 2 games have different schemas with identical length it may be wise to use a "-g" argument when decompiling. 
+
+Games:
+- Kuro1
+- Kuro2
+- Kai
+- Sora1
+- Ys_X
+
+Example:
 ```
 PS D:\Translation\Sora1\tool\KuroTools-master> python tbl2json.py t_books.tbl
 {'name': 'BooksTitle', 'length': 24, 'count': 33, 'start': 248, 'schema': 'Sora1'}
