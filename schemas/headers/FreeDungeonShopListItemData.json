@@ -1,0 +1,18 @@
+{
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id1": "uint",
+			"id2": "uint",
+			"text1": "toffset",
+			"ulong1": "ulong",
+			"toffset": "toffset",
+			"ulong2": "ulong",
+			"arr1": "u16array",
+			"uint1": "uint",
+			"arr2": "u16array",
+			"uint2": "uint",
+			"text2": "toffset"
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id": "ulong",
+			"arr1" : {
+				"size": 12,
+				"schema": {
+					"arr": "u32array",
+					"uint": "uint"
+				}
+			}
+		}
+	}
+}
