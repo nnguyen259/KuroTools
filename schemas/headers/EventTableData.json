@@ -1,5 +1,5 @@
 {
-	"FALCOM_PS5": {
+	"CLE_PC": {
 		"game": "Kai",
 		"schema": {
 			"id": "long",
@@ -13,12 +13,12 @@
 			"uint1": "uint",
 			"uint2": "uint",
 			"text6": "toffset",
-			"array": "u32array",
+			"arr1": "u16array",
 			"uint3": "uint",
-			"long3": "long",
-			"long4": "long",
+			"arr2": "u16array",
+			"uint4": "uint",
 			"text": "toffset",
-			"long5": "long"
+			"long3": "long"
 		}
 	},
 	"FALCOM_PC": {

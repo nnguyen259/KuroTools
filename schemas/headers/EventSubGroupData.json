@@ -1,16 +1,17 @@
 {
-	"FALCOM_PS5": {
+	"CLE_PC": {
 		"game": "Kai",
 		"schema": {
-			"id": "long",
+			"id1": "ushort",
+			"id2": "ushort",
+			"empty": "uint",
 			"text": "toffset"
 		}
 	},
 	"FALCOM_PC": {
 		"game": "Sora1",
 		"schema": {
-			"id": "long",
-			"text": "toffset"
+			"id": "long"
 		}
 	}
 }
