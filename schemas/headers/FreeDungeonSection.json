@@ -23,5 +23,19 @@
             "text3": "toffset",
             "text4": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"long1": "long",
+			"id": "toffset",
+			"arr" : {
+				"size": 8,
+				"schema": {
+					"arr": "u32array",
+					"uint": "uint"
+				}
+			}
+		}
 	}
 }

@@ -8,5 +8,15 @@
 			"connect_name": "toffset",
 			"connect_description": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id": "short",
+			"int1": "uint",
+			"empty1": "short",
+			"connect_name": "toffset",
+			"connect_description": "toffset"
+		}
 	}
 }

@@ -5,11 +5,11 @@
 			"text1": "toffset",
 			"text2": "toffset",
 			"text3": "toffset",
-			"long1": "long",
-			"long2": "long",
-			"long3": "long",
-			"long4": "long",
-			"long5": "long"
+			"empty": "toffset",
+			"arr1": "u16array",
+			"uint1": "uint",
+			"arr2": "u16array",
+			"uint2": "uint"
 		}
 	}
 }

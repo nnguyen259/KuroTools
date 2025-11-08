@@ -1,0 +1,10 @@
+{
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id": "ulong",
+			"text1": "toffset",
+			"text2": "toffset"
+		}
+	}
+}

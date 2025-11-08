@@ -7,6 +7,20 @@
 		"FreeDungeonSupportPos",
 		"FreeDungeonCPSupplyList",
 		"FreeDungeonTBox",
-		"FreeDungeonBreakObj"
+		"FreeDungeonBreakObj",
+		"FreeDungeonFloorCompositionData",
+		"FreeDungeonNullSquaresPattren",
+		"FreeDungeonSquaresPattrenData",
+		"FreeDungeonSwapMass",
+		"FreeDungeonAvatarChara",
+		"FreeDungeonMainMenuList",
+		"FreeDungeonShopListItemData",
+		"FreeDungeonShopTypeList",
+		"FreeDungeonRandomMass",
+		"FreeDungeonClearTargetText",
+		"FreeDungeonMassEffectText",
+		"FreeDungeonTBoxMassContents",
+		"FreeDungeonCraftBuildItemList",
+		"FreeDungeonFactoryExpansionList"
 	]
 }

@@ -18,5 +18,27 @@
 			"byte7": "byte",
 			"byte8": "byte"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id1": "ushort",
+			"id2": "ushort",
+			"empty": "uint",
+			"char_full_name": "toffset",
+			"char_first_name": "toffset",
+			"long1": "ulong",
+			"scena_file": "toffset",
+			"affiliation": "toffset",
+			"occupation": "toffset",
+			"byte1": "byte",
+			"byte2": "byte",
+			"byte3": "byte",
+			"byte4": "byte",
+			"byte5": "byte",
+			"byte6": "byte",
+			"byte7": "byte",
+			"byte8": "byte"
+		}
 	}
 }

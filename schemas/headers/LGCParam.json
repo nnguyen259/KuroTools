@@ -7,5 +7,14 @@
 			"byte3": "byte",
 			"byte4": "byte"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"byte1": "byte",
+			"byte2": "byte",
+			"byte3": "byte",
+			"byte4": "byte"
+		}
 	}
 }

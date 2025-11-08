@@ -118,6 +118,31 @@
 			"uint8": "uint",
 			"ulong2": "ulong"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id": "ushort",
+			"int1": "int",
+			"empty1": "short",
+			"quest_description": "toffset",
+			"quest_giver": "toffset",
+			"short1": "short",
+			"int2": "int",
+			"empty2": "short",
+			"file_name": "toffset",
+			"toffset": "toffset",
+			"int3": "int",
+			"int4": "int",
+			"float": "float",
+			"int5": "uint",
+			"int6": "uint",
+			"ubyte1": "ubyte",
+			"ubyte2": "ubyte",
+			"ubyte3": "ubyte",
+			"ubyte4": "ubyte",
+			"empty3": "ulong"
+		}
 	}
 }
 

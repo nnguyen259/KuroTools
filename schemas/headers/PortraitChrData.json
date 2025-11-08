@@ -1,0 +1,12 @@
+{
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id": "long",
+			"toffset1": "toffset",
+			"toffset2": "toffset",
+			"float": "float",
+			"uint": "uint"
+		}
+	}
+}

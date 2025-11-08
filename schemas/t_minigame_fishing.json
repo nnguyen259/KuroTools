@@ -8,7 +8,9 @@
 		"FishingEventParam",
 		"FishingActionParam",
 		"FishParam",
-		"EtcItemParam"
+		"EtcItemParam",
+		"FishingChara",
+		"FishingGearInfo"
 	]
 }
 

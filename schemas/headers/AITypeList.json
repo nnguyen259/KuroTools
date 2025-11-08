@@ -1,0 +1,9 @@
+{
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"ushort1": "ushort",
+			"ushort2": "ushort"
+		}
+	}
+}

@@ -8,5 +8,16 @@
 			"text": "toffset",
 			"toffset": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"id1": "uint",
+			"id2": "uint",
+			"arr": "u32array",
+			"int": "int",
+			"text": "toffset",
+			"toffset": "toffset"
+		}
 	}
 }
