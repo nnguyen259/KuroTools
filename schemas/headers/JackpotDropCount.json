@@ -1,0 +1,13 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"short0": "ushort",
+			"short1": "ushort",
+			"short2": "ushort",
+			"short3": "ushort",
+			"int0": "uint",
+			"int1": "uint"
+		}
+	}
+}

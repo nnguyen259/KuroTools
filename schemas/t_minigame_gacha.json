@@ -1,0 +1,12 @@
+{
+	"headers": [
+		"GachaCost",
+		"GachaGetSepith",
+		"GachaAnalysLevel",
+		"GachaHitCountBonus",
+		"JackpotDropCount",
+		"JackpotDropRate",
+		"GachaInfo",
+		"GachaItem"
+	]
+}

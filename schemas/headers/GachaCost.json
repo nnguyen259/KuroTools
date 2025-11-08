@@ -1,0 +1,9 @@
+{
+	"CLE_PC": {
+		"game": "Kuro2",
+		"schema": {
+			"int0": "uint",
+			"int1": "uint"
+		}
+	}
+}

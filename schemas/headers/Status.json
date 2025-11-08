@@ -1,0 +1,54 @@
+{
+	"FALCOM_SWITCH": {
+		"game": "Ys_X",
+		"schema": {
+			"text0": "toffset",
+			"ints1" : {
+				"size": 18,
+				"schema": {
+					"value": "uint"
+				}
+			},
+			"float0": "float",
+			"s_ints1" : {
+				"size": 14,
+				"schema": {
+					"value": "int"
+				}
+			},
+			"floats1" : {
+				"size": 15,
+				"schema": {
+					"value": "float"
+				}
+			},
+			"text1": "toffset",
+			"int1": "uint",
+			"int2": "uint",
+			"floats2" : {
+				"size": 2,
+				"schema": {
+					"value": "float"
+				}
+			},
+			"bytes1" : {
+				"size": 8,
+				"schema": {
+					"value": "ubyte"
+				}
+			},
+			"floats3" : {
+				"size": 12,
+				"schema": {
+					"value": "float"
+				}
+			},
+			"ints2" : {
+				"size": 10,
+				"schema": {
+					"value": "uint"
+				}
+			}
+		}
+	}
+}

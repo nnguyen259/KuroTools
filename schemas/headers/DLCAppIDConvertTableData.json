@@ -1,0 +1,9 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora_1st",
+		"schema": {
+			"dlc_id": "uint",
+			"app_id": "uint"
+		}
+	}
+}
