@@ -1,0 +1,9 @@
+{
+	"CLE_PC": {
+		"game": "Kai",
+		"schema": {
+			"empty1": "ulong",
+			"empty2": "ulong"
+		}
+	}
+}
