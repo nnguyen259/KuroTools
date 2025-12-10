@@ -21,5 +21,33 @@
 			"unk_u32_5": "uint",
 			"preview_image": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"area_id": "uint",
+			"island_id": "uint",
+			"travel_point_name": "toffset",
+			"alt_travel_point_name": "toffset",
+			"array1": "u32array",
+			"unk_u32_1": "uint",
+			"array2": "u32array",
+			"unk_u32_2": "uint",
+			"array3": "u32array",
+			"x_pos": "float",
+			"y_pos": "float",
+			"z_pos": "float",
+			"float1": "float",
+			"float2": "float",
+			"float3": "float",
+			"float4": "float",
+			"float5": "float",
+			"unk_u32_3": "uint",
+			"text1": "toffset",
+			"unk_u32_4": "uint",
+			"unk_u32_5": "uint",
+			"preview_image": "toffset",
+			"text2": "toffset"
+		}
 	}
 }
