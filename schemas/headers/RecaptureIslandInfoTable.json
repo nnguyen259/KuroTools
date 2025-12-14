@@ -21,7 +21,7 @@
 		}
 	},
 	"CLE_PC": {
-		"game": "Ys_X_Prouds",
+		"game": "Ys_X_Proud",
 		"schema": {
 			"text1": "toffset",
 			"id": "ulong",
@@ -45,4 +45,5 @@
 			"empty": "uint"
 		}
 	}
+
 }
