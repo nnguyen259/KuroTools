@@ -6,6 +6,7 @@
 		"HelpPage",
 		"HelpIconList",
 		"HelpController",
-		"HelpOverlayIcon"
+		"HelpOverlayIcon",
+		"HelpImageList"
 	]
 }
