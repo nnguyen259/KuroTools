@@ -11,5 +11,17 @@
 			"arr2": "u32array",
 			"uint2": "uint"
 		}
+	},
+	"CLE_PC": {
+		"game": "Ys_X_Prouds",
+		"schema": {
+			"id": "ulong",
+			"text1": "toffset",
+			"ulong": "ulong",
+			"arr1": "u32array",
+			"uint1": "uint",
+			"arr2": "u32array",
+			"uint2": "uint"
+		}
 	}
 }
