@@ -9,5 +9,26 @@
 			"text2": "toffset",
 			"text3": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"id": "uint",
+			"uint1": "uint",
+			"uint2": "uint",
+			"uint3": "uint",
+			"byte1": "byte",
+			"byte2": "byte",
+			"byte3": "byte",
+			"byte4": "byte",
+			"empty": "uint",
+			"text1": "toffset",
+			"text2": "toffset",
+			"text3": "toffset",
+			"uint4": "uint",
+			"uint5": "uint",
+			"uint6": "uint",
+			"uint7": "uint"
+		}
 	}
 }
