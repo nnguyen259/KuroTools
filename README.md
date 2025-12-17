@@ -8,8 +8,11 @@ KuroTools is currently compatible with:
 - NISA/PH3's Steam\GOG release of Trails through Daybreak
 - CLE's Steam release of Kuro no Kiseki 2 -CRIMSON SiN-
 - NISA/PH3's Steam\GOG release of Trails through Daybreak 2
-- CLE's Steam release of  Kai no Kiseki -Farewell, O Zemuria- 
+- CLE's Steam release of  Kai no Kiseki -Farewell, O Zemuria-
+- CLE's Steam release of Ys X: Nordics (.dat semi compatible)
 - NISA/PH3's Steam\GOG release of Ys X: Nordics (.dat semi compatible)
+- CLE's Steam release of Ys X: Proud Nordics (.dat semi compatible)
+- CLE's Steam release of Sora no Kiseki the 1st (.dat semi compatible)
 - GungHo's Steam release of  Trails in the Sky 1st Chapter (.dat semi compatible)
 
 For .dat files better use [Ingert tool](https://github.com/Aureole-Suite/Ingert).
