@@ -1,0 +1,11 @@
+{
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"id": "uint",
+			"int": "uint",
+			"texture": "toffset",
+			"text": "toffset"
+		}
+	}
+}
