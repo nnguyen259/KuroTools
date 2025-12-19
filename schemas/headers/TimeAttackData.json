@@ -22,5 +22,30 @@
 			"target_time_inferno": "uint",
 			"unk_u32_3": "uint"
 		}
+	},
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"id": "uint",
+			"character_id": "uint",
+			"long": "ulong",
+			"name1": "toffset",
+			"image": "toffset",
+			"ui_text": "toffset",
+			"unk_u32_1": "uint",
+			"adol_weapon": "uint",
+			"karja_weapon": "uint",
+			"adol_armor": "uint",
+			"karja_armor": "uint",
+			"unk_u32_2": "uint",
+			"map": "toffset",
+			"text": "toffset",
+			"target_time_easy": "uint",
+			"target_time_normal": "uint",
+			"target_time_hard": "uint",
+			"target_time_nightmare": "uint",
+			"target_time_inferno": "uint",
+			"unk_u32_3": "uint"
+		}
 	}
 }
