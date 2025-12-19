@@ -13,5 +13,23 @@
 			"unk_u32_2": "uint",
 			"unk_u64": "ulong"
 		}
+	},
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"id": "uint",
+			"unk_u32_1": "uint",
+			"rune_stone_name": "toffset",
+			"rune_stone_description": "toffset",
+			"rune_stone_text": "toffset",
+			"rune_stone_diary_image": "toffset",
+			"rune_stone_scene_image": "toffset",
+			"byte1": "ubyte",
+			"byte2": "ubyte",
+			"byte3": "ubyte",
+			"byte4": "ubyte",
+			"unk_u32_2": "uint",
+			"unk_u64": "ulong"
+		}
 	}
 }
