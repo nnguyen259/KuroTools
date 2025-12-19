@@ -69,5 +69,16 @@
 			"arr": "u32array",
 			"int": "int"
 		}
+	},
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"id1": "uint",
+			"id2": "uint",
+			"text": "toffset",
+			"arr": "u32array",
+			"int": "int"
+		}
 	}
 }
+
