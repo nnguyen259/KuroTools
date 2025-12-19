@@ -1,0 +1,10 @@
+{
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"id": "ulong",
+			"text1": "toffset",
+			"text2": "toffset"
+		}
+	}
+}
