@@ -11,10 +11,12 @@
 			"arr2": "u32array",
 			"uint6": "uint",
 			"ushort1": "ushort",
-			"ulong": "ulong",
 			"uint7": "uint",
+			"uint8": "uint",
+			"uint9": "uint",
 			"ushort2": "ushort",
 			"text": "toffset"
 		}
 	}
+
 }
