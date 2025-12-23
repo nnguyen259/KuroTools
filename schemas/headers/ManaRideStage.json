@@ -1,0 +1,28 @@
+{
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"text1": "toffset",
+			"text2": "toffset",
+			"text3": "toffset",
+			"text4": "toffset",
+			"text5": "toffset",
+			"text6": "toffset",
+			"text7": "toffset",
+			"uint1": "uint",
+			"uint2": "uint",
+			"uint3": "uint",
+			"uint4": "uint",
+			"uint5": "uint",
+			"uint6": "uint",
+			"float1": "float",
+			"float2": "float",
+			"data" : {
+				"size": 22,
+				"schema": {
+					"value": "uint"
+				}
+			}
+		}
+	}
+}
