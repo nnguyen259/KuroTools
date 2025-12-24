@@ -16,5 +16,13 @@
 			"empty": "uint",
 			"text": "toffset"
 		}
+	},
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"id": "uint",
+			"int": "uint",
+			"text": "toffset"
+		}
 	}
 }
