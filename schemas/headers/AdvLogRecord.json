@@ -13,5 +13,22 @@
 			"uint3": "uint",
 			"ulong3": "ulong"
 		}
+	},
+	"CLE_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"uint1": "uint",
+			"uint2": "uint",
+			"text1": "toffset",
+			"ulong1": "ulong",
+			"text2": "toffset",
+			"text3": "toffset",
+			"ushort1": "ushort",
+			"ushort2": "ushort",
+			"uint3": "uint",
+			"arr": "u32array",
+			"uint4": "uint",
+			"ulong3": "ulong"
+		}
 	}
 }
