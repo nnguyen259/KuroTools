@@ -9,6 +9,7 @@ KuroTools is currently compatible with:
 - CLE's Steam release of Kuro no Kiseki 2 -CRIMSON SiN-
 - NISA/PH3's Steam\GOG release of Trails through Daybreak 2
 - CLE's Steam release of  Kai no Kiseki -Farewell, O Zemuria-
+- NISA/PH3's Steam\GOG release of Trails beyond the Horizon
 - CLE's Steam release of Ys X: Nordics (.dat semi compatible)
 - NISA/PH3's Steam\GOG release of Ys X: Nordics (.dat semi compatible)
 - CLE's Steam release of Ys X: Proud Nordics (.dat semi compatible)
