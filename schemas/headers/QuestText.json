@@ -1,6 +1,6 @@
 {
 	"FALCOM_PS4": {
-		"game": "Kuro1",
+		"game": "Kuro1_PS4",
 		"schema": {
 			"quest_id": "ushort",
 			"int1": "int",
@@ -14,7 +14,7 @@
 			"empty4": "int"
 		}
 	},
-	"CLE_PC" :{
+	"CLE_PC1" :{
 		"game": "Kuro1",
 		"schema": {
 			"quest_id": "ushort",
@@ -35,11 +35,11 @@
 			"int5": "int"
 		}
 	},
-	"CLE_PC": {
+	"CLE_PC2": {
 		"game": "Kuro2",
 		"schema": {
 			"quest_id": "ushort",
-			"int1": "int",
+			"int1": "uint",
 			"empty1": "short",
 			"quest_description": "toffset",
 			"array_flag1": "u16array",
@@ -70,7 +70,7 @@
 			"int": "int"
 		}
 	},
-	"CLE_PC": {
+	"CLE_PC3": {
 		"game": "Ys_X_Proud",
 		"schema": {
 			"id1": "uint",
@@ -81,4 +81,3 @@
 		}
 	}
 }
-
