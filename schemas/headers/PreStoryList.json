@@ -19,5 +19,20 @@
 			"uint1": "uint",
 			"uint2": "uint"
 		}
+	},
+	"NISA_PC": {
+		"game": "Kai_NISA",
+		"schema": {
+			"id": "long",
+			"text": "toffset",
+			"toffset1": "toffset",
+			"toffset2": "toffset",
+			"toffset3": "toffset",
+			"toffset4": "toffset",
+			"uint1": "uint",
+			"uint2": "uint",
+			"uint3": "uint",
+			"uint4": "uint"
+		}
 	}
 }

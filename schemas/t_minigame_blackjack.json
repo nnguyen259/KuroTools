@@ -1,6 +1,8 @@
 {
 	"headers" : [
 		"BlackJackMessage",
-		"BlackJackHelp"
+		"BlackJackMedal",
+		"BlackJackHelp",
+		"BlackJackProb"
 	]
 }

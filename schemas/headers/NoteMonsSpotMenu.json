@@ -5,5 +5,14 @@
 			"long1": "long",
 			"note_text": "toffset"
 		}
+	},
+	"NISA_PC": {
+		"game": "Kai",
+		"schema": {
+			"id": "uint",
+			"ushort1": "ushort",
+			"ushort2": "ushort",
+			"note_text": "toffset"
+		}
 	}
 }

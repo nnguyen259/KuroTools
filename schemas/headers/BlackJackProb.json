@@ -1,0 +1,14 @@
+{
+	"NISA_PC": {
+		"game": "Kai",
+		"schema": {
+			"uint1": "uint",
+			"uint2": "uint",
+			"uint3": "uint",
+			"uint4": "uint",
+			"uint5": "uint",
+			"uint6": "uint",
+			"uint7": "uint"
+		}
+	}
+}
