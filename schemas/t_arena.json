@@ -1,6 +1,7 @@
 {
 	"headers": [
 		"ArenaStage",
-		"ArenaStageTab"
+		"ArenaStageTab",
+		"ArenaWaveEnemy"
 	]
 }
