@@ -1,10 +1,17 @@
 {
-	"NISA_PC": {
+	"CLE_PC": {
 		"game": "Ys_X",
 		"schema": {
 			"uint1": "uint",
 			"uint2": "uint",
 			"uint3": "uint"
+		}
+	},
+	"NISA_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"text": "toffset",
+			"ulong": "ulong"
 		}
 	}
 }

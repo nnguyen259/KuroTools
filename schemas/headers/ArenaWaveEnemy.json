@@ -1,0 +1,29 @@
+{
+	"NISA_PC": {
+		"game": "Ys_X_Proud",
+		"schema": {
+			"uint1": "uint",
+			"uint2": "uint",
+			"arr1": "u32array",
+			"uint3": "uint",
+			"arr2": "u32array",
+			"uint4": "uint",
+			"arr3": "u32array",
+			"uint5": "uint",
+			"arr4": "u32array",
+			"uint6": "uint",
+			"text1": "toffset",
+			"text2": "toffset",
+			"uint7": "uint",
+			"uint8": "uint",
+			"uint9": "uint",
+			"float1": "float",
+			"float2": "float",
+			"float3": "float",
+			"float4": "float",
+			"float6": "float",
+			"text3": "toffset",
+			"text4": "toffset"
+		}
+	}
+}
