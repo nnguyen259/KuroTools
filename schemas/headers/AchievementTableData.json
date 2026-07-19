@@ -37,7 +37,7 @@
 			"achievement_description": "toffset"
 		}
 	},
-	"FALCOM_PC": {
+	"FALCOM_PC_1": {
 		"game": "Sora1",
 		"schema": {
 			"achievement_category": "uint",
@@ -53,6 +53,27 @@
 			"long2": "long",
 			"long3": "long",
 			"flag1": "toffset",
+			"flag2": "toffset",
+			"achievement_name": "toffset",
+			"achievement_description": "toffset"
+		}
+	},
+	"FALCOM_PC_2": {
+		"game": "Kyoto",
+		"schema": {
+			"achievement_category": "uint",
+			"achievement_id": "uint",
+			"achievement_objective_1": "uint",
+			"achievement_objective_param_1": "uint",
+			"long1": "long",
+			"arr1": "u32array",
+			"short1": "short",
+			"short2": "short",
+			"int1": "int",
+			"int2": "int",
+			"long2": "long",
+			"long3": "long",
+			"long4": "long",
 			"flag2": "toffset",
 			"achievement_name": "toffset",
 			"achievement_description": "toffset"
