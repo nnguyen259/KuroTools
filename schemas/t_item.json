@@ -4,6 +4,8 @@
 		"ItemKindParam2",
 		"QuartzParam",
 		"ItemTabType",
-		"ItemShopTabType"
+		"ItemShopTabType",
+		"ItemParam",
+		"SkillEffectText"
 	]
 }
