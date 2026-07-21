@@ -1,0 +1,21 @@
+{
+	"FALCOM_PC_2": {
+		"game": "Kyoto",
+		"schema": {
+			"int1": "int",
+			"int2": "int",
+			"text1": "toffset",
+			"text2": "toffset",
+			"int3": "int",
+			"int4": "int",
+			"text3": "toffset",
+			"long1": "long",
+			"array1": "u32array",
+			"int5": "int",
+			"array2": "u32array",
+			"int6": "int",
+			"text4": "toffset",
+			"long2": "long"
+		}
+	}
+}
