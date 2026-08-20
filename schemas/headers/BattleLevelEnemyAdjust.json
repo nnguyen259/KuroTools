@@ -1,0 +1,15 @@
+{
+	"FALCOM_PC": {
+		"game": "Sora2",
+		"schema": {
+			"monster": "toffset",
+			"difficulty_id": "int",
+			"multiplier_1": "int",
+			"multiplier_2": "int",
+			"multiplier_3": "int",
+			"multiplier_4": "int",
+			"multiplier_5": "int"
+		}
+	}
+
+}

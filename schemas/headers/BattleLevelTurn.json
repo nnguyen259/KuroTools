@@ -16,10 +16,26 @@
 			"difficulty_id": "uint",
 			"player_damage_multiplier": "uint",
 			"enemy_damage_multiplier": "uint",
-			"hp_or_unknown_multi_1": "uint",
-			"hp_or_unknown_multi_2": "uint",
+			"hp_multiplier": "uint",
+			"stun_multiplier": "uint",
 			"enemy_spd_multiplier": "uint",
 			"int1": "uint"
+			
+		}
+	},
+	"FALCOM_PC": {
+		"game": "Sora2",
+		"schema": {
+			"difficulty_id": "uint",
+			"player_damage_multiplier": "uint",
+			"enemy_damage_multiplier": "uint",
+			"hp_multiplier": "uint",
+			"stun_multiplier": "uint",
+			"enemy_spd_multiplier": "uint",
+			"empty1": "uint",
+			"unknown_multiplier_1": "uint",
+			"unknown_multiplier_2": "uint",
+			"unknown_multiplier_3": "uint"
 		}
 	}
 }

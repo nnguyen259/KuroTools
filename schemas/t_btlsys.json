@@ -9,6 +9,7 @@
 		"BattleEnemyLevelStatusAdjust",
 		"BattleEnemyLevelAdjust",
 		"BattleEnemyDamageAdjust",
-		"BattleSCraftDamageRatio"
+		"BattleSCraftDamageRatio",
+		"BattleLevelEnemyAdjust"
 	]
 }
