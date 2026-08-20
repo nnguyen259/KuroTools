@@ -16,4 +16,23 @@
 			"empty2": "long"
 		}
 	}
+,
+	"FALCOM_PC_2": {
+		"game": "Sora2",
+		"schema": {
+			"chr_id": "int",
+			"int1": "int",
+			"animation": "toffset",
+			"text1": "toffset",
+			"text2": "toffset",
+			"float1": "float",
+			"float2": "float",
+			"float3": "float",
+			"float4": "float",
+			"flag": "toffset",
+			"float5": "float",
+			"float6": "float",
+			"empty2": "long"
+		}
+	}
 }

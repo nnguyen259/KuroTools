@@ -1,0 +1,9 @@
+{
+	"FALCOM_PC_2": {
+		"game": "Sora2",
+		"schema": {
+			"item_id": "uint",
+			"int1": "uint"
+		}
+	}
+}

@@ -9,6 +9,7 @@
 		"TradeItem",
 		"BargainItem",
 		"CharaSettingInfo",
-		"CharaArrange"
+		"CharaArrange",
+		"MedalItem"
 	]
 }
