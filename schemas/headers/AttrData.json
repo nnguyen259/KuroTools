@@ -9,5 +9,15 @@
 			"icon_id": "int",
 			"element_name": "toffset"
 		}
+	},
+	"FALCOM_PC_2": {
+		"game": "Sora2",
+		"schema": {
+			"element_id": "int",
+			"int2": "int",
+			"int3": "int",
+			"int4": "int",
+			"element_name": "toffset"
+		}
 	}
 }

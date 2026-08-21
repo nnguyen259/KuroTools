@@ -1,0 +1,17 @@
+{
+	"FALCOM_PC2": {
+		"game": "Sora2",
+		"schema": {
+			"skill_id": "uint",
+			"earth_elem_req": "ubyte",
+			"water_elem_req": "ubyte",
+			"fire_elem_req": "ubyte",
+			"wind_elem_req": "ubyte",
+			"time_elem_req": "ubyte",
+			"space_elem_req": "ubyte",
+			"mirage_elem_req": "ubyte",
+			"empty1": "ubyte",
+			"empty2": "int"
+		}
+	}
+}

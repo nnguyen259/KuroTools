@@ -1,0 +1,38 @@
+{
+	"FALCOM_PC2": {
+		"game": "Sora2",
+		"schema": {
+			"char_id": "int",
+			"line_id": "byte",
+			"slot_number": "byte",
+			"slot_restriction": "int",
+			"ep_gain_1": "short",
+			"ep_gain_2": "short",
+			"empty1": "short",
+			"short1": "short",
+			"short2": "short",
+			"empty2": "short",
+			"slot_upgrade_cost_earth_1": "short",
+			"slot_upgrade_cost_earth_2": "short",
+			"empty3": "short",
+			"slot_upgrade_cost_water_1": "short",
+			"slot_upgrade_cost_water_2": "short",
+			"empty4": "short",
+			"slot_upgrade_cost_fire_1": "short",
+			"slot_upgrade_cost_fire_2": "short",
+			"empty5": "short",
+			"slot_upgrade_cost_wind_1": "short",
+			"slot_upgrade_cost_wind_2": "short",
+			"empty6": "short",
+			"slot_upgrade_cost_time_1": "short",
+			"slot_upgrade_cost_time_2": "short",
+			"empty7": "short",
+			"slot_upgrade_cost_space_1": "short",
+			"slot_upgrade_cost_space_2": "short",
+			"empty8": "short",
+			"slot_upgrade_cost_mirage_1": "short",
+			"slot_upgrade_cost_mirage_2": "short",
+			"empty9": "short"
+		}
+	}
+}

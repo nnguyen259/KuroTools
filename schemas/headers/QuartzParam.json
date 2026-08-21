@@ -20,5 +20,30 @@
 			"byte1": "byte",
 			"int1": "int"
 		}
+	},
+	"FALCOM_PC_2": {
+		"game": "Sora2",
+		"schema": {
+			"item_id": "ushort",
+			"equip_dupe_restriction": "int",
+			"empty1": "short",
+			"text1": "toffset",
+			"slot_level_restriction": "short",
+			"synthesis_cost_earth": "ushort",
+			"synthesis_cost_water": "ushort",
+			"synthesis_cost_fire": "ushort",
+			"synthesis_cost_wind": "ushort",
+			"synthesis_cost_time": "ushort",
+			"synthesis_cost_space": "ushort",
+			"synthesis_cost_mirage": "ushort",
+			"quartz_element_earth": "ubyte",
+			"quartz_element_water": "ubyte",
+			"quartz_element_fire": "ubyte",
+			"quartz_element_wind": "ubyte",
+			"quartz_element_time": "ubyte",
+			"quartz_element_space": "ubyte",
+			"quartz_element_mirage": "ubyte",
+			"empty2": "ubyte"
+		}
 	}
 }
