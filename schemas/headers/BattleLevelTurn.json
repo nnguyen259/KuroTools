@@ -33,9 +33,9 @@
 			"stun_multiplier": "uint",
 			"enemy_spd_multiplier": "uint",
 			"empty1": "uint",
-			"unknown_multiplier_1": "uint",
-			"unknown_multiplier_2": "uint",
-			"unknown_multiplier_3": "uint"
+			"player_stun_delay": "uint",
+			"enemy_stun_delay": "uint",
+			"rage_boost_delay_multiplier": "uint"
 		}
 	}
 }
