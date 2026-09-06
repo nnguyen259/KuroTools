@@ -57,6 +57,7 @@ Games:
 - Ys_X
 - Ys_X_Proud
 - Kyoto
+- Sora2
 
 Example:
 ```
