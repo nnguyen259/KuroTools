@@ -6,7 +6,7 @@
 			"value": "long"
 		}
 	},
-	"FALCOM_PC" :{
+	"FALCOM_PC2" :{
 		"game": "Sora2",
 		"schema": {
 			"long1": "toffset"
